@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/cheg/Repos/Master/SpikeLibrary/src/signals.c
+signals.h
+/home/cheg/Repos/Master/SpikeLibrary/src/signals.h
+fftw3.h
+-
+gsl/gsl_randist.h
+-
+math.h
+-
+
+/home/cheg/Repos/Master/SpikeLibrary/src/signals.h
+gsl/gsl_rng.h
+-
+timeframe.h
+/home/cheg/Repos/Master/SpikeLibrary/src/timeframe.h
+
+/home/cheg/Repos/Master/SpikeLibrary/src/timeframe.h
+glob.h
+-
+

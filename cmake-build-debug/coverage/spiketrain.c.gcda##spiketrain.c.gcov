@@ -1,0 +1,42 @@
+        -:    0:Source:/home/cheg/Repos/Master/SpikeLibrary/src/spiketrain.c
+        -:    0:Graph:/home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug/src/CMakeFiles/spike.dir/spiketrain.c.gcno
+        -:    0:Data:/home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug/src/CMakeFiles/spike.dir/spiketrain.c.gcda
+        -:    0:Runs:1
+        -:    1:#include "spiketrain.h"
+        -:    2:#include <assert.h>
+        -:    3:#include <stdlib.h>
+        -:    4:
+        -:    5:// allocate memory for spike train
+    #####:    6:spike_train_t *spike_train_alloc(const size_t length) {
+        -:    7:
+    #####:    8:  assert(length > 0);
+    %%%%%:    8-block  0
+    %%%%%:    8-block  1
+        -:    9:
+        -:   10:  // allocate memory for spike train
+    #####:   11:  spike_train_t *spike_train =
+    #####:   12:      (spike_train_t *)malloc(sizeof(spike_train_t) + length * sizeof(bool));
+    #####:   13:  spike_train->length = length;
+        -:   14:
+    #####:   15:  clear_spike_train(spike_train);
+    %%%%%:   15-block  0
+        -:   16:
+    #####:   17:  return spike_train;
+        -:   18:}
+        -:   19:
+    #####:   20:void clear_spike_train(spike_train_t *spike_train) {
+    #####:   21:  for (int i = 0; i < spike_train->length; i++) {
+    %%%%%:   21-block  0
+    %%%%%:   21-block  1
+    #####:   22:    spike_train->data[i] = false;
+    %%%%%:   22-block  0
+        -:   23:  }
+    #####:   24:}
+        -:   25:
+    #####:   26:void spike_train_free(spike_train_t *spike_train) {
+    #####:   27:  if (spike_train != NULL) {
+    %%%%%:   27-block  0
+    #####:   28:    free(spike_train);
+    %%%%%:   28-block  0
+        -:   29:  }
+    #####:   30:}

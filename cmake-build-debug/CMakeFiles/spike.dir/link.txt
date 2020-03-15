@@ -1,0 +1,1 @@
+/usr/bin/cc -fPIC -g  -shared -Wl,-soname,libspike.so -o libspike.so CMakeFiles/spike.dir/src/spiketrain.c.o CMakeFiles/spike.dir/src/timeframe.c.o CMakeFiles/spike.dir/src/statistics.c.o CMakeFiles/spike.dir/src/neurons.c.o CMakeFiles/spike.dir/src/signals.c.o /usr/lib/libgsl.so /usr/lib/libgslcblas.so -lm 
