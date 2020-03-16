@@ -52,6 +52,14 @@ void get_spike_train_lif_signal(const gsl_rng *r, const if_params_t *if_params,
                                 spike_train_t *spike_train);
 
 /**
+ * @brief Calculates the trajectory of a LIF neuron, i.e. v(t).
+ * @param r Random number generator
+ * @param if_params Integrate-and-fire parameters
+ * @param v Array containing the voltage values
+ */
+void get_trajectory_lif(const gsl_rng *r, const if_params_t * if_params, const time_frame_t * time_frame, double *v);
+
+/**
  * @brief Generates spike train of a perfect integrate-and-fire model.
  * @param [in] r Random number generator
  * @param [in] if_params Integrate-and-fire parameters
@@ -74,6 +82,14 @@ void get_spike_train_pif_signal(const gsl_rng *r, const if_params_t *if_params,
                                 const double *signal,
                                 const time_frame_t *time_frame,
                                 spike_train_t *spike_train);
+
+/**
+ * @brief Calculates the trajectory of a PIF neuron, i.e. v(t).
+ * @param r Random number generator
+ * @param if_params Integrate-and-fire parameters
+ * @param v Array containing the voltage values
+ */
+void get_trajectory_pif(const gsl_rng *r, const if_params_t * if_params, const time_frame_t * time_frame, double *v);
 
 /**
  * @brief Generates spike train of a leaky integrate-and-fire model with an adaptation current.

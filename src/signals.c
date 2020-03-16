@@ -1,7 +1,9 @@
-#include "signals.h"
 #include <fftw3.h>
 #include <gsl/gsl_randist.h>
 #include <math.h>
+
+#include "statistics.h"
+#include "signals.h"
 
 // generate cosine signal
 void cosine_signal(const double alpha, const double f,
@@ -33,7 +35,7 @@ void two_cosine_signal(const double alpha, const double f1, const double beta,
   }
 }
 
-void band_limited_white_noise(const gsl_rng *r, double alpha, double f_low, double f_high,
+void band_limited_white_noise(const gsl_rng *r, double f_low, double f_high,
                               const time_frame_t *time_frame, double *signal) {
 
   // number of steps and time step
@@ -84,6 +86,12 @@ void band_limited_white_noise(const gsl_rng *r, double alpha, double f_low, doub
   // normalise signal because we transform backward
   double scale = 1. / ((double)N * dt);
   for (int i = 0; i < N; i++) {
-    signal[i] = alpha * scale * signal[i];
+    signal[i] = scale * signal[i];
+  }
+
+  double stdev = standard_deviation(signal, time_frame->N);
+
+  for (int i = 0; i < N; i++) {
+    signal[i] = 1./(sqrt(stdev)) * signal[i];
   }
 }

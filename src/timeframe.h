@@ -25,7 +25,7 @@ typedef struct {
  * @param dt Time frame
  * @return A time frame
  */
-time_frame_t * time_frame_alloc(double t_0, double t_end, double dt);
+time_frame_t * time_frame_alloc(const double t_0, const double t_end, const double dt);
 
 /**
  * @brief Free memory associated with time frame

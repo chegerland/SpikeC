@@ -10,6 +10,7 @@ time_frame_t *time_frame_alloc(const double t_0, const double t_end,
 
   // length of time array
   int N = (int)((t_end - t_0) / dt);
+
   // allocate memory for time frame
   time_frame_t *time_frame = (time_frame_t *)malloc(
       sizeof(time_frame_t) + N * sizeof(double));

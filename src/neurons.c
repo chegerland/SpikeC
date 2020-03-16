@@ -39,6 +39,23 @@ void get_spike_train_lif_signal(const gsl_rng *r, const if_params_t *if_params,
   }
 }
 
+void get_trajectory_lif(const gsl_rng *r, const if_params_t *if_params,
+                        const time_frame_t *time_frame, double *v){
+
+  // initial values
+  v[0] = 0.;
+
+  double dt = time_frame->dt;
+
+  for (int i = 1; i < time_frame->N; i++) {
+    v[i] = v[i-1] + (if_params->mu - v[i-1]) * dt +
+         sqrt(2.0 * if_params->D) * gsl_ran_gaussian(r, sqrt(dt));
+    if (v[i] > 1.0) {
+      v[i] = 0.;
+    }
+  }
+}
+
 void get_spike_train_pif(const gsl_rng *r, const if_params_t *if_params,
                          const time_frame_t *time_frame,
                          spike_train_t *spike_train) {
@@ -72,6 +89,24 @@ void get_spike_train_pif_signal(const gsl_rng *r, const if_params_t *if_params,
     if (v > 1.0) {
       v = 0.;
       spike_train->data[i] = true;
+    }
+  }
+}
+
+
+void get_trajectory_pif(const gsl_rng *r, const if_params_t *if_params,
+                        const time_frame_t *time_frame, double *v){
+
+  // initial values
+  v[0] = 0.;
+
+  double dt = time_frame->dt;
+
+  for (int i = 1; i < time_frame->N; i++) {
+    v[i] = v[i-1] + if_params->mu * dt +
+           sqrt(2.0 * if_params->D) * gsl_ran_gaussian(r, sqrt(dt));
+    if (v[i] > 1.0) {
+      v[i] = 0.;
     }
   }
 }

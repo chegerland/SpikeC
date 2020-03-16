@@ -43,14 +43,15 @@ void two_cosine_signal(double alpha, double f1, double beta, double f2,
                        double *signal);
 
 /**
+ * The generated signal has standard deviation of 1.
  * @brief Generates bandlimited white_noise
- * @param [in] alpha Amplitude
+ * @param [in] r Random number generator
  * @param [in] f_low Lower cut-off frequency
  * @param [in] f_high Higher cut-off frequency
  * @param [in] time_frame Time frame
  * @param [out] signal Array containing the signal
  */
-void band_limited_white_noise(const gsl_rng *r, double alpha, double f_low, double f_high,
+void band_limited_white_noise(const gsl_rng *r, double f_low, double f_high,
                              const time_frame_t *time_frame, double *signal);
 
 #ifdef __cplusplus

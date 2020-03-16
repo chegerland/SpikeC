@@ -21,7 +21,7 @@ typedef struct {
  * @param length Length of spike train
  * @return A spike train
  */
-spike_train_t *spike_train_alloc(size_t length);
+spike_train_t *spike_train_alloc(const size_t length);
 
 /**
  * @brief Clears the spike train, i.e. sets all entries false.

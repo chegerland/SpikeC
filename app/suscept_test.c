@@ -36,27 +36,38 @@ int main(int argc, char *argv[]) {
   // allocate memory for firing rate
   double *firing_rate;
   firing_rate = (double *)malloc(time_frame->N * sizeof(double));
-  for (int i = 0; i < time_frame->N; i++) {
-    firing_rate[i] = 0.0;
-  }
 
   int N_sig = 10;
   for (int j = 0; j < N_sig; j++) {
+
+    // null firing rate
+    for (int i = 0; i < time_frame->N; i++) {
+      firing_rate[i] = 0.0;
+    }
+
     // generate white noise
     band_limited_white_noise(r, 0.05, 0.0, 100.0, time_frame, signal);
 
-    //get firing rate
-    int N = 1e4;
+    // get firing rate
+    int N = (int) 1e4;
+#pragma omp parallel for
     for (int i = 0; i < N; i++) {
       clear_spike_train(spike_train);
       get_spike_train_lifac_signal(r, &params, signal, time_frame, spike_train);
       add_to_firing_rate(firing_rate, N, spike_train, time_frame);
     }
 
+    // shorten firing rate and noise
+
+    // calculate cross spectrum
+
+    // add to susceptibility
+
+
   }
 
   for (int i = 0; i < time_frame->N; i++) {
-    printf("%f,%f,%f\n", time_frame->t[i], firing_rate[i], signal[i]);
+    printf("%f,%f,%f\n", time_frame->t[i], 1./((double) N_sig) * firing_rate[i], signal[i]);
   }
 
   spike_train_free(spike_train);
