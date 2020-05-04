@@ -6,45 +6,49 @@
 
 #IncludeRegexTransform: 
 
+../src/log.h
+stdio.h
+-
+stdarg.h
+-
+
 ../src/neurons.h
-spiketrain.h
-../src/spiketrain.h
 timeframe.h
 ../src/timeframe.h
 gsl/gsl_rng.h
 -
 
 ../src/signals.h
+fftw3.h
+-
+complex.h
+-
 gsl/gsl_rng.h
 -
 timeframe.h
 ../src/timeframe.h
 
-../src/spiketrain.h
-glob.h
--
-stdbool.h
--
-
 ../src/statistics.h
-spiketrain.h
-../src/spiketrain.h
 timeframe.h
 ../src/timeframe.h
-
-../src/timeframe.h
-glob.h
+fftw3.h
 -
 
+../src/timeframe.h
+
 /home/cheg/Repos/Master/SpikeLibrary/app/suscept_test.c
+log.h
+/home/cheg/Repos/Master/SpikeLibrary/app/log.h
 neurons.h
 /home/cheg/Repos/Master/SpikeLibrary/app/neurons.h
 signals.h
 /home/cheg/Repos/Master/SpikeLibrary/app/signals.h
-spiketrain.h
-/home/cheg/Repos/Master/SpikeLibrary/app/spiketrain.h
 statistics.h
 /home/cheg/Repos/Master/SpikeLibrary/app/statistics.h
 timeframe.h
 /home/cheg/Repos/Master/SpikeLibrary/app/timeframe.h
+complex.h
+-
+fftw3.h
+-
 

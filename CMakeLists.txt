@@ -2,12 +2,11 @@ cmake_minimum_required(VERSION 3.13)
 project(SpikeLibrary C CXX)
 
 # set standard
-set(CMAKE_C_STANDARD 99)
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_C_STANDARD 11)
 
 # set compile flags
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O3 -Wall")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -Wall")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O3")
+set(CMAKE_C_FLAGS_DEBUG  "${CMAKE_C_FLAGS_DEBUG} -Wall -Werror -Wpedantic")
 
 # cmake modules
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${PROJECT_SOURCE_DIR}/cmake/findFFTW")
@@ -29,4 +28,4 @@ include_directories(CATCH_INCLUDE_DIR)
 # add subdirectories
 add_subdirectory("app")
 add_subdirectory("src")
-add_subdirectory("test")
+#add_subdirectory("test")

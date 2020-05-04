@@ -3,7 +3,6 @@
 #include <math.h>
 #include <gsl/gsl_rng.h>
 
-#include "spiketrain.h"
 #include "timeframe.h"
 #include "statistics.h"
 #include "neurons.h"

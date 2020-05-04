@@ -5,6 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/cheg/Repos/Master/SpikeLibrary/test/test_main.cpp" "/home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug/test/CMakeFiles/test_spike.dir/test_main.cpp.o"
+  "/home/cheg/Repos/Master/SpikeLibrary/test/test_signals.cpp" "/home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug/test/CMakeFiles/test_spike.dir/test_signals.cpp.o"
   "/home/cheg/Repos/Master/SpikeLibrary/test/test_timeframe.cpp" "/home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug/test/CMakeFiles/test_spike.dir/test_timeframe.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

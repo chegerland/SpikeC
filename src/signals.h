@@ -5,6 +5,8 @@
 extern "C" {
 #endif
 
+#include <fftw3.h>
+#include <complex.h>
 #include <gsl/gsl_rng.h>
 #include "timeframe.h"
 
@@ -15,7 +17,7 @@ extern "C" {
  * @param [in] time_frame Time frame
  * @param [out] signal Array containing the signal
  */
-void cosine_signal(double alpha, double f, const time_frame_t *time_frame,
+void cosine_signal(double alpha, double f, const TimeFrame *time_frame,
                    double *signal);
 
 /**
@@ -25,7 +27,7 @@ void cosine_signal(double alpha, double f, const time_frame_t *time_frame,
  * @param [in] time_frame Time frame
  * @param [out] signal Array containing the signal
  */
-void step_signal(double alpha, double t_0, const time_frame_t *time_frame,
+void step_signal(double alpha, double t_0, const TimeFrame *time_frame,
                  double *signal);
 
 /**
@@ -39,7 +41,7 @@ void step_signal(double alpha, double t_0, const time_frame_t *time_frame,
  * @param [out] signal Array containing the signal
  */
 void two_cosine_signal(double alpha, double f1, double beta, double f2,
-                       double phi, const time_frame_t *time_frame,
+                       double phi, const TimeFrame *time_frame,
                        double *signal);
 
 /**
@@ -51,8 +53,9 @@ void two_cosine_signal(double alpha, double f1, double beta, double f2,
  * @param [in] time_frame Time frame
  * @param [out] signal Array containing the signal
  */
-void band_limited_white_noise(const gsl_rng *r, double f_low, double f_high,
-                             const time_frame_t *time_frame, double *signal);
+void band_limited_white_noise(const gsl_rng *r, double alpha, double f_low,
+                              double f_high, const TimeFrame *time_frame,
+                              double *signal, double complex *frequencies);
 
 #ifdef __cplusplus
 }
