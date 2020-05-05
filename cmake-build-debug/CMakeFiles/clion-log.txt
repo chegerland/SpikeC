@@ -1,4 +1,7 @@
 /home/cheg/clion-2019.3.4/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/cheg/Repos/Master/SpikeLibrary
+-- Found MPI_C: /usr/lib/openmpi/libmpi.so (found version "3.1") 
+-- Found MPI_CXX: /usr/lib/openmpi/libmpi_cxx.so (found version "3.1") 
+-- Found MPI: TRUE (found version "3.1")  
 -- Configuring done
 -- Generating done
 -- Build files have been written to: /home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug

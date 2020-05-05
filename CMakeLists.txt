@@ -17,6 +17,7 @@ include_directories("src/")
 # add gsl, openmp, fftw
 find_package(GSL REQUIRED)
 find_package(OpenMP REQUIRED)
+find_package(MPI REQUIRED)
 find_package(FFTW REQUIRED)
 
 # add catch to project

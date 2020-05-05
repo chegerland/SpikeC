@@ -12,4 +12,5 @@ target_link_libraries(test
 add_executable(suscept_mpi suscept_mpi.c)
 target_link_libraries(suscept_mpi
         spike
+        MPI::MPI_C
         )

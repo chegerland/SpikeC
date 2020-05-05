@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/spike.dir/log.c.o"
+  "CMakeFiles/spike.dir/ini/ini.c.o"
+  "CMakeFiles/spike.dir/log/log.c.o"
   "CMakeFiles/spike.dir/neurons.c.o"
   "CMakeFiles/spike.dir/signals.c.o"
   "CMakeFiles/spike.dir/statistics.c.o"

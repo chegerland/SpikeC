@@ -131,6 +131,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named suscept_mpi
+
+# Build rule for target.
+suscept_mpi: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 suscept_mpi
+.PHONY : suscept_mpi
+
+# fast build rule for target.
+suscept_mpi/fast:
+	$(MAKE) $(MAKESILENT) -f app/CMakeFiles/suscept_mpi.dir/build.make app/CMakeFiles/suscept_mpi.dir/build
+.PHONY : suscept_mpi/fast
+
+#=============================================================================
 # Target rules for targets named suscept_test
 
 # Build rule for target.
@@ -178,6 +191,7 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... spike"
+	@echo "... suscept_mpi"
 	@echo "... suscept_test"
 	@echo "... test"
 .PHONY : help

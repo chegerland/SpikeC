@@ -125,32 +125,59 @@ spike/fast:
 	cd /home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug && $(MAKE) -f src/CMakeFiles/spike.dir/build.make src/CMakeFiles/spike.dir/build
 .PHONY : spike/fast
 
-log.o: log.c.o
+ini/ini.o: ini/ini.c.o
 
-.PHONY : log.o
+.PHONY : ini/ini.o
 
 # target to build an object file
-log.c.o:
-	cd /home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug && $(MAKE) -f src/CMakeFiles/spike.dir/build.make src/CMakeFiles/spike.dir/log.c.o
-.PHONY : log.c.o
+ini/ini.c.o:
+	cd /home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug && $(MAKE) -f src/CMakeFiles/spike.dir/build.make src/CMakeFiles/spike.dir/ini/ini.c.o
+.PHONY : ini/ini.c.o
 
-log.i: log.c.i
+ini/ini.i: ini/ini.c.i
 
-.PHONY : log.i
+.PHONY : ini/ini.i
 
 # target to preprocess a source file
-log.c.i:
-	cd /home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug && $(MAKE) -f src/CMakeFiles/spike.dir/build.make src/CMakeFiles/spike.dir/log.c.i
-.PHONY : log.c.i
+ini/ini.c.i:
+	cd /home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug && $(MAKE) -f src/CMakeFiles/spike.dir/build.make src/CMakeFiles/spike.dir/ini/ini.c.i
+.PHONY : ini/ini.c.i
 
-log.s: log.c.s
+ini/ini.s: ini/ini.c.s
 
-.PHONY : log.s
+.PHONY : ini/ini.s
 
 # target to generate assembly for a file
-log.c.s:
-	cd /home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug && $(MAKE) -f src/CMakeFiles/spike.dir/build.make src/CMakeFiles/spike.dir/log.c.s
-.PHONY : log.c.s
+ini/ini.c.s:
+	cd /home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug && $(MAKE) -f src/CMakeFiles/spike.dir/build.make src/CMakeFiles/spike.dir/ini/ini.c.s
+.PHONY : ini/ini.c.s
+
+log/log.o: log/log.c.o
+
+.PHONY : log/log.o
+
+# target to build an object file
+log/log.c.o:
+	cd /home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug && $(MAKE) -f src/CMakeFiles/spike.dir/build.make src/CMakeFiles/spike.dir/log/log.c.o
+.PHONY : log/log.c.o
+
+log/log.i: log/log.c.i
+
+.PHONY : log/log.i
+
+# target to preprocess a source file
+log/log.c.i:
+	cd /home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug && $(MAKE) -f src/CMakeFiles/spike.dir/build.make src/CMakeFiles/spike.dir/log/log.c.i
+.PHONY : log/log.c.i
+
+log/log.s: log/log.c.s
+
+.PHONY : log/log.s
+
+# target to generate assembly for a file
+log/log.c.s:
+	cd /home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug && $(MAKE) -f src/CMakeFiles/spike.dir/build.make src/CMakeFiles/spike.dir/log/log.c.s
+.PHONY : log/log.c.s
 
 neurons.o: neurons.c.o
 
@@ -269,9 +296,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... spike"
-	@echo "... log.o"
-	@echo "... log.i"
-	@echo "... log.s"
+	@echo "... ini/ini.o"
+	@echo "... ini/ini.i"
+	@echo "... ini/ini.s"
+	@echo "... log/log.o"
+	@echo "... log/log.i"
+	@echo "... log/log.s"
 	@echo "... neurons.o"
 	@echo "... neurons.i"
 	@echo "... neurons.s"

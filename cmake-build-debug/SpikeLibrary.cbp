@@ -239,10 +239,16 @@
 		<Unit filename="/home/cheg/Repos/Master/SpikeLibrary/app/test.c">
 			<Option target="test"/>
 		</Unit>
-		<Unit filename="/home/cheg/Repos/Master/SpikeLibrary/src/log.c">
+		<Unit filename="/home/cheg/Repos/Master/SpikeLibrary/src/ini/ini.c">
 			<Option target="spike"/>
 		</Unit>
-		<Unit filename="/home/cheg/Repos/Master/SpikeLibrary/src/log.h">
+		<Unit filename="/home/cheg/Repos/Master/SpikeLibrary/src/ini/ini.h">
+			<Option target="spike"/>
+		</Unit>
+		<Unit filename="/home/cheg/Repos/Master/SpikeLibrary/src/log/log.c">
+			<Option target="spike"/>
+		</Unit>
+		<Unit filename="/home/cheg/Repos/Master/SpikeLibrary/src/log/log.h">
 			<Option target="spike"/>
 		</Unit>
 		<Unit filename="/home/cheg/Repos/Master/SpikeLibrary/src/neurons.c">

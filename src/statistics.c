@@ -49,12 +49,13 @@ void susceptibility_lin_nonlin(const double complex *isf, double alpha,
   // fill susceptibility and normalize appropriately
   for (int i = 0; i < length / 2 + 1; i++) {
     double scale = 1. / ((double)norm * pow(cabs(isf[i]), 2));
+    //double scale = 1. / ((double)norm * 2. * alpha);
     suscept_lin[i] += scale * (osf[i] * conj(isf[i]));
   }
 
-  double T = time_frame->t_end - time_frame->t_0;
   for (int i = 0; i < length / 4 + 1; i++) {
     double scale = 1. / ((double)norm * 2. * pow(cabs(isf[i]), 4));
+    //double scale = 1. / ((double)norm * 2. * pow(2.*alpha, 2));
     suscept_nonlin[i] += scale * (osf[2 * i] * conj(isf[i]) * conj(isf[i]));
   }
 

@@ -18,146 +18,71 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/suscept_mpi.c" beforeDir="false" afterPath="$PROJECT_DIR$/app/suscept_mpi.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/suscept_test.c" beforeDir="false" afterPath="$PROJECT_DIR$/app/suscept_test.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/test.c" beforeDir="false" afterPath="$PROJECT_DIR$/app/test.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeCache.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/CMakeOutput.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/Makefile.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/Makefile2" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/TargetDirectories.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/progress.marks" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/build/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/app/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/app/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/CMakeFiles/progress.marks" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/app/CMakeFiles/suscept_test.dir/C.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/CMakeFiles/suscept_test.dir/C.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/app/CMakeFiles/suscept_test.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/CMakeFiles/suscept_test.dir/build.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/app/CMakeFiles/suscept_test.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/CMakeFiles/suscept_test.dir/depend.internal" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/app/CMakeFiles/suscept_test.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/CMakeFiles/suscept_test.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/app/CMakeFiles/suscept_test.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/CMakeFiles/suscept_test.dir/flags.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/app/CMakeFiles/suscept_test.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/CMakeFiles/suscept_test.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/CMakeFiles/suscept_test.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/CMakeFiles/suscept_test.dir/progress.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/app/CMakeFiles/suscept_test.dir/suscept_test.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/CMakeFiles/suscept_test.dir/suscept_test.c.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/app/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/app/suscept_test" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/suscept_test" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/app/test.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/build/cmake_install.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/src/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/build/src/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/src/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/build/src/CMakeFiles/progress.marks" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/src/CMakeFiles/spike.dir/C.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/build/src/CMakeFiles/spike.dir/C.includecache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/src/CMakeFiles/spike.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/build/src/CMakeFiles/spike.dir/DependInfo.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/src/CMakeFiles/spike.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/build/src/CMakeFiles/spike.dir/build.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/src/CMakeFiles/spike.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/build/src/CMakeFiles/spike.dir/cmake_clean.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/src/CMakeFiles/spike.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/build/src/CMakeFiles/spike.dir/depend.internal" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/src/CMakeFiles/spike.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/build/src/CMakeFiles/spike.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/src/CMakeFiles/spike.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/build/src/CMakeFiles/spike.dir/flags.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/src/CMakeFiles/spike.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/src/CMakeFiles/spike.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/src/CMakeFiles/spike.dir/neurons.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/build/src/CMakeFiles/spike.dir/neurons.c.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/src/CMakeFiles/spike.dir/signals.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/build/src/CMakeFiles/spike.dir/signals.c.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/src/CMakeFiles/spike.dir/spiketrain.c.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/src/CMakeFiles/spike.dir/statistics.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/build/src/CMakeFiles/spike.dir/statistics.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/src/CMakeFiles/spike.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/build/src/CMakeFiles/spike.dir/progress.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/src/CMakeFiles/spike.dir/timeframe.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/build/src/CMakeFiles/spike.dir/timeframe.c.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/src/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/build/src/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/src/libspike.so" beforeDir="false" afterPath="$PROJECT_DIR$/build/src/libspike.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/build/test.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeCCompiler.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeCXXCompiler.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeDetermineCompilerABI_C.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeSystem.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CompilerIdC/a.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CompilerIdCXX/CMakeCXXCompilerId.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CompilerIdCXX/a.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.c" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/FindOpenMP/ompver_C.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/FindOpenMP/ompver_C.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/FindOpenMP/ompver_CXX.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/FindOpenMP/ompver_CXX.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SpikeLibrary.dir/DependInfo.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SpikeLibrary.dir/build.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SpikeLibrary.dir/cmake_clean.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SpikeLibrary.dir/depend.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SpikeLibrary.dir/flags.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SpikeLibrary.dir/link.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SpikeLibrary.dir/progress.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/spike.dir/C.includecache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/spike.dir/DependInfo.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/spike.dir/build.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/spike.dir/cmake_clean.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/spike.dir/depend.internal" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/spike.dir/depend.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/spike.dir/flags.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/spike.dir/link.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/spike.dir/progress.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/spike.dir/src/neurons.c.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/spike.dir/src/spiketrain.c.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/spike.dir/src/statistics.c.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/spike.dir/src/timeframe.c.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/test_spike.dir/C.includecache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/test_spike.dir/DependInfo.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/test_spike.dir/build.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/test_spike.dir/cmake_clean.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/test_spike.dir/depend.internal" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/test_spike.dir/depend.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/test_spike.dir/flags.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/test_spike.dir/link.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/test_spike.dir/progress.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/test_spike.dir/test/test_spike.c.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/SpikeLibrary.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/SpikeLibrary.cbp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/app/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/app/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/app/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/app/CMakeFiles/progress.marks" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/app/CMakeFiles/suscept_test.dir/C.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/app/CMakeFiles/suscept_test.dir/C.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/app/CMakeFiles/suscept_test.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/app/CMakeFiles/suscept_test.dir/build.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/app/CMakeFiles/suscept_test.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/app/CMakeFiles/suscept_test.dir/depend.internal" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/app/CMakeFiles/suscept_test.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/app/CMakeFiles/suscept_test.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/app/CMakeFiles/suscept_test.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/app/CMakeFiles/suscept_test.dir/flags.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/app/CMakeFiles/suscept_test.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/app/CMakeFiles/suscept_test.dir/link.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/app/CMakeFiles/suscept_test.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/app/CMakeFiles/suscept_test.dir/progress.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/app/CMakeFiles/suscept_test.dir/suscept_test.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/app/CMakeFiles/suscept_test.dir/suscept_test.c.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/app/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/app/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/app/suscept_test" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/app/suscept_test" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/progress.marks" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/spike.dir/C.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/spike.dir/C.includecache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/spike.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/spike.dir/DependInfo.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/spike.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/spike.dir/build.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/spike.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/spike.dir/cmake_clean.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/spike.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/spike.dir/depend.internal" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/spike.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/spike.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/spike.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/spike.dir/flags.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/spike.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/spike.dir/link.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/spike.dir/neurons.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/spike.dir/neurons.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/spike.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/spike.dir/progress.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/spike.dir/signals.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/spike.dir/signals.c.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/spike.dir/spiketrain.c.o" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/spike.dir/statistics.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/spike.dir/statistics.c.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/spike.dir/timeframe.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/spike.dir/timeframe.c.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/src/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/src/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/src/libspike.so" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/src/libspike.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/progress.marks" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test_spike.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test_spike.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test_spike.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test_spike.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test_spike.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test_spike.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test_spike.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test_spike.dir/flags.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test_spike.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test_spike.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test_spike.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/test_spike.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/test/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/neurons.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/neurons.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/neurons.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/neurons.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/signals.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/signals.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/signals.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/signals.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/spiketrain.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/spiketrain.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/log.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/log.h" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/statistics.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/statistics.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/statistics.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/statistics.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/timeframe.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/timeframe.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/timeframe.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/timeframe.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test_spike.c" beforeDir="false" afterPath="$PROJECT_DIR$/test/test_spike.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -259,6 +184,8 @@
       <workItem from="1588577347566" duration="34000" />
       <workItem from="1588577404125" duration="7899000" />
       <workItem from="1588587457045" duration="12281000" />
+      <workItem from="1588614976665" duration="2461000" />
+      <workItem from="1588665618954" duration="5774000" />
     </task>
     <servers />
   </component>
@@ -266,6 +193,10 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="2580" y="330" width="589" height="389" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1588616064078">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2580" y="330" width="589" height="389" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1588616064078" />
     <state x="2561" y="266" width="628" height="518" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1588577371537">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
@@ -278,42 +209,42 @@
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2554" y="253" width="642" height="544" key="#spike/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1584124365952" />
-    <state width="1916" height="1016" key="GridCell.Tab.0.bottom" timestamp="1588613129323">
+    <state width="950" height="1008" key="GridCell.Tab.0.bottom" timestamp="1588668224635">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1916" height="1016" key="GridCell.Tab.0.bottom/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1588613129323" />
+    <state width="950" height="1008" key="GridCell.Tab.0.bottom/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1588668224635" />
     <state width="1878" height="297" key="GridCell.Tab.0.bottom/0.31.1920.1000/1920.0.1080.1920@0.31.1920.1000" timestamp="1584362652822" />
-    <state width="1916" height="1016" key="GridCell.Tab.0.center" timestamp="1588613129323">
+    <state width="950" height="1008" key="GridCell.Tab.0.center" timestamp="1588668224635">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1916" height="1016" key="GridCell.Tab.0.center/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1588613129323" />
+    <state width="950" height="1008" key="GridCell.Tab.0.center/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1588668224635" />
     <state width="1878" height="297" key="GridCell.Tab.0.center/0.31.1920.1000/1920.0.1080.1920@0.31.1920.1000" timestamp="1584362652821" />
-    <state width="1916" height="1016" key="GridCell.Tab.0.left" timestamp="1588613129322">
+    <state width="950" height="1008" key="GridCell.Tab.0.left" timestamp="1588668224634">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1916" height="1016" key="GridCell.Tab.0.left/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1588613129322" />
+    <state width="950" height="1008" key="GridCell.Tab.0.left/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1588668224634" />
     <state width="1878" height="297" key="GridCell.Tab.0.left/0.31.1920.1000/1920.0.1080.1920@0.31.1920.1000" timestamp="1584362652820" />
-    <state width="1916" height="1016" key="GridCell.Tab.0.right" timestamp="1588613129323">
+    <state width="950" height="1008" key="GridCell.Tab.0.right" timestamp="1588668224635">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1916" height="1016" key="GridCell.Tab.0.right/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1588613129323" />
+    <state width="950" height="1008" key="GridCell.Tab.0.right/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1588668224635" />
     <state width="1878" height="297" key="GridCell.Tab.0.right/0.31.1920.1000/1920.0.1080.1920@0.31.1920.1000" timestamp="1584362652821" />
-    <state width="1870" height="245" key="GridCell.Tab.1.bottom" timestamp="1588586420922">
+    <state width="1870" height="245" key="GridCell.Tab.1.bottom" timestamp="1588617436925">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1870" height="245" key="GridCell.Tab.1.bottom/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1588586420922" />
-    <state width="1870" height="245" key="GridCell.Tab.1.center" timestamp="1588586420922">
+    <state width="1870" height="245" key="GridCell.Tab.1.bottom/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1588617436925" />
+    <state width="1870" height="245" key="GridCell.Tab.1.center" timestamp="1588617436925">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1870" height="245" key="GridCell.Tab.1.center/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1588586420922" />
-    <state width="1870" height="245" key="GridCell.Tab.1.left" timestamp="1588586420922">
+    <state width="1870" height="245" key="GridCell.Tab.1.center/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1588617436925" />
+    <state width="1870" height="245" key="GridCell.Tab.1.left" timestamp="1588617436925">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1870" height="245" key="GridCell.Tab.1.left/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1588586420922" />
-    <state width="1870" height="245" key="GridCell.Tab.1.right" timestamp="1588586420922">
+    <state width="1870" height="245" key="GridCell.Tab.1.left/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1588617436925" />
+    <state width="1870" height="245" key="GridCell.Tab.1.right" timestamp="1588617436925">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1870" height="245" key="GridCell.Tab.1.right/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1588586420922" />
+    <state width="1870" height="245" key="GridCell.Tab.1.right/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1588617436925" />
     <state x="322" y="191" width="1022" height="732" key="SettingsEditor" timestamp="1584348767633">
       <screen x="0" y="31" width="1920" height="1000" />
     </state>

@@ -5,6 +5,8 @@
 extern "C" {
 #endif
 
+#include "ini/ini.h"
+
 /**
  * @brief Defines a time frame
  */
@@ -24,6 +26,13 @@ typedef struct {
  * @return A time frame
  */
 TimeFrame *create_time_frame(double t_0, double t_end, double dt);
+
+/**
+ * @brief Creates time frame from given .ini file
+ * @param ini_file Ini file object
+ * @return A time frame
+ */
+TimeFrame *read_time_frame(ini_t *ini_file);
 
 /**
  * @brief Free memory associated with time frame

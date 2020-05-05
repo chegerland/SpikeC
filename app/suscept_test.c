@@ -1,4 +1,4 @@
-#include "log.h"
+#include "log/log.h"
 #include "neurons.h"
 #include "signals.h"
 #include "statistics.h"
@@ -12,26 +12,21 @@ gsl_rng *rng;
 int main(int argc, char *argv[]) {
 
   log_trace("# SPIKE SUSCEPTIBILITY SIMULATION");
-
   log_trace("# Defining parameters.");
 
   // parameters
   const double t_0 = 0.0;
   const double t_end = 500.0;
   const double dt = 1e-2;
+  const double T = t_end - t_0;
 
   // define neuron parameters
-  //const double mu = 3.5;
-  //const double D = 1e-1;
-  //const double tau_a = 20.;
-  //const double Delta = 0.5;
   const double mu = 1.1;
   const double D = 1e-3;
 
-  const double c = 0.9;
+  const double c = 0.1;
   const double D_neuron = D * (1.0 - c);
 
-  //ifac_params_t params = {mu, D_neuron, tau_a, Delta};
   if_params_t params = {mu, D_neuron};
 
   const double alpha = D * c;
@@ -96,7 +91,6 @@ int main(int argc, char *argv[]) {
   log_trace("# Writing to stdout.");
 
   // write susceptibility to file
-  double T = time_frame->t_end - time_frame->t_0;
   for (size_t i = 0; i < time_frame->N / 4 + 1; i++) {
     printf("%f,%f,%f,%f,%f\n", (double)i / T, creal(suscept_lin[i]),
            cimag(suscept_lin[i]), creal(suscept_nonlin[i]),

@@ -131,6 +131,21 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+app/CMakeFiles/suscept_mpi.dir/rule:
+	cd /home/cheg/Repos/Master/SpikeLibrary/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 app/CMakeFiles/suscept_mpi.dir/rule
+.PHONY : app/CMakeFiles/suscept_mpi.dir/rule
+
+# Convenience name for target.
+suscept_mpi: app/CMakeFiles/suscept_mpi.dir/rule
+
+.PHONY : suscept_mpi
+
+# fast build rule for target.
+suscept_mpi/fast:
+	cd /home/cheg/Repos/Master/SpikeLibrary/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/suscept_mpi.dir/build.make app/CMakeFiles/suscept_mpi.dir/build
+.PHONY : suscept_mpi/fast
+
+# Convenience name for target.
 app/CMakeFiles/suscept_test.dir/rule:
 	cd /home/cheg/Repos/Master/SpikeLibrary/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 app/CMakeFiles/suscept_test.dir/rule
 .PHONY : app/CMakeFiles/suscept_test.dir/rule
@@ -159,6 +174,33 @@ test: app/CMakeFiles/test.dir/rule
 test/fast:
 	cd /home/cheg/Repos/Master/SpikeLibrary/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/test.dir/build.make app/CMakeFiles/test.dir/build
 .PHONY : test/fast
+
+suscept_mpi.o: suscept_mpi.c.o
+
+.PHONY : suscept_mpi.o
+
+# target to build an object file
+suscept_mpi.c.o:
+	cd /home/cheg/Repos/Master/SpikeLibrary/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/suscept_mpi.dir/build.make app/CMakeFiles/suscept_mpi.dir/suscept_mpi.c.o
+.PHONY : suscept_mpi.c.o
+
+suscept_mpi.i: suscept_mpi.c.i
+
+.PHONY : suscept_mpi.i
+
+# target to preprocess a source file
+suscept_mpi.c.i:
+	cd /home/cheg/Repos/Master/SpikeLibrary/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/suscept_mpi.dir/build.make app/CMakeFiles/suscept_mpi.dir/suscept_mpi.c.i
+.PHONY : suscept_mpi.c.i
+
+suscept_mpi.s: suscept_mpi.c.s
+
+.PHONY : suscept_mpi.s
+
+# target to generate assembly for a file
+suscept_mpi.c.s:
+	cd /home/cheg/Repos/Master/SpikeLibrary/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/suscept_mpi.dir/build.make app/CMakeFiles/suscept_mpi.dir/suscept_mpi.c.s
+.PHONY : suscept_mpi.c.s
 
 suscept_test.o: suscept_test.c.o
 
@@ -222,8 +264,12 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... suscept_mpi"
 	@echo "... suscept_test"
 	@echo "... test"
+	@echo "... suscept_mpi.o"
+	@echo "... suscept_mpi.i"
+	@echo "... suscept_mpi.s"
 	@echo "... suscept_test.o"
 	@echo "... suscept_test.i"
 	@echo "... suscept_test.s"
