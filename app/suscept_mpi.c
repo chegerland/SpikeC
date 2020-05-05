@@ -5,7 +5,6 @@
 #include "timeframe.h"
 
 #include <complex.h>
-#include <fftw3.h>
 #include <mpi.h>
 #include <stdio.h>
 #include <string.h>
@@ -30,7 +29,7 @@ const double alpha = D * c;
 const double f_low = 0.;
 const double f_high = 1. / (2. * dt);
 
-int N_neurons = (int)1e4;
+const int N_neurons = (int)1e5;
 
 int main(int argc, char *argv[]) {
 
@@ -61,7 +60,7 @@ void master() {
   int world_size = 0;
   MPI_Comm_size(MPI_COMM_WORLD, &world_size);
 
-  int trials = N_neurons / world_size;
+  int trials = (int) N_neurons / world_size;
 
   log_trace("# Sending %d trials to %d processes.", trials, world_size - 1);
   // send number of trials to each process
@@ -73,13 +72,6 @@ void master() {
   // define time frame
   TimeFrame *time_frame = create_time_frame(t_0, t_end, dt);
 
-  // define spike train
-  double *spike_train = (double *)calloc(time_frame->N, sizeof(double));
-
-  // define signal and its frequencies
-  double *signal = (double *)calloc(time_frame->N, sizeof(double));
-  double complex *frequencies =
-      (double complex *)calloc(time_frame->N / 2 + 1, sizeof(double complex));
 
   // define array for susceptibility
   double complex *suscept_lin =
@@ -101,8 +93,13 @@ void master() {
   // calculate susceptibility
   for (int i = 0; i < trials; i++) {
 
-    // zero out the spike train
-    memset(signal, 0, time_frame->N * sizeof(double));
+    // define spike train
+    double *spike_train = (double *)calloc(time_frame->N, sizeof(double));
+
+    // define signal and its frequencies
+    double *signal = (double *)calloc(time_frame->N, sizeof(double));
+    double complex *frequencies =
+        (double complex *)calloc(time_frame->N / 2 + 1, sizeof(double complex));
 
     // generate new white noise signal
     band_limited_white_noise(rng, alpha, f_low, f_high, time_frame, signal,
@@ -114,6 +111,10 @@ void master() {
     // calculate susceptibility
     susceptibility_lin_nonlin(frequencies, alpha, spike_train, time_frame,
                               suscept_lin, suscept_nonlin, N_neurons);
+
+    free(signal);
+    free(frequencies);
+    free(spike_train);
   }
   log_trace("# Finished calculation.");
 
@@ -149,12 +150,12 @@ void master() {
   // write to file
   log_trace("# Writing results to file.");
   FILE *f;
-  f = fopen("suscepts_N_1e7.csv", "w");
+  f = fopen("suscepts_N_1e5_mpi.csv", "w");
 
   for (size_t i = 0; i < time_frame->N / 4 + 1; i++) {
-    fprintf(f,"%f,%f,%f,%f,%f\n", (double)i / T, creal(suscept_lin[i]),
-           cimag(suscept_lin[i]), creal(suscept_nonlin[i]),
-           cimag(suscept_nonlin[i]));
+    fprintf(f, "%f,%f,%f,%f,%f\n", (double)i / T, creal(suscept_lin[i]),
+            cimag(suscept_lin[i]), creal(suscept_nonlin[i]),
+            cimag(suscept_nonlin[i]));
   }
   fclose(f);
 
@@ -162,9 +163,7 @@ void master() {
   // free memory
   free(suscept_lin);
   free(suscept_nonlin);
-  free(signal);
-  free(frequencies);
-  free(spike_train);
+  free(time_frame);
   gsl_rng_free(rng);
 
   log_trace("# Goodbye.");
@@ -180,13 +179,6 @@ void minion() {
   // define time frame
   TimeFrame *time_frame = create_time_frame(t_0, t_end, dt);
 
-  // define spike train
-  double *spike_train = (double *)calloc(time_frame->N, sizeof(double));
-
-  // define signal and its frequencies
-  double *signal = (double *)calloc(time_frame->N, sizeof(double));
-  double complex *frequencies =
-      (double complex *)calloc(time_frame->N / 2 + 1, sizeof(double complex));
 
   // define array for susceptibility
   double complex *suscept_lin =
@@ -206,8 +198,13 @@ void minion() {
   // calculate susceptibility
   for (int i = 0; i < trials; i++) {
 
-    // zero out the spike train
-    memset(signal, 0, time_frame->N * sizeof(double));
+    // define spike train
+    double *spike_train = (double *)calloc(time_frame->N, sizeof(double));
+
+    // define signal and its frequencies
+    double *signal = (double *)calloc(time_frame->N, sizeof(double));
+    double complex *frequencies =
+        (double complex *)calloc(time_frame->N / 2 + 1, sizeof(double complex));
 
     // generate new white noise signal
     band_limited_white_noise(rng, alpha, f_low, f_high, time_frame, signal,
@@ -219,6 +216,10 @@ void minion() {
     // calculate susceptibilities
     susceptibility_lin_nonlin(frequencies, alpha, spike_train, time_frame,
                               suscept_lin, suscept_nonlin, N_neurons);
+
+    free(signal);
+    free(frequencies);
+    free(spike_train);
   }
 
   // send arrays to master
@@ -229,9 +230,7 @@ void minion() {
 
   // free memory
   free(suscept_lin);
+  free(time_frame);
   free(suscept_nonlin);
-  free(signal);
-  free(frequencies);
-  free(spike_train);
   gsl_rng_free(rng);
 }

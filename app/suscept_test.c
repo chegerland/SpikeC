@@ -26,12 +26,12 @@ int main(int argc, char *argv[]) {
 
   const double c = 0.1;
   const double D_neuron = D * (1.0 - c);
-
   if_params_t params = {mu, D_neuron};
 
   const double alpha = D * c;
   const double f_low = 0.;
   const double f_high = 1. / (2. * dt);
+  const int N_neurons = 10000;
 
   log_trace("# Creating objects.");
 
@@ -58,7 +58,6 @@ int main(int argc, char *argv[]) {
 
   log_trace("# Starting calculation.");
   // calculate susceptibility
-  const int N_neurons = 1000000;
 #pragma omp parallel for
   for (int i = 0; i < N_neurons; i++) {
 
