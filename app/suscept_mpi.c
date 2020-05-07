@@ -1,5 +1,5 @@
 #include "log/log.h"
-#include "neurons.h"
+#include "neurons/if_neurons.h"
 #include "signals.h"
 #include "statistics.h"
 #include "timeframe.h"
@@ -7,22 +7,22 @@
 #include <complex.h>
 #include <mpi.h>
 #include <stdio.h>
-#include <string.h>
 
 void master();
 void minion();
 
 // define parameters
 const double t_0 = 0.0;
-const double t_end = 500.0;
-const double dt = 1e-2;
+const double t_end = 700.0;
+const double dt = 5e-3;
 const double T = t_end - t_0;
 
 const double mu = 1.1;
 const double D = 1e-3;
 
-const double c = 0.1;
+const double c = 0.8;
 const double D_neuron = D * (1.0 - c);
+enum IF_TYPE neuron_type = LIF;
 if_params_t params = {mu, D_neuron};
 
 const double alpha = D * c;
@@ -71,7 +71,7 @@ void master() {
   log_trace("# Creating objects.");
   // define time frame
   TimeFrame *time_frame = create_time_frame(t_0, t_end, dt);
-
+  NeuronIF *neuron = create_neuron_if(mu, D, neuron_type);
 
   // define array for susceptibility
   double complex *suscept_lin =
@@ -106,7 +106,7 @@ void master() {
                              frequencies);
 
     // get a spike train from the neuron
-    get_spike_train_lif_signal(rng, &params, signal, time_frame, spike_train);
+    get_spike_train_if_signal(rng, neuron, signal, time_frame, spike_train);
 
     // calculate susceptibility
     susceptibility_lin_nonlin(frequencies, alpha, spike_train, time_frame,
@@ -164,6 +164,7 @@ void master() {
   free(suscept_lin);
   free(suscept_nonlin);
   free(time_frame);
+  free_neuron_if(neuron);
   gsl_rng_free(rng);
 
   log_trace("# Goodbye.");
@@ -178,6 +179,7 @@ void minion() {
 
   // define time frame
   TimeFrame *time_frame = create_time_frame(t_0, t_end, dt);
+  NeuronIF *neuron = create_neuron_if(mu, D, neuron_type);
 
 
   // define array for susceptibility
@@ -211,7 +213,7 @@ void minion() {
                              frequencies);
 
     // get a spike train from the neuron
-    get_spike_train_lif_signal(rng, &params, signal, time_frame, spike_train);
+    get_spike_train_if_signal(rng, neuron, signal, time_frame, spike_train);
 
     // calculate susceptibilities
     susceptibility_lin_nonlin(frequencies, alpha, spike_train, time_frame,
@@ -232,5 +234,6 @@ void minion() {
   free(suscept_lin);
   free(time_frame);
   free(suscept_nonlin);
+  free_neuron_if(neuron);
   gsl_rng_free(rng);
 }

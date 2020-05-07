@@ -6,7 +6,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_C
   "/home/cheg/Repos/Master/SpikeLibrary/src/ini/ini.c" "/home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug/src/CMakeFiles/spike.dir/ini/ini.c.o"
   "/home/cheg/Repos/Master/SpikeLibrary/src/log/log.c" "/home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug/src/CMakeFiles/spike.dir/log/log.c.o"
-  "/home/cheg/Repos/Master/SpikeLibrary/src/neurons.c" "/home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug/src/CMakeFiles/spike.dir/neurons.c.o"
+  "/home/cheg/Repos/Master/SpikeLibrary/src/neurons/if_neurons.c" "/home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug/src/CMakeFiles/spike.dir/neurons/if_neurons.c.o"
+  "/home/cheg/Repos/Master/SpikeLibrary/src/neurons/ifac_neurons.c" "/home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug/src/CMakeFiles/spike.dir/neurons/ifac_neurons.c.o"
   "/home/cheg/Repos/Master/SpikeLibrary/src/signals.c" "/home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug/src/CMakeFiles/spike.dir/signals.c.o"
   "/home/cheg/Repos/Master/SpikeLibrary/src/statistics.c" "/home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug/src/CMakeFiles/spike.dir/statistics.c.o"
   "/home/cheg/Repos/Master/SpikeLibrary/src/timeframe.c" "/home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug/src/CMakeFiles/spike.dir/timeframe.c.o"
@@ -21,7 +22,6 @@ set(CMAKE_TARGET_DEFINITIONS_C
 # The include file search paths:
 set(CMAKE_C_TARGET_INCLUDE_PATH
   "../src"
-  "../CATCH_INCLUDE_DIR"
   )
 
 # Targets to which this target links.

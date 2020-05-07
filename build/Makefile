@@ -182,6 +182,19 @@ spike/fast:
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/spike.dir/build.make src/CMakeFiles/spike.dir/build
 .PHONY : spike/fast
 
+#=============================================================================
+# Target rules for targets named test_timeframe
+
+# Build rule for target.
+test_timeframe: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_timeframe
+.PHONY : test_timeframe
+
+# fast build rule for target.
+test_timeframe/fast:
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_timeframe.dir/build.make test/CMakeFiles/test_timeframe.dir/build
+.PHONY : test_timeframe/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -194,6 +207,7 @@ help:
 	@echo "... suscept_mpi"
 	@echo "... suscept_test"
 	@echo "... test"
+	@echo "... test_timeframe"
 .PHONY : help
 
 

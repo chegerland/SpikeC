@@ -12,6 +12,17 @@ src/CMakeFiles/spike.dir/neurons.c.o
  /home/cheg/Repos/Master/SpikeLibrary/src/neurons.c
  /home/cheg/Repos/Master/SpikeLibrary/src/neurons.h
  /home/cheg/Repos/Master/SpikeLibrary/src/timeframe.h
+src/CMakeFiles/spike.dir/neurons/if_neurons.c.o
+ ../src/ini/ini.h
+ ../src/timeframe.h
+ /home/cheg/Repos/Master/SpikeLibrary/src/neurons/if_neurons.c
+ /home/cheg/Repos/Master/SpikeLibrary/src/neurons/if_neurons.h
+src/CMakeFiles/spike.dir/neurons/ifac_neurons.c.o
+ ../src/ini/ini.h
+ ../src/timeframe.h
+ /home/cheg/Repos/Master/SpikeLibrary/src/neurons/if_neurons.h
+ /home/cheg/Repos/Master/SpikeLibrary/src/neurons/ifac_neurons.c
+ /home/cheg/Repos/Master/SpikeLibrary/src/neurons/ifac_neurons.h
 src/CMakeFiles/spike.dir/signals.c.o
  /home/cheg/Repos/Master/SpikeLibrary/src/fft.h
  /home/cheg/Repos/Master/SpikeLibrary/src/ini/ini.h

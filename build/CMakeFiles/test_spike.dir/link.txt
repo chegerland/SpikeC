@@ -1,1 +1,0 @@
-/usr/bin/cc    CMakeFiles/test_spike.dir/test/test_spike.c.o  -o test_spike  -Wl,-rpath,/home/cheg/Repos/Master/SpikeLibrary/build libspike.so /usr/lib/libgsl.so /usr/lib/libgslcblas.so -lm 

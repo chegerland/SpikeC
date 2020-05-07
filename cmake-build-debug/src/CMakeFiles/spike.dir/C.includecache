@@ -6,43 +6,31 @@
 
 #IncludeRegexTransform: 
 
-/home/cheg/Repos/Master/SpikeLibrary/src/fft.h
-complex.h
--
-fftw3.h
--
+../src/ini/ini.h
 
-/home/cheg/Repos/Master/SpikeLibrary/src/ini/ini.h
+../src/timeframe.h
+ini/ini.h
+../src/ini/ini.h
 
-/home/cheg/Repos/Master/SpikeLibrary/src/signals.c
-gsl/gsl_randist.h
--
+/home/cheg/Repos/Master/SpikeLibrary/src/neurons/if_neurons.c
+if_neurons.h
+/home/cheg/Repos/Master/SpikeLibrary/src/neurons/if_neurons.h
 math.h
 -
-signals.h
-/home/cheg/Repos/Master/SpikeLibrary/src/signals.h
-fft.h
-/home/cheg/Repos/Master/SpikeLibrary/src/fft.h
-statistics.h
-/home/cheg/Repos/Master/SpikeLibrary/src/statistics.h
 
-/home/cheg/Repos/Master/SpikeLibrary/src/signals.h
-fftw3.h
--
-complex.h
--
-gsl/gsl_rng.h
--
+/home/cheg/Repos/Master/SpikeLibrary/src/neurons/if_neurons.h
 timeframe.h
-/home/cheg/Repos/Master/SpikeLibrary/src/timeframe.h
-
-/home/cheg/Repos/Master/SpikeLibrary/src/statistics.h
-timeframe.h
-/home/cheg/Repos/Master/SpikeLibrary/src/timeframe.h
-fftw3.h
+/home/cheg/Repos/Master/SpikeLibrary/src/neurons/timeframe.h
+gsl/gsl_randist.h
 -
 
-/home/cheg/Repos/Master/SpikeLibrary/src/timeframe.h
-ini/ini.h
-/home/cheg/Repos/Master/SpikeLibrary/src/ini/ini.h
+/home/cheg/Repos/Master/SpikeLibrary/src/neurons/ifac_neurons.c
+ifac_neurons.h
+/home/cheg/Repos/Master/SpikeLibrary/src/neurons/ifac_neurons.h
+math.h
+-
+
+/home/cheg/Repos/Master/SpikeLibrary/src/neurons/ifac_neurons.h
+if_neurons.h
+/home/cheg/Repos/Master/SpikeLibrary/src/neurons/if_neurons.h
 

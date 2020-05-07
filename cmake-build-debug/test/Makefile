@@ -56,17 +56,6 @@ CMAKE_BINARY_DIR = /home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/home/cheg/clion-2019.3.4/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -77,6 +66,17 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/home/cheg/clion-2019.3.4/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -111,100 +111,46 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-test/CMakeFiles/test_spike.dir/rule:
-	cd /home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_spike.dir/rule
-.PHONY : test/CMakeFiles/test_spike.dir/rule
+test/CMakeFiles/test_timeframe.dir/rule:
+	cd /home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_timeframe.dir/rule
+.PHONY : test/CMakeFiles/test_timeframe.dir/rule
 
 # Convenience name for target.
-test_spike: test/CMakeFiles/test_spike.dir/rule
+test_timeframe: test/CMakeFiles/test_timeframe.dir/rule
 
-.PHONY : test_spike
+.PHONY : test_timeframe
 
 # fast build rule for target.
-test_spike/fast:
-	cd /home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug && $(MAKE) -f test/CMakeFiles/test_spike.dir/build.make test/CMakeFiles/test_spike.dir/build
-.PHONY : test_spike/fast
+test_timeframe/fast:
+	cd /home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug && $(MAKE) -f test/CMakeFiles/test_timeframe.dir/build.make test/CMakeFiles/test_timeframe.dir/build
+.PHONY : test_timeframe/fast
 
-test_main.o: test_main.cpp.o
-
-.PHONY : test_main.o
-
-# target to build an object file
-test_main.cpp.o:
-	cd /home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug && $(MAKE) -f test/CMakeFiles/test_spike.dir/build.make test/CMakeFiles/test_spike.dir/test_main.cpp.o
-.PHONY : test_main.cpp.o
-
-test_main.i: test_main.cpp.i
-
-.PHONY : test_main.i
-
-# target to preprocess a source file
-test_main.cpp.i:
-	cd /home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug && $(MAKE) -f test/CMakeFiles/test_spike.dir/build.make test/CMakeFiles/test_spike.dir/test_main.cpp.i
-.PHONY : test_main.cpp.i
-
-test_main.s: test_main.cpp.s
-
-.PHONY : test_main.s
-
-# target to generate assembly for a file
-test_main.cpp.s:
-	cd /home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug && $(MAKE) -f test/CMakeFiles/test_spike.dir/build.make test/CMakeFiles/test_spike.dir/test_main.cpp.s
-.PHONY : test_main.cpp.s
-
-test_signals.o: test_signals.cpp.o
-
-.PHONY : test_signals.o
-
-# target to build an object file
-test_signals.cpp.o:
-	cd /home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug && $(MAKE) -f test/CMakeFiles/test_spike.dir/build.make test/CMakeFiles/test_spike.dir/test_signals.cpp.o
-.PHONY : test_signals.cpp.o
-
-test_signals.i: test_signals.cpp.i
-
-.PHONY : test_signals.i
-
-# target to preprocess a source file
-test_signals.cpp.i:
-	cd /home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug && $(MAKE) -f test/CMakeFiles/test_spike.dir/build.make test/CMakeFiles/test_spike.dir/test_signals.cpp.i
-.PHONY : test_signals.cpp.i
-
-test_signals.s: test_signals.cpp.s
-
-.PHONY : test_signals.s
-
-# target to generate assembly for a file
-test_signals.cpp.s:
-	cd /home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug && $(MAKE) -f test/CMakeFiles/test_spike.dir/build.make test/CMakeFiles/test_spike.dir/test_signals.cpp.s
-.PHONY : test_signals.cpp.s
-
-test_timeframe.o: test_timeframe.cpp.o
+test_timeframe.o: test_timeframe.c.o
 
 .PHONY : test_timeframe.o
 
 # target to build an object file
-test_timeframe.cpp.o:
-	cd /home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug && $(MAKE) -f test/CMakeFiles/test_spike.dir/build.make test/CMakeFiles/test_spike.dir/test_timeframe.cpp.o
-.PHONY : test_timeframe.cpp.o
+test_timeframe.c.o:
+	cd /home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug && $(MAKE) -f test/CMakeFiles/test_timeframe.dir/build.make test/CMakeFiles/test_timeframe.dir/test_timeframe.c.o
+.PHONY : test_timeframe.c.o
 
-test_timeframe.i: test_timeframe.cpp.i
+test_timeframe.i: test_timeframe.c.i
 
 .PHONY : test_timeframe.i
 
 # target to preprocess a source file
-test_timeframe.cpp.i:
-	cd /home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug && $(MAKE) -f test/CMakeFiles/test_spike.dir/build.make test/CMakeFiles/test_spike.dir/test_timeframe.cpp.i
-.PHONY : test_timeframe.cpp.i
+test_timeframe.c.i:
+	cd /home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug && $(MAKE) -f test/CMakeFiles/test_timeframe.dir/build.make test/CMakeFiles/test_timeframe.dir/test_timeframe.c.i
+.PHONY : test_timeframe.c.i
 
-test_timeframe.s: test_timeframe.cpp.s
+test_timeframe.s: test_timeframe.c.s
 
 .PHONY : test_timeframe.s
 
 # target to generate assembly for a file
-test_timeframe.cpp.s:
-	cd /home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug && $(MAKE) -f test/CMakeFiles/test_spike.dir/build.make test/CMakeFiles/test_spike.dir/test_timeframe.cpp.s
-.PHONY : test_timeframe.cpp.s
+test_timeframe.c.s:
+	cd /home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug && $(MAKE) -f test/CMakeFiles/test_timeframe.dir/build.make test/CMakeFiles/test_timeframe.dir/test_timeframe.c.s
+.PHONY : test_timeframe.c.s
 
 # Help Target
 help:
@@ -212,15 +158,9 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... test_spike"
-	@echo "... test_main.o"
-	@echo "... test_main.i"
-	@echo "... test_main.s"
-	@echo "... test_signals.o"
-	@echo "... test_signals.i"
-	@echo "... test_signals.s"
+	@echo "... edit_cache"
+	@echo "... test_timeframe"
 	@echo "... test_timeframe.o"
 	@echo "... test_timeframe.i"
 	@echo "... test_timeframe.s"

@@ -12,6 +12,17 @@ src/CMakeFiles/spike.dir/neurons.c.o: ../src/neurons.c
 src/CMakeFiles/spike.dir/neurons.c.o: ../src/neurons.h
 src/CMakeFiles/spike.dir/neurons.c.o: ../src/timeframe.h
 
+src/CMakeFiles/spike.dir/neurons/if_neurons.c.o: ../src/ini/ini.h
+src/CMakeFiles/spike.dir/neurons/if_neurons.c.o: ../src/timeframe.h
+src/CMakeFiles/spike.dir/neurons/if_neurons.c.o: ../src/neurons/if_neurons.c
+src/CMakeFiles/spike.dir/neurons/if_neurons.c.o: ../src/neurons/if_neurons.h
+
+src/CMakeFiles/spike.dir/neurons/ifac_neurons.c.o: ../src/ini/ini.h
+src/CMakeFiles/spike.dir/neurons/ifac_neurons.c.o: ../src/timeframe.h
+src/CMakeFiles/spike.dir/neurons/ifac_neurons.c.o: ../src/neurons/if_neurons.h
+src/CMakeFiles/spike.dir/neurons/ifac_neurons.c.o: ../src/neurons/ifac_neurons.c
+src/CMakeFiles/spike.dir/neurons/ifac_neurons.c.o: ../src/neurons/ifac_neurons.h
+
 src/CMakeFiles/spike.dir/signals.c.o: ../src/fft.h
 src/CMakeFiles/spike.dir/signals.c.o: ../src/ini/ini.h
 src/CMakeFiles/spike.dir/signals.c.o: ../src/signals.c

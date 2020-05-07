@@ -1,0 +1,11 @@
+19:59:10 TRACE /users/stud/egerlanc/Repos/Master/SpikeLibrary/app/suscept_mpi.c:57: # SPIKE SUSCEPTIBILITY SIMULATION
+19:59:10 TRACE /users/stud/egerlanc/Repos/Master/SpikeLibrary/app/suscept_mpi.c:65: # Sending 166666 trials to 59 processes.
+19:59:11 TRACE /users/stud/egerlanc/Repos/Master/SpikeLibrary/app/suscept_mpi.c:71: # Creating objects.
+19:59:11 TRACE /users/stud/egerlanc/Repos/Master/SpikeLibrary/app/suscept_mpi.c:85: # Setting up rng with seed 0.
+19:59:11 TRACE /users/stud/egerlanc/Repos/Master/SpikeLibrary/app/suscept_mpi.c:92: # Calculating 166666 trials.
+20:35:47 TRACE /users/stud/egerlanc/Repos/Master/SpikeLibrary/app/suscept_mpi.c:119: # Finished calculation.
+20:35:47 TRACE /users/stud/egerlanc/Repos/Master/SpikeLibrary/app/suscept_mpi.c:121: # Receiving values from subprocesses.
+20:37:44 TRACE /users/stud/egerlanc/Repos/Master/SpikeLibrary/app/suscept_mpi.c:144: # Received all values from subprocesses.
+20:37:44 TRACE /users/stud/egerlanc/Repos/Master/SpikeLibrary/app/suscept_mpi.c:151: # Writing results to file.
+20:37:44 TRACE /users/stud/egerlanc/Repos/Master/SpikeLibrary/app/suscept_mpi.c:162: # Freeing memory.
+20:37:44 TRACE /users/stud/egerlanc/Repos/Master/SpikeLibrary/app/suscept_mpi.c:169: # Goodbye.

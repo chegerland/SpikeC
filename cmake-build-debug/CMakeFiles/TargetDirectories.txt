@@ -8,3 +8,6 @@
 /home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug/src/CMakeFiles/rebuild_cache.dir
 /home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug/src/CMakeFiles/edit_cache.dir
 /home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug/src/CMakeFiles/spike.dir
+/home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug/test/CMakeFiles/rebuild_cache.dir
+/home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug/test/CMakeFiles/edit_cache.dir
+/home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug/test/CMakeFiles/test_timeframe.dir

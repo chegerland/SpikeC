@@ -1,5 +1,13 @@
 # build the spike library
-file(GLOB_RECURSE spike_sources ${CMAKE_CURRENT_SOURCE_DIR} "*.c")
+set(spike_sources
+        ini/ini.c
+        log/log.c
+        neurons/if_neurons.c
+        neurons/ifac_neurons.c
+        signals.c
+        statistics.c
+        timeframe.c
+        )
 add_library(spike SHARED ${spike_sources})
 
 # link with library

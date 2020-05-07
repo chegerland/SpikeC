@@ -8,6 +8,14 @@
 #include "fft.h"
 #include "statistics.h"
 
+double mean(int length, const double *array) {
+  double mean = 0;
+  for (int i = 0; i < length; i++) {
+    mean += array[i] / ((double)length);
+  }
+  return mean;
+}
+
 void susceptibility_lin(const double complex *isf, double *spike_train,
                         const TimeFrame *time_frame, double complex *suscept,
                         size_t norm) {
@@ -40,6 +48,7 @@ void susceptibility_lin_nonlin(const double complex *isf, double alpha,
   // length of the signals is N/2 + 1 because we perform real DFT
   size_t length = time_frame->N;
   const double dt = time_frame->dt;
+  const double T = time_frame->t_end - time_frame->t_0;
 
   // fourier transform spiketrain
   double complex *osf =
@@ -54,7 +63,7 @@ void susceptibility_lin_nonlin(const double complex *isf, double alpha,
   }
 
   for (int i = 0; i < length / 4 + 1; i++) {
-    double scale = 1. / ((double)norm * 2. * pow(cabs(isf[i]), 4));
+    double scale = 1. / ((double)norm * 2. * pow(cabs(isf[i]), 4)/T);
     //double scale = 1. / ((double)norm * 2. * pow(2.*alpha, 2));
     suscept_nonlin[i] += scale * (osf[2 * i] * conj(isf[i]) * conj(isf[i]));
   }

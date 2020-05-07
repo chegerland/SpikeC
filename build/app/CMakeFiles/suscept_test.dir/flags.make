@@ -6,5 +6,5 @@ C_FLAGS =  -O3   -fopenmp -std=gnu11
 
 C_DEFINES = 
 
-C_INCLUDES = -I/home/cheg/Repos/Master/SpikeLibrary/src -I/home/cheg/Repos/Master/SpikeLibrary/CATCH_INCLUDE_DIR 
+C_INCLUDES = -I/home/cheg/Repos/Master/SpikeLibrary/src 
 

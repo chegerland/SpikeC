@@ -179,32 +179,59 @@ log/log.c.s:
 	cd /home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug && $(MAKE) -f src/CMakeFiles/spike.dir/build.make src/CMakeFiles/spike.dir/log/log.c.s
 .PHONY : log/log.c.s
 
-neurons.o: neurons.c.o
+neurons/if_neurons.o: neurons/if_neurons.c.o
 
-.PHONY : neurons.o
+.PHONY : neurons/if_neurons.o
 
 # target to build an object file
-neurons.c.o:
-	cd /home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug && $(MAKE) -f src/CMakeFiles/spike.dir/build.make src/CMakeFiles/spike.dir/neurons.c.o
-.PHONY : neurons.c.o
+neurons/if_neurons.c.o:
+	cd /home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug && $(MAKE) -f src/CMakeFiles/spike.dir/build.make src/CMakeFiles/spike.dir/neurons/if_neurons.c.o
+.PHONY : neurons/if_neurons.c.o
 
-neurons.i: neurons.c.i
+neurons/if_neurons.i: neurons/if_neurons.c.i
 
-.PHONY : neurons.i
+.PHONY : neurons/if_neurons.i
 
 # target to preprocess a source file
-neurons.c.i:
-	cd /home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug && $(MAKE) -f src/CMakeFiles/spike.dir/build.make src/CMakeFiles/spike.dir/neurons.c.i
-.PHONY : neurons.c.i
+neurons/if_neurons.c.i:
+	cd /home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug && $(MAKE) -f src/CMakeFiles/spike.dir/build.make src/CMakeFiles/spike.dir/neurons/if_neurons.c.i
+.PHONY : neurons/if_neurons.c.i
 
-neurons.s: neurons.c.s
+neurons/if_neurons.s: neurons/if_neurons.c.s
 
-.PHONY : neurons.s
+.PHONY : neurons/if_neurons.s
 
 # target to generate assembly for a file
-neurons.c.s:
-	cd /home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug && $(MAKE) -f src/CMakeFiles/spike.dir/build.make src/CMakeFiles/spike.dir/neurons.c.s
-.PHONY : neurons.c.s
+neurons/if_neurons.c.s:
+	cd /home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug && $(MAKE) -f src/CMakeFiles/spike.dir/build.make src/CMakeFiles/spike.dir/neurons/if_neurons.c.s
+.PHONY : neurons/if_neurons.c.s
+
+neurons/ifac_neurons.o: neurons/ifac_neurons.c.o
+
+.PHONY : neurons/ifac_neurons.o
+
+# target to build an object file
+neurons/ifac_neurons.c.o:
+	cd /home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug && $(MAKE) -f src/CMakeFiles/spike.dir/build.make src/CMakeFiles/spike.dir/neurons/ifac_neurons.c.o
+.PHONY : neurons/ifac_neurons.c.o
+
+neurons/ifac_neurons.i: neurons/ifac_neurons.c.i
+
+.PHONY : neurons/ifac_neurons.i
+
+# target to preprocess a source file
+neurons/ifac_neurons.c.i:
+	cd /home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug && $(MAKE) -f src/CMakeFiles/spike.dir/build.make src/CMakeFiles/spike.dir/neurons/ifac_neurons.c.i
+.PHONY : neurons/ifac_neurons.c.i
+
+neurons/ifac_neurons.s: neurons/ifac_neurons.c.s
+
+.PHONY : neurons/ifac_neurons.s
+
+# target to generate assembly for a file
+neurons/ifac_neurons.c.s:
+	cd /home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug && $(MAKE) -f src/CMakeFiles/spike.dir/build.make src/CMakeFiles/spike.dir/neurons/ifac_neurons.c.s
+.PHONY : neurons/ifac_neurons.c.s
 
 signals.o: signals.c.o
 
@@ -302,9 +329,12 @@ help:
 	@echo "... log/log.o"
 	@echo "... log/log.i"
 	@echo "... log/log.s"
-	@echo "... neurons.o"
-	@echo "... neurons.i"
-	@echo "... neurons.s"
+	@echo "... neurons/if_neurons.o"
+	@echo "... neurons/if_neurons.i"
+	@echo "... neurons/if_neurons.s"
+	@echo "... neurons/ifac_neurons.o"
+	@echo "... neurons/ifac_neurons.i"
+	@echo "... neurons/ifac_neurons.s"
 	@echo "... signals.o"
 	@echo "... signals.i"
 	@echo "... signals.s"

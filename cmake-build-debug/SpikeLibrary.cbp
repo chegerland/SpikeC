@@ -5,7 +5,7 @@
 		<Option title="SpikeLibrary"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\cmake\;CMake Files\cmake\findFFTW\;CMake Files\app\;CMake Files\src\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\cmake\;CMake Files\cmake\findFFTW\;CMake Files\app\;CMake Files\src\;CMake Files\test\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="/home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug"/>
@@ -45,10 +45,6 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/home/cheg/Repos/Master/SpikeLibrary/src"/>
-					<Add directory="/home/cheg/Repos/Master/SpikeLibrary/CATCH_INCLUDE_DIR"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../include/c++/9.3.0"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../include/c++/9.3.0/x86_64-pc-linux-gnu"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../include/c++/9.3.0/backward"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include-fixed"/>
@@ -69,10 +65,6 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/home/cheg/Repos/Master/SpikeLibrary/src"/>
-					<Add directory="/home/cheg/Repos/Master/SpikeLibrary/CATCH_INCLUDE_DIR"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../include/c++/9.3.0"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../include/c++/9.3.0/x86_64-pc-linux-gnu"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../include/c++/9.3.0/backward"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include-fixed"/>
@@ -93,10 +85,6 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/home/cheg/Repos/Master/SpikeLibrary/src"/>
-					<Add directory="/home/cheg/Repos/Master/SpikeLibrary/CATCH_INCLUDE_DIR"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../include/c++/9.3.0"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../include/c++/9.3.0/x86_64-pc-linux-gnu"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../include/c++/9.3.0/backward"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include-fixed"/>
@@ -117,10 +105,6 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/home/cheg/Repos/Master/SpikeLibrary/src"/>
-					<Add directory="/home/cheg/Repos/Master/SpikeLibrary/CATCH_INCLUDE_DIR"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../include/c++/9.3.0"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../include/c++/9.3.0/x86_64-pc-linux-gnu"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../include/c++/9.3.0/backward"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include-fixed"/>
@@ -141,10 +125,6 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/home/cheg/Repos/Master/SpikeLibrary/src"/>
-					<Add directory="/home/cheg/Repos/Master/SpikeLibrary/CATCH_INCLUDE_DIR"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../include/c++/9.3.0"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../include/c++/9.3.0/x86_64-pc-linux-gnu"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../include/c++/9.3.0/backward"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include-fixed"/>
@@ -165,10 +145,6 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/home/cheg/Repos/Master/SpikeLibrary/src"/>
-					<Add directory="/home/cheg/Repos/Master/SpikeLibrary/CATCH_INCLUDE_DIR"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../include/c++/9.3.0"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../include/c++/9.3.0/x86_64-pc-linux-gnu"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../include/c++/9.3.0/backward"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include-fixed"/>
@@ -189,10 +165,6 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/home/cheg/Repos/Master/SpikeLibrary/src"/>
-					<Add directory="/home/cheg/Repos/Master/SpikeLibrary/CATCH_INCLUDE_DIR"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../include/c++/9.3.0"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../include/c++/9.3.0/x86_64-pc-linux-gnu"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../include/c++/9.3.0/backward"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include-fixed"/>
@@ -213,10 +185,6 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/home/cheg/Repos/Master/SpikeLibrary/src"/>
-					<Add directory="/home/cheg/Repos/Master/SpikeLibrary/CATCH_INCLUDE_DIR"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../include/c++/9.3.0"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../include/c++/9.3.0/x86_64-pc-linux-gnu"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../include/c++/9.3.0/backward"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include-fixed"/>
@@ -227,6 +195,46 @@
 					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j8 -f &quot;/home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j8 -f &quot;/home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_timeframe">
+				<Option output="/home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug/test/test_timeframe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug/test"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/cheg/Repos/Master/SpikeLibrary/src"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include-fixed"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug/test/Makefile&quot;  VERBOSE=1 test_timeframe"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug/test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug/test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_timeframe/fast">
+				<Option output="/home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug/test/test_timeframe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug/test"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/cheg/Repos/Master/SpikeLibrary/src"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include-fixed"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug/test/Makefile&quot;  VERBOSE=1 test_timeframe/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug/test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug/test/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
@@ -251,10 +259,16 @@
 		<Unit filename="/home/cheg/Repos/Master/SpikeLibrary/src/log/log.h">
 			<Option target="spike"/>
 		</Unit>
-		<Unit filename="/home/cheg/Repos/Master/SpikeLibrary/src/neurons.c">
+		<Unit filename="/home/cheg/Repos/Master/SpikeLibrary/src/neurons/if_neurons.c">
 			<Option target="spike"/>
 		</Unit>
-		<Unit filename="/home/cheg/Repos/Master/SpikeLibrary/src/neurons.h">
+		<Unit filename="/home/cheg/Repos/Master/SpikeLibrary/src/neurons/if_neurons.h">
+			<Option target="spike"/>
+		</Unit>
+		<Unit filename="/home/cheg/Repos/Master/SpikeLibrary/src/neurons/ifac_neurons.c">
+			<Option target="spike"/>
+		</Unit>
+		<Unit filename="/home/cheg/Repos/Master/SpikeLibrary/src/neurons/ifac_neurons.h">
 			<Option target="spike"/>
 		</Unit>
 		<Unit filename="/home/cheg/Repos/Master/SpikeLibrary/src/signals.c">
@@ -275,6 +289,9 @@
 		<Unit filename="/home/cheg/Repos/Master/SpikeLibrary/src/timeframe.h">
 			<Option target="spike"/>
 		</Unit>
+		<Unit filename="/home/cheg/Repos/Master/SpikeLibrary/test/test_timeframe.c">
+			<Option target="test_timeframe"/>
+		</Unit>
 		<Unit filename="/home/cheg/Repos/Master/SpikeLibrary/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
@@ -286,6 +303,9 @@
 		</Unit>
 		<Unit filename="/home/cheg/Repos/Master/SpikeLibrary/src/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\src\"/>
+		</Unit>
+		<Unit filename="/home/cheg/Repos/Master/SpikeLibrary/test/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\test\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>

@@ -48,8 +48,8 @@ void band_limited_white_noise(const gsl_rng *r, double alpha, double f_low,
   const size_t cut_high = (size_t)(f_high * N * dt);
 
   // normalization
-  double height = sqrt(2. * alpha);
-  //double height = sqrt(2. * alpha * (time_frame->t_end - time_frame->t_0));
+  //double height = sqrt(2. * alpha);
+  double height = sqrt(2. * alpha * (time_frame->t_end - time_frame->t_0));
 
   double complex freqs[time_frame->N / 2 + 1];
 
@@ -57,7 +57,7 @@ void band_limited_white_noise(const gsl_rng *r, double alpha, double f_low,
   for (int i = 1; i < N / 2; i++) {
     double rand = gsl_ran_gaussian(r, 1.0);
     freqs[i] =
-        height * (cos(2.0 * M_PI * rand) + _Complex_I * sin(2.0 * M_PI * rand));
+        height * (cos(2.0 * M_PI * rand) - _Complex_I * sin(2.0 * M_PI * rand));
 
     if (i > cut_high || i < cut_low) {
       freqs[i] = 0.0;
@@ -70,6 +70,12 @@ void band_limited_white_noise(const gsl_rng *r, double alpha, double f_low,
 
   // calculate signal by fourier transforming from frequencies
   fft_c2r(N, dt, freqs, signal);
+
+  // subsctract mean from signal
+  double mean_signal = mean(N, signal);
+  for (int i = 0; i < N; i++) {
+    signal[i] -= mean_signal;
+  }
 
   // calculate frequencies by fourier transforming signal
   // TODO: this is because c2r destroys the frequencies

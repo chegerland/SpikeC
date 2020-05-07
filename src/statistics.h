@@ -8,6 +8,8 @@ extern "C" {
 #include "timeframe.h"
 #include <fftw3.h>
 
+double mean(int length, const double *array);
+
 void susceptibility_lin(const double complex *isf, double *spike_train,
                         const TimeFrame *time_frame, double complex *suscept,
                         size_t norm);

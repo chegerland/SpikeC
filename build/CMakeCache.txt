@@ -27,32 +27,6 @@ CMAKE_BUILD_TYPE:STRING=
 //Enable/Disable color output during build.
 CMAKE_COLOR_MAKEFILE:BOOL=ON
 
-//CXX compiler
-CMAKE_CXX_COMPILER:FILEPATH=/usr/bin/c++
-
-//A wrapper around 'ar' adding the appropriate '--plugin' option
-// for the GCC compiler
-CMAKE_CXX_COMPILER_AR:FILEPATH=/usr/bin/gcc-ar
-
-//A wrapper around 'ranlib' adding the appropriate '--plugin' option
-// for the GCC compiler
-CMAKE_CXX_COMPILER_RANLIB:FILEPATH=/usr/bin/gcc-ranlib
-
-//Flags used by the CXX compiler during all build types.
-CMAKE_CXX_FLAGS:STRING=
-
-//Flags used by the CXX compiler during DEBUG builds.
-CMAKE_CXX_FLAGS_DEBUG:STRING=-g
-
-//Flags used by the CXX compiler during MINSIZEREL builds.
-CMAKE_CXX_FLAGS_MINSIZEREL:STRING=-Os -DNDEBUG
-
-//Flags used by the CXX compiler during RELEASE builds.
-CMAKE_CXX_FLAGS_RELEASE:STRING=-O3 -DNDEBUG
-
-//Flags used by the CXX compiler during RELWITHDEBINFO builds.
-CMAKE_CXX_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG
-
 //C compiler
 CMAKE_C_COMPILER:FILEPATH=/usr/bin/cc
 
@@ -98,7 +72,7 @@ CMAKE_EXE_LINKER_FLAGS_RELEASE:STRING=
 CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 
 //Enable/Disable output of compile commands during generation.
-CMAKE_EXPORT_COMPILE_COMMANDS:BOOL=OFF
+CMAKE_EXPORT_COMPILE_COMMANDS:BOOL=
 
 //Install path prefix, prepended onto install directories.
 CMAKE_INSTALL_PREFIX:PATH=/usr/local
@@ -273,33 +247,6 @@ MPIEXEC_POSTFLAGS:STRING=
 // run by mpiexec.
 MPIEXEC_PREFLAGS:STRING=
 
-//MPI CXX additional include directories
-MPI_CXX_ADDITIONAL_INCLUDE_DIRS:STRING=
-
-//MPI compiler for CXX
-MPI_CXX_COMPILER:FILEPATH=/usr/bin/mpicxx
-
-//MPI CXX compiler wrapper include directories
-MPI_CXX_COMPILER_INCLUDE_DIRS:STRING=
-
-//MPI CXX compilation definitions
-MPI_CXX_COMPILE_DEFINITIONS:STRING=
-
-//MPI CXX compilation options
-MPI_CXX_COMPILE_OPTIONS:STRING=-pthread
-
-//Path to a file.
-MPI_CXX_HEADER_DIR:PATH=/usr/include
-
-//MPI CXX libraries to link against
-MPI_CXX_LIB_NAMES:STRING=mpi_cxx;mpi
-
-//MPI CXX linker flags
-MPI_CXX_LINK_FLAGS:STRING=-Wl,-rpath -Wl,/usr/lib/openmpi -Wl,--enable-new-dtags -pthread
-
-//If true, the MPI-2 C++ bindings are disabled using definitions.
-MPI_CXX_SKIP_MPICXX:BOOL=FALSE
-
 //MPI C additional include directories
 MPI_C_ADDITIONAL_INCLUDE_DIRS:STRING=
 
@@ -326,15 +273,6 @@ MPI_C_LINK_FLAGS:STRING=-Wl,-rpath -Wl,/usr/lib/openmpi -Wl,--enable-new-dtags -
 
 //Location of the mpi library for MPI
 MPI_mpi_LIBRARY:FILEPATH=/usr/lib/openmpi/libmpi.so
-
-//Location of the mpi_cxx library for MPI
-MPI_mpi_cxx_LIBRARY:FILEPATH=/usr/lib/openmpi/libmpi_cxx.so
-
-//CXX compiler flags for OpenMP parallelization
-OpenMP_CXX_FLAGS:STRING=-fopenmp
-
-//CXX compiler libraries for OpenMP parallelization
-OpenMP_CXX_LIB_NAMES:STRING=gomp;pthread
 
 //C compiler flags for OpenMP parallelization
 OpenMP_C_FLAGS:STRING=-fopenmp
@@ -394,22 +332,6 @@ CMAKE_COMMAND:INTERNAL=/usr/bin/cmake
 CMAKE_CPACK_COMMAND:INTERNAL=/usr/bin/cpack
 //Path to ctest program executable.
 CMAKE_CTEST_COMMAND:INTERNAL=/usr/bin/ctest
-//ADVANCED property for variable: CMAKE_CXX_COMPILER
-CMAKE_CXX_COMPILER-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: CMAKE_CXX_COMPILER_AR
-CMAKE_CXX_COMPILER_AR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: CMAKE_CXX_COMPILER_RANLIB
-CMAKE_CXX_COMPILER_RANLIB-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: CMAKE_CXX_FLAGS
-CMAKE_CXX_FLAGS-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: CMAKE_CXX_FLAGS_DEBUG
-CMAKE_CXX_FLAGS_DEBUG-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: CMAKE_CXX_FLAGS_MINSIZEREL
-CMAKE_CXX_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: CMAKE_CXX_FLAGS_RELEASE
-CMAKE_CXX_FLAGS_RELEASE-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: CMAKE_CXX_FLAGS_RELWITHDEBINFO
-CMAKE_CXX_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_C_COMPILER
 CMAKE_C_COMPILER-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_C_COMPILER_AR
@@ -476,7 +398,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=3
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=4
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -544,17 +466,13 @@ FIND_PACKAGE_MESSAGE_DETAILS_FFTW:INTERNAL=[/usr/include][c ][v()]
 //Details about finding GSL
 FIND_PACKAGE_MESSAGE_DETAILS_GSL:INTERNAL=[/usr/include][/usr/lib/libgsl.so][/usr/lib/libgslcblas.so][v2.6()]
 //Details about finding MPI
-FIND_PACKAGE_MESSAGE_DETAILS_MPI:INTERNAL=[TRUE][TRUE][c ][v3.1()]
+FIND_PACKAGE_MESSAGE_DETAILS_MPI:INTERNAL=[TRUE][c ][v3.1()]
 //Details about finding MPI_C
 FIND_PACKAGE_MESSAGE_DETAILS_MPI_C:INTERNAL=[/usr/lib/openmpi/libmpi.so][mpi][/usr/include][TRUE][v3.1()]
-//Details about finding MPI_CXX
-FIND_PACKAGE_MESSAGE_DETAILS_MPI_CXX:INTERNAL=[/usr/lib/openmpi/libmpi_cxx.so][/usr/lib/openmpi/libmpi.so][mpi_cxx;mpi][/usr/include][TRUE][v3.1()]
 //Details about finding OpenMP
-FIND_PACKAGE_MESSAGE_DETAILS_OpenMP:INTERNAL=[TRUE][TRUE][c ][v()]
+FIND_PACKAGE_MESSAGE_DETAILS_OpenMP:INTERNAL=[TRUE][c ][v()]
 //Details about finding OpenMP_C
 FIND_PACKAGE_MESSAGE_DETAILS_OpenMP_C:INTERNAL=[-fopenmp][/usr/lib/libgomp.so][/usr/lib/libpthread.so][v()]
-//Details about finding OpenMP_CXX
-FIND_PACKAGE_MESSAGE_DETAILS_OpenMP_CXX:INTERNAL=[-fopenmp][/usr/lib/libgomp.so][/usr/lib/libpthread.so][v()]
 //Details about finding PkgConfig
 FIND_PACKAGE_MESSAGE_DETAILS_PkgConfig:INTERNAL=[/usr/bin/pkg-config][v1.6.3()]
 //ADVANCED property for variable: GSL_CBLAS_LIBRARY
@@ -616,24 +534,6 @@ MPIEXEC_NUMPROC_FLAG-ADVANCED:INTERNAL=1
 MPIEXEC_POSTFLAGS-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: MPIEXEC_PREFLAGS
 MPIEXEC_PREFLAGS-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: MPI_CXX_ADDITIONAL_INCLUDE_DIRS
-MPI_CXX_ADDITIONAL_INCLUDE_DIRS-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: MPI_CXX_COMPILER
-MPI_CXX_COMPILER-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: MPI_CXX_COMPILER_INCLUDE_DIRS
-MPI_CXX_COMPILER_INCLUDE_DIRS-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: MPI_CXX_COMPILE_DEFINITIONS
-MPI_CXX_COMPILE_DEFINITIONS-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: MPI_CXX_COMPILE_OPTIONS
-MPI_CXX_COMPILE_OPTIONS-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: MPI_CXX_HEADER_DIR
-MPI_CXX_HEADER_DIR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: MPI_CXX_LIB_NAMES
-MPI_CXX_LIB_NAMES-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: MPI_CXX_LINK_FLAGS
-MPI_CXX_LINK_FLAGS-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: MPI_CXX_SKIP_MPICXX
-MPI_CXX_SKIP_MPICXX-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: MPI_C_ADDITIONAL_INCLUDE_DIRS
 MPI_C_ADDITIONAL_INCLUDE_DIRS-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: MPI_C_COMPILER
@@ -651,33 +551,17 @@ MPI_C_LIB_NAMES-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: MPI_C_LINK_FLAGS
 MPI_C_LINK_FLAGS-ADVANCED:INTERNAL=1
 //Result of TRY_COMPILE
-MPI_RESULT_CXX_test_mpi_MPICXX:INTERNAL=TRUE
-//Result of TRY_COMPILE
-MPI_RESULT_CXX_test_mpi_normal:INTERNAL=TRUE
-//Result of TRY_COMPILE
 MPI_RESULT_C_test_mpi_normal:INTERNAL=TRUE
 //ADVANCED property for variable: MPI_mpi_LIBRARY
 MPI_mpi_LIBRARY-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: MPI_mpi_cxx_LIBRARY
-MPI_mpi_cxx_LIBRARY-ADVANCED:INTERNAL=1
-//Result of TRY_COMPILE
-OpenMP_COMPILE_RESULT_CXX_fopenmp:INTERNAL=TRUE
 //Result of TRY_COMPILE
 OpenMP_COMPILE_RESULT_C_fopenmp:INTERNAL=TRUE
-//ADVANCED property for variable: OpenMP_CXX_FLAGS
-OpenMP_CXX_FLAGS-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: OpenMP_CXX_LIB_NAMES
-OpenMP_CXX_LIB_NAMES-ADVANCED:INTERNAL=1
-//CXX compiler's OpenMP specification date
-OpenMP_CXX_SPEC_DATE:INTERNAL=201511
 //ADVANCED property for variable: OpenMP_C_FLAGS
 OpenMP_C_FLAGS-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: OpenMP_C_LIB_NAMES
 OpenMP_C_LIB_NAMES-ADVANCED:INTERNAL=1
 //C compiler's OpenMP specification date
 OpenMP_C_SPEC_DATE:INTERNAL=201511
-//Result of TRY_COMPILE
-OpenMP_SPECTEST_CXX_:INTERNAL=TRUE
 //Result of TRY_COMPILE
 OpenMP_SPECTEST_C_:INTERNAL=TRUE
 //ADVANCED property for variable: OpenMP_gomp_LIBRARY

@@ -6,6 +6,8 @@
 
 #IncludeRegexTransform: 
 
+../src/ini/ini.h
+
 ../src/log/log.h
 stdio.h
 -
@@ -35,6 +37,8 @@ fftw3.h
 -
 
 ../src/timeframe.h
+ini/ini.h
+../src/ini/ini.h
 
 /home/cheg/Repos/Master/SpikeLibrary/app/suscept_test.c
 log/log.h
