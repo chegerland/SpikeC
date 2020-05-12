@@ -1,12 +1,10 @@
 #include <complex.h>
 #include <fftw3.h>
-#include <gsl/gsl_blas.h>
-#include <gsl/gsl_matrix.h>
 #include <math.h>
 #include <stdlib.h>
 
-#include "fft.h"
 #include "statistics.h"
+#include "utils/fft.h"
 
 double mean(int length, const double *array) {
   double mean = 0;
@@ -39,7 +37,7 @@ void susceptibility_lin(const double complex *isf, double *spike_train,
   free(osf);
 }
 
-void susceptibility_lin_nonlin(const double complex *isf, double alpha,
+void susceptibility_lin_nonlin(const double *signal,
                                const double *spike_train,
                                const TimeFrame *time_frame,
                                double complex *suscept_lin,
@@ -48,26 +46,34 @@ void susceptibility_lin_nonlin(const double complex *isf, double alpha,
   // length of the signals is N/2 + 1 because we perform real DFT
   size_t length = time_frame->N;
   const double dt = time_frame->dt;
-  const double T = time_frame->t_end - time_frame->t_0;
+
+  // fourier transform input signal
+  double complex *isf =
+      (double complex *)calloc(length / 2 + 1, sizeof(double complex));
+  fft_r2c(length, dt, signal, isf);
 
   // fourier transform spiketrain
   double complex *osf =
       (double complex *)calloc(length / 2 + 1, sizeof(double complex));
   fft_r2c(length, dt, spike_train, osf);
 
-  // fill susceptibility and normalize appropriately
+  // fill linear susceptibility and normalize appropriately
   for (int i = 0; i < length / 2 + 1; i++) {
     double scale = 1. / ((double)norm * pow(cabs(isf[i]), 2));
-    //double scale = 1. / ((double)norm * 2. * alpha);
     suscept_lin[i] += scale * (osf[i] * conj(isf[i]));
   }
 
+  // fill nonlinear susceptibility and normalize appropriately
+  // ATTENTION: Notice that the bispectrum is only normalized by 1/T and the
+  // power spectra are also normalized with 1/T, resulting in an overall all
+  // factor of 1/T / (1/T^2) = T!
+  const double T = time_frame->t_end - time_frame->t_0;
   for (int i = 0; i < length / 4 + 1; i++) {
-    double scale = 1. / ((double)norm * 2. * pow(cabs(isf[i]), 4)/T);
-    //double scale = 1. / ((double)norm * 2. * pow(2.*alpha, 2));
+    double scale = T / ((double)norm * 2. * pow(cabs(isf[i]), 4));
     suscept_nonlin[i] += scale * (osf[2 * i] * conj(isf[i]) * conj(isf[i]));
   }
 
+  free(isf);
   free(osf);
 }
 

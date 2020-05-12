@@ -2,8 +2,8 @@
 #include <math.h>
 
 #include "signals.h"
-#include "fft.h"
 #include "statistics.h"
+#include "utils/fft.h"
 
 // generate cosine signal
 void cosine_signal(const double alpha, const double f,
@@ -37,7 +37,7 @@ void two_cosine_signal(const double alpha, const double f1, const double beta,
 
 void band_limited_white_noise(const gsl_rng *r, double alpha, double f_low,
                               double f_high, const TimeFrame *time_frame,
-                              double *signal, double complex *frequencies) {
+                              double *signal) {
 
   // number of steps and time step
   const int N = time_frame->N;
@@ -47,8 +47,7 @@ void band_limited_white_noise(const gsl_rng *r, double alpha, double f_low,
   const size_t cut_low = (size_t)(f_low * N * dt);
   const size_t cut_high = (size_t)(f_high * N * dt);
 
-  // normalization
-  //double height = sqrt(2. * alpha);
+  // normalization, so that power spectrum is equal to 2 * alpha
   double height = sqrt(2. * alpha * (time_frame->t_end - time_frame->t_0));
 
   double complex freqs[time_frame->N / 2 + 1];
@@ -71,13 +70,9 @@ void band_limited_white_noise(const gsl_rng *r, double alpha, double f_low,
   // calculate signal by fourier transforming from frequencies
   fft_c2r(N, dt, freqs, signal);
 
-  // subsctract mean from signal
+  // subtract mean from signal
   double mean_signal = mean(N, signal);
   for (int i = 0; i < N; i++) {
     signal[i] -= mean_signal;
   }
-
-  // calculate frequencies by fourier transforming signal
-  // TODO: this is because c2r destroys the frequencies
-  fft_r2c(N, dt, signal, frequencies);
 }

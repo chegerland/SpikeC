@@ -14,10 +14,10 @@ stdio.h
 stdarg.h
 -
 
-../src/neurons.h
+../src/neurons/if_neurons.h
 timeframe.h
-../src/timeframe.h
-gsl/gsl_rng.h
+../src/neurons/timeframe.h
+gsl/gsl_randist.h
 -
 
 ../src/signals.h
@@ -43,8 +43,8 @@ ini/ini.h
 /home/cheg/Repos/Master/SpikeLibrary/app/suscept_test.c
 log/log.h
 /home/cheg/Repos/Master/SpikeLibrary/app/log/log.h
-neurons.h
-/home/cheg/Repos/Master/SpikeLibrary/app/neurons.h
+neurons/if_neurons.h
+/home/cheg/Repos/Master/SpikeLibrary/app/neurons/if_neurons.h
 signals.h
 /home/cheg/Repos/Master/SpikeLibrary/app/signals.h
 statistics.h

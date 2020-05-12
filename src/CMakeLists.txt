@@ -1,12 +1,13 @@
 # build the spike library
 set(spike_sources
-        ini/ini.c
-        log/log.c
+        utils/ini.c
+        utils/log.c
+        timeframe.c
         neurons/if_neurons.c
         neurons/ifac_neurons.c
+        simulations/suscept_sim.c
         signals.c
         statistics.c
-        timeframe.c
         )
 add_library(spike SHARED ${spike_sources})
 

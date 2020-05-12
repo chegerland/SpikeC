@@ -1,6 +1,5 @@
-#include "../src/timeframe.h"
+#include "spike.h"
 #include <gsl/gsl_rng.h>
-#include "signals.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>

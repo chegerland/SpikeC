@@ -14,6 +14,12 @@
 # EXTERNAL cache entries
 ########################
 
+//Build the testing tree.
+BUILD_TESTING:BOOL=ON
+
+//Path to a program.
+BZRCOMMAND:FILEPATH=BZRCOMMAND-NOTFOUND
+
 //Path to a program.
 CMAKE_ADDR2LINE:FILEPATH=/usr/bin/addr2line
 
@@ -194,6 +200,28 @@ CMAKE_STRIP:FILEPATH=/usr/bin/strip
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
+//Path to the coverage program that CTest uses for performing coverage
+// inspection
+COVERAGE_COMMAND:FILEPATH=/usr/bin/gcov
+
+//Extra command line flags to pass to the coverage tool
+COVERAGE_EXTRA_FLAGS:STRING=-l
+
+//How many times to retry timed-out CTest submissions.
+CTEST_SUBMIT_RETRY_COUNT:STRING=3
+
+//How long to wait between timed-out CTest submissions.
+CTEST_SUBMIT_RETRY_DELAY:STRING=5
+
+//Path to a program.
+CVSCOMMAND:FILEPATH=CVSCOMMAND-NOTFOUND
+
+//Options passed to the cvs update command.
+CVS_UPDATE_OPTIONS:STRING=-d -A -P
+
+//Maximum time allowed before CTest will kill the test.
+DART_TESTING_TIMEOUT:STRING=1500
+
 //Path to a library.
 FFTW_DOUBLE_LIB:FILEPATH=/usr/lib/libfftw3.so
 
@@ -224,6 +252,9 @@ FFTW_LONGDOUBLE_OPENMP_LIB:FILEPATH=/usr/lib/libfftw3l_omp.so
 //Path to a library.
 FFTW_LONGDOUBLE_THREADS_LIB:FILEPATH=/usr/lib/libfftw3l_threads.so
 
+//Path to a program.
+GITCOMMAND:FILEPATH=/usr/bin/git
+
 //Path to a library.
 GSL_CBLAS_LIBRARY:FILEPATH=/usr/lib/libgslcblas.so
 
@@ -240,6 +271,18 @@ GSL_LIBRARY:FILEPATH=/usr/lib/libgsl.so
 GSL_LIBRARY_DEBUG:FILEPATH=/usr/lib/libgsl.so
 
 GSL_ROOT_DIR:STRING=/usr
+
+//Path to a program.
+HGCOMMAND:FILEPATH=/usr/bin/hg
+
+//Command to build the project
+MAKECOMMAND:STRING=/home/cheg/clion-2019.3.4/bin/cmake/linux/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}"
+
+//Path to the memory checking command, used for memory error detection.
+MEMORYCHECK_COMMAND:FILEPATH=/usr/bin/valgrind
+
+//File that contains suppressions for the memory checker
+MEMORYCHECK_SUPPRESSIONS_FILE:FILEPATH=
 
 //Executable for running MPI programs.
 MPIEXEC_EXECUTABLE:FILEPATH=/usr/bin/mpiexec
@@ -294,6 +337,9 @@ OpenMP_gomp_LIBRARY:FILEPATH=/usr/lib/libgomp.so
 //Path to the pthread library for OpenMP
 OpenMP_pthread_LIBRARY:FILEPATH=/usr/lib/libpthread.so
 
+//Path to a program.
+P4COMMAND:FILEPATH=P4COMMAND-NOTFOUND
+
 //pkg-config executable
 PKG_CONFIG_EXECUTABLE:FILEPATH=/usr/bin/pkg-config
 
@@ -302,6 +348,18 @@ ProcessorCount_cmd_nproc:FILEPATH=/usr/bin/nproc
 
 //Path to a program.
 ProcessorCount_cmd_sysctl:FILEPATH=/usr/bin/sysctl
+
+//Name of the computer/site where compile is being run
+SITE:STRING=homest
+
+//Path to the SLURM sbatch executable
+SLURM_SBATCH_COMMAND:FILEPATH=SLURM_SBATCH_COMMAND-NOTFOUND
+
+//Path to the SLURM srun executable
+SLURM_SRUN_COMMAND:FILEPATH=SLURM_SRUN_COMMAND-NOTFOUND
+
+//Path to a program.
+SVNCOMMAND:FILEPATH=SVNCOMMAND-NOTFOUND
 
 //Value Computed by CMake
 SpikeLibrary_BINARY_DIR:STATIC=/home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug
@@ -326,6 +384,8 @@ pkgcfg_lib_PKG_FFTW_fftw3:FILEPATH=/usr/lib/libfftw3.so
 # INTERNAL cache entries
 ########################
 
+//ADVANCED property for variable: BZRCOMMAND
+BZRCOMMAND-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_ADDR2LINE
 CMAKE_ADDR2LINE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_AR
@@ -344,6 +404,8 @@ CMAKE_COLOR_MAKEFILE-ADVANCED:INTERNAL=1
 CMAKE_COMMAND:INTERNAL=/home/cheg/clion-2019.3.4/bin/cmake/linux/bin/cmake
 //Path to cpack program executable.
 CMAKE_CPACK_COMMAND:INTERNAL=/home/cheg/clion-2019.3.4/bin/cmake/linux/bin/cpack
+//ADVANCED property for variable: CMAKE_CTEST_COMMAND
+CMAKE_CTEST_COMMAND-ADVANCED:INTERNAL=1
 //Path to ctest program executable.
 CMAKE_CTEST_COMMAND:INTERNAL=/home/cheg/clion-2019.3.4/bin/cmake/linux/bin/ctest
 //ADVANCED property for variable: CMAKE_C_COMPILER
@@ -457,6 +519,20 @@ CMAKE_STRIP-ADVANCED:INTERNAL=1
 CMAKE_UNAME:INTERNAL=/usr/bin/uname
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: COVERAGE_COMMAND
+COVERAGE_COMMAND-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: COVERAGE_EXTRA_FLAGS
+COVERAGE_EXTRA_FLAGS-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CTEST_SUBMIT_RETRY_COUNT
+CTEST_SUBMIT_RETRY_COUNT-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CTEST_SUBMIT_RETRY_DELAY
+CTEST_SUBMIT_RETRY_DELAY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CVSCOMMAND
+CVSCOMMAND-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CVS_UPDATE_OPTIONS
+CVS_UPDATE_OPTIONS-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: DART_TESTING_TIMEOUT
+DART_TESTING_TIMEOUT-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: FFTW_DOUBLE_LIB
 FFTW_DOUBLE_LIB-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: FFTW_DOUBLE_OPENMP_LIB
@@ -491,6 +567,8 @@ FIND_PACKAGE_MESSAGE_DETAILS_OpenMP:INTERNAL=[TRUE][c ][v()]
 FIND_PACKAGE_MESSAGE_DETAILS_OpenMP_C:INTERNAL=[-fopenmp][/usr/lib/libgomp.so][/usr/lib/libpthread.so][v()]
 //Details about finding PkgConfig
 FIND_PACKAGE_MESSAGE_DETAILS_PkgConfig:INTERNAL=[/usr/bin/pkg-config][v1.6.3()]
+//ADVANCED property for variable: GITCOMMAND
+GITCOMMAND-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: GSL_CBLAS_LIBRARY
 GSL_CBLAS_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: GSL_CBLAS_LIBRARY_DEBUG
@@ -540,6 +618,14 @@ GSL_gsl_INCLUDEDIR:INTERNAL=
 GSL_gsl_LIBDIR:INTERNAL=
 GSL_gsl_PREFIX:INTERNAL=
 GSL_gsl_VERSION:INTERNAL=
+//ADVANCED property for variable: HGCOMMAND
+HGCOMMAND-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: MAKECOMMAND
+MAKECOMMAND-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: MEMORYCHECK_COMMAND
+MEMORYCHECK_COMMAND-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: MEMORYCHECK_SUPPRESSIONS_FILE
+MEMORYCHECK_SUPPRESSIONS_FILE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: MPIEXEC_EXECUTABLE
 MPIEXEC_EXECUTABLE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: MPIEXEC_MAX_NUMPROCS
@@ -582,6 +668,8 @@ OpenMP_SPECTEST_C_:INTERNAL=TRUE
 OpenMP_gomp_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: OpenMP_pthread_LIBRARY
 OpenMP_pthread_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: P4COMMAND
+P4COMMAND-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: PKG_CONFIG_EXECUTABLE
 PKG_CONFIG_EXECUTABLE-ADVANCED:INTERNAL=1
 PKG_FFTW_CFLAGS:INTERNAL=
@@ -623,6 +711,14 @@ PKG_FFTW_fftw3_VERSION:INTERNAL=
 ProcessorCount_cmd_nproc-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: ProcessorCount_cmd_sysctl
 ProcessorCount_cmd_sysctl-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: SITE
+SITE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: SLURM_SBATCH_COMMAND
+SLURM_SBATCH_COMMAND-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: SLURM_SRUN_COMMAND
+SLURM_SRUN_COMMAND-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: SVNCOMMAND
+SVNCOMMAND-ADVANCED:INTERNAL=1
 __pkg_config_arguments_GSL:INTERNAL=QUIET;gsl
 __pkg_config_arguments_PKG_FFTW:INTERNAL=QUIET;fftw3
 __pkg_config_checked_GSL:INTERNAL=1

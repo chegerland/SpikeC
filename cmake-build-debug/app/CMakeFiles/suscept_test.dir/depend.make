@@ -3,7 +3,7 @@
 
 app/CMakeFiles/suscept_test.dir/suscept_test.c.o: ../src/ini/ini.h
 app/CMakeFiles/suscept_test.dir/suscept_test.c.o: ../src/log/log.h
-app/CMakeFiles/suscept_test.dir/suscept_test.c.o: ../src/neurons.h
+app/CMakeFiles/suscept_test.dir/suscept_test.c.o: ../src/neurons/if_neurons.h
 app/CMakeFiles/suscept_test.dir/suscept_test.c.o: ../src/signals.h
 app/CMakeFiles/suscept_test.dir/suscept_test.c.o: ../src/statistics.h
 app/CMakeFiles/suscept_test.dir/suscept_test.c.o: ../src/timeframe.h

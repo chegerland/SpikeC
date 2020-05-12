@@ -3,3 +3,8 @@ add_executable(test_timeframe test_timeframe.c)
 target_link_libraries(test_timeframe
         spike
         )
+add_executable(test_neurons test_neurons.c)
+target_link_libraries(test_neurons
+        spike
+        )
+

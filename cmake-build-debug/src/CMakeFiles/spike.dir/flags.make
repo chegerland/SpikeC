@@ -6,5 +6,5 @@ C_FLAGS =  -O3 -g -Wall -Werror -Wpedantic -fPIC   -fopenmp -std=gnu11
 
 C_DEFINES = -Dspike_EXPORTS
 
-C_INCLUDES = -I/home/cheg/Repos/Master/SpikeLibrary/src 
+C_INCLUDES = -I/home/cheg/Repos/Master/SpikeLibrary/include 
 

@@ -55,7 +55,7 @@ void two_cosine_signal(double alpha, double f1, double beta, double f2,
  */
 void band_limited_white_noise(const gsl_rng *r, double alpha, double f_low,
                               double f_high, const TimeFrame *time_frame,
-                              double *signal, double complex *frequencies);
+                              double *signal);
 
 #ifdef __cplusplus
 }

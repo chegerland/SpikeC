@@ -14,7 +14,7 @@ void susceptibility_lin(const double complex *isf, double *spike_train,
                         const TimeFrame *time_frame, double complex *suscept,
                         size_t norm);
 
-void susceptibility_lin_nonlin(const double complex *isf, double alpha,
+void susceptibility_lin_nonlin(const double *signal,
                                const double *spike_train,
                                const TimeFrame *time_frame,
                                double complex *suscept_lin,

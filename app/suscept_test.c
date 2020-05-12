@@ -1,5 +1,5 @@
 #include "log/log.h"
-#include "neurons.h"
+#include "neurons/if_neurons.h"
 #include "signals.h"
 #include "statistics.h"
 #include "timeframe.h"

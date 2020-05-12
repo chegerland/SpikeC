@@ -87,6 +87,17 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
+
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
@@ -146,34 +157,19 @@ suscept_mpi/fast:
 .PHONY : suscept_mpi/fast
 
 # Convenience name for target.
-app/CMakeFiles/suscept_test.dir/rule:
-	cd /home/cheg/Repos/Master/SpikeLibrary/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 app/CMakeFiles/suscept_test.dir/rule
-.PHONY : app/CMakeFiles/suscept_test.dir/rule
+app/CMakeFiles/suscept_mpi_new.dir/rule:
+	cd /home/cheg/Repos/Master/SpikeLibrary/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 app/CMakeFiles/suscept_mpi_new.dir/rule
+.PHONY : app/CMakeFiles/suscept_mpi_new.dir/rule
 
 # Convenience name for target.
-suscept_test: app/CMakeFiles/suscept_test.dir/rule
+suscept_mpi_new: app/CMakeFiles/suscept_mpi_new.dir/rule
 
-.PHONY : suscept_test
+.PHONY : suscept_mpi_new
 
 # fast build rule for target.
-suscept_test/fast:
-	cd /home/cheg/Repos/Master/SpikeLibrary/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/suscept_test.dir/build.make app/CMakeFiles/suscept_test.dir/build
-.PHONY : suscept_test/fast
-
-# Convenience name for target.
-app/CMakeFiles/test.dir/rule:
-	cd /home/cheg/Repos/Master/SpikeLibrary/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 app/CMakeFiles/test.dir/rule
-.PHONY : app/CMakeFiles/test.dir/rule
-
-# Convenience name for target.
-test: app/CMakeFiles/test.dir/rule
-
-.PHONY : test
-
-# fast build rule for target.
-test/fast:
-	cd /home/cheg/Repos/Master/SpikeLibrary/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/test.dir/build.make app/CMakeFiles/test.dir/build
-.PHONY : test/fast
+suscept_mpi_new/fast:
+	cd /home/cheg/Repos/Master/SpikeLibrary/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/suscept_mpi_new.dir/build.make app/CMakeFiles/suscept_mpi_new.dir/build
+.PHONY : suscept_mpi_new/fast
 
 suscept_mpi.o: suscept_mpi.c.o
 
@@ -202,59 +198,32 @@ suscept_mpi.c.s:
 	cd /home/cheg/Repos/Master/SpikeLibrary/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/suscept_mpi.dir/build.make app/CMakeFiles/suscept_mpi.dir/suscept_mpi.c.s
 .PHONY : suscept_mpi.c.s
 
-suscept_test.o: suscept_test.c.o
+suscept_mpi_new.o: suscept_mpi_new.c.o
 
-.PHONY : suscept_test.o
-
-# target to build an object file
-suscept_test.c.o:
-	cd /home/cheg/Repos/Master/SpikeLibrary/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/suscept_test.dir/build.make app/CMakeFiles/suscept_test.dir/suscept_test.c.o
-.PHONY : suscept_test.c.o
-
-suscept_test.i: suscept_test.c.i
-
-.PHONY : suscept_test.i
-
-# target to preprocess a source file
-suscept_test.c.i:
-	cd /home/cheg/Repos/Master/SpikeLibrary/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/suscept_test.dir/build.make app/CMakeFiles/suscept_test.dir/suscept_test.c.i
-.PHONY : suscept_test.c.i
-
-suscept_test.s: suscept_test.c.s
-
-.PHONY : suscept_test.s
-
-# target to generate assembly for a file
-suscept_test.c.s:
-	cd /home/cheg/Repos/Master/SpikeLibrary/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/suscept_test.dir/build.make app/CMakeFiles/suscept_test.dir/suscept_test.c.s
-.PHONY : suscept_test.c.s
-
-test.o: test.c.o
-
-.PHONY : test.o
+.PHONY : suscept_mpi_new.o
 
 # target to build an object file
-test.c.o:
-	cd /home/cheg/Repos/Master/SpikeLibrary/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/test.dir/build.make app/CMakeFiles/test.dir/test.c.o
-.PHONY : test.c.o
+suscept_mpi_new.c.o:
+	cd /home/cheg/Repos/Master/SpikeLibrary/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/suscept_mpi_new.dir/build.make app/CMakeFiles/suscept_mpi_new.dir/suscept_mpi_new.c.o
+.PHONY : suscept_mpi_new.c.o
 
-test.i: test.c.i
+suscept_mpi_new.i: suscept_mpi_new.c.i
 
-.PHONY : test.i
+.PHONY : suscept_mpi_new.i
 
 # target to preprocess a source file
-test.c.i:
-	cd /home/cheg/Repos/Master/SpikeLibrary/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/test.dir/build.make app/CMakeFiles/test.dir/test.c.i
-.PHONY : test.c.i
+suscept_mpi_new.c.i:
+	cd /home/cheg/Repos/Master/SpikeLibrary/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/suscept_mpi_new.dir/build.make app/CMakeFiles/suscept_mpi_new.dir/suscept_mpi_new.c.i
+.PHONY : suscept_mpi_new.c.i
 
-test.s: test.c.s
+suscept_mpi_new.s: suscept_mpi_new.c.s
 
-.PHONY : test.s
+.PHONY : suscept_mpi_new.s
 
 # target to generate assembly for a file
-test.c.s:
-	cd /home/cheg/Repos/Master/SpikeLibrary/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/test.dir/build.make app/CMakeFiles/test.dir/test.c.s
-.PHONY : test.c.s
+suscept_mpi_new.c.s:
+	cd /home/cheg/Repos/Master/SpikeLibrary/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/suscept_mpi_new.dir/build.make app/CMakeFiles/suscept_mpi_new.dir/suscept_mpi_new.c.s
+.PHONY : suscept_mpi_new.c.s
 
 # Help Target
 help:
@@ -264,18 +233,15 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... suscept_mpi"
-	@echo "... suscept_test"
 	@echo "... test"
+	@echo "... suscept_mpi"
+	@echo "... suscept_mpi_new"
 	@echo "... suscept_mpi.o"
 	@echo "... suscept_mpi.i"
 	@echo "... suscept_mpi.s"
-	@echo "... suscept_test.o"
-	@echo "... suscept_test.i"
-	@echo "... suscept_test.s"
-	@echo "... test.o"
-	@echo "... test.i"
-	@echo "... test.s"
+	@echo "... suscept_mpi_new.o"
+	@echo "... suscept_mpi_new.i"
+	@echo "... suscept_mpi_new.s"
 .PHONY : help
 
 

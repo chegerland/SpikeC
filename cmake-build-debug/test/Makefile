@@ -67,6 +67,17 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/home/cheg/clion-2019.3.4/bin/cmake/linux/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
+
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
@@ -125,6 +136,48 @@ test_timeframe/fast:
 	cd /home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug && $(MAKE) -f test/CMakeFiles/test_timeframe.dir/build.make test/CMakeFiles/test_timeframe.dir/build
 .PHONY : test_timeframe/fast
 
+# Convenience name for target.
+test/CMakeFiles/test_neurons.dir/rule:
+	cd /home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_neurons.dir/rule
+.PHONY : test/CMakeFiles/test_neurons.dir/rule
+
+# Convenience name for target.
+test_neurons: test/CMakeFiles/test_neurons.dir/rule
+
+.PHONY : test_neurons
+
+# fast build rule for target.
+test_neurons/fast:
+	cd /home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug && $(MAKE) -f test/CMakeFiles/test_neurons.dir/build.make test/CMakeFiles/test_neurons.dir/build
+.PHONY : test_neurons/fast
+
+test_neurons.o: test_neurons.c.o
+
+.PHONY : test_neurons.o
+
+# target to build an object file
+test_neurons.c.o:
+	cd /home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug && $(MAKE) -f test/CMakeFiles/test_neurons.dir/build.make test/CMakeFiles/test_neurons.dir/test_neurons.c.o
+.PHONY : test_neurons.c.o
+
+test_neurons.i: test_neurons.c.i
+
+.PHONY : test_neurons.i
+
+# target to preprocess a source file
+test_neurons.c.i:
+	cd /home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug && $(MAKE) -f test/CMakeFiles/test_neurons.dir/build.make test/CMakeFiles/test_neurons.dir/test_neurons.c.i
+.PHONY : test_neurons.c.i
+
+test_neurons.s: test_neurons.c.s
+
+.PHONY : test_neurons.s
+
+# target to generate assembly for a file
+test_neurons.c.s:
+	cd /home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug && $(MAKE) -f test/CMakeFiles/test_neurons.dir/build.make test/CMakeFiles/test_neurons.dir/test_neurons.c.s
+.PHONY : test_neurons.c.s
+
 test_timeframe.o: test_timeframe.c.o
 
 .PHONY : test_timeframe.o
@@ -159,8 +212,13 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... edit_cache"
 	@echo "... test_timeframe"
+	@echo "... test"
+	@echo "... test_neurons"
+	@echo "... edit_cache"
+	@echo "... test_neurons.o"
+	@echo "... test_neurons.i"
+	@echo "... test_neurons.s"
 	@echo "... test_timeframe.o"
 	@echo "... test_timeframe.i"
 	@echo "... test_timeframe.s"

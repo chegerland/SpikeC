@@ -6,31 +6,35 @@
 
 #IncludeRegexTransform: 
 
-../src/ini/ini.h
-
-../src/timeframe.h
-ini/ini.h
-../src/ini/ini.h
-
-/home/cheg/Repos/Master/SpikeLibrary/src/neurons/if_neurons.c
-if_neurons.h
 /home/cheg/Repos/Master/SpikeLibrary/src/neurons/if_neurons.h
-math.h
--
-
-/home/cheg/Repos/Master/SpikeLibrary/src/neurons/if_neurons.h
-timeframe.h
-/home/cheg/Repos/Master/SpikeLibrary/src/neurons/timeframe.h
+../timeframe.h
+/home/cheg/Repos/Master/SpikeLibrary/src/timeframe.h
+../utils/ini.h
+/home/cheg/Repos/Master/SpikeLibrary/src/utils/ini.h
 gsl/gsl_randist.h
 -
 
-/home/cheg/Repos/Master/SpikeLibrary/src/neurons/ifac_neurons.c
-ifac_neurons.h
-/home/cheg/Repos/Master/SpikeLibrary/src/neurons/ifac_neurons.h
+/home/cheg/Repos/Master/SpikeLibrary/src/simulations/suscept_sim.c
+suscept_sim.h
+/home/cheg/Repos/Master/SpikeLibrary/src/simulations/suscept_sim.h
 math.h
 -
 
-/home/cheg/Repos/Master/SpikeLibrary/src/neurons/ifac_neurons.h
-if_neurons.h
+/home/cheg/Repos/Master/SpikeLibrary/src/simulations/suscept_sim.h
+../neurons/if_neurons.h
 /home/cheg/Repos/Master/SpikeLibrary/src/neurons/if_neurons.h
+../timeframe.h
+/home/cheg/Repos/Master/SpikeLibrary/src/timeframe.h
+../utils/ini.h
+/home/cheg/Repos/Master/SpikeLibrary/src/utils/ini.h
+complex.h
+-
+
+/home/cheg/Repos/Master/SpikeLibrary/src/timeframe.h
+utils/ini.h
+/home/cheg/Repos/Master/SpikeLibrary/src/utils/ini.h
+stdio.h
+-
+
+/home/cheg/Repos/Master/SpikeLibrary/src/utils/ini.h
 

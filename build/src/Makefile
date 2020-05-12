@@ -98,6 +98,17 @@ edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
 
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
+
 # The main all target
 all: cmake_check_build_system
 	cd /home/cheg/Repos/Master/SpikeLibrary/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/cheg/Repos/Master/SpikeLibrary/build/CMakeFiles /home/cheg/Repos/Master/SpikeLibrary/build/src/CMakeFiles/progress.marks
@@ -144,60 +155,6 @@ spike: src/CMakeFiles/spike.dir/rule
 spike/fast:
 	cd /home/cheg/Repos/Master/SpikeLibrary/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/spike.dir/build.make src/CMakeFiles/spike.dir/build
 .PHONY : spike/fast
-
-ini/ini.o: ini/ini.c.o
-
-.PHONY : ini/ini.o
-
-# target to build an object file
-ini/ini.c.o:
-	cd /home/cheg/Repos/Master/SpikeLibrary/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/spike.dir/build.make src/CMakeFiles/spike.dir/ini/ini.c.o
-.PHONY : ini/ini.c.o
-
-ini/ini.i: ini/ini.c.i
-
-.PHONY : ini/ini.i
-
-# target to preprocess a source file
-ini/ini.c.i:
-	cd /home/cheg/Repos/Master/SpikeLibrary/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/spike.dir/build.make src/CMakeFiles/spike.dir/ini/ini.c.i
-.PHONY : ini/ini.c.i
-
-ini/ini.s: ini/ini.c.s
-
-.PHONY : ini/ini.s
-
-# target to generate assembly for a file
-ini/ini.c.s:
-	cd /home/cheg/Repos/Master/SpikeLibrary/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/spike.dir/build.make src/CMakeFiles/spike.dir/ini/ini.c.s
-.PHONY : ini/ini.c.s
-
-log/log.o: log/log.c.o
-
-.PHONY : log/log.o
-
-# target to build an object file
-log/log.c.o:
-	cd /home/cheg/Repos/Master/SpikeLibrary/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/spike.dir/build.make src/CMakeFiles/spike.dir/log/log.c.o
-.PHONY : log/log.c.o
-
-log/log.i: log/log.c.i
-
-.PHONY : log/log.i
-
-# target to preprocess a source file
-log/log.c.i:
-	cd /home/cheg/Repos/Master/SpikeLibrary/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/spike.dir/build.make src/CMakeFiles/spike.dir/log/log.c.i
-.PHONY : log/log.c.i
-
-log/log.s: log/log.c.s
-
-.PHONY : log/log.s
-
-# target to generate assembly for a file
-log/log.c.s:
-	cd /home/cheg/Repos/Master/SpikeLibrary/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/spike.dir/build.make src/CMakeFiles/spike.dir/log/log.c.s
-.PHONY : log/log.c.s
 
 neurons/if_neurons.o: neurons/if_neurons.c.o
 
@@ -280,6 +237,33 @@ signals.c.s:
 	cd /home/cheg/Repos/Master/SpikeLibrary/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/spike.dir/build.make src/CMakeFiles/spike.dir/signals.c.s
 .PHONY : signals.c.s
 
+simulations/suscept_sim.o: simulations/suscept_sim.c.o
+
+.PHONY : simulations/suscept_sim.o
+
+# target to build an object file
+simulations/suscept_sim.c.o:
+	cd /home/cheg/Repos/Master/SpikeLibrary/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/spike.dir/build.make src/CMakeFiles/spike.dir/simulations/suscept_sim.c.o
+.PHONY : simulations/suscept_sim.c.o
+
+simulations/suscept_sim.i: simulations/suscept_sim.c.i
+
+.PHONY : simulations/suscept_sim.i
+
+# target to preprocess a source file
+simulations/suscept_sim.c.i:
+	cd /home/cheg/Repos/Master/SpikeLibrary/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/spike.dir/build.make src/CMakeFiles/spike.dir/simulations/suscept_sim.c.i
+.PHONY : simulations/suscept_sim.c.i
+
+simulations/suscept_sim.s: simulations/suscept_sim.c.s
+
+.PHONY : simulations/suscept_sim.s
+
+# target to generate assembly for a file
+simulations/suscept_sim.c.s:
+	cd /home/cheg/Repos/Master/SpikeLibrary/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/spike.dir/build.make src/CMakeFiles/spike.dir/simulations/suscept_sim.c.s
+.PHONY : simulations/suscept_sim.c.s
+
 statistics.o: statistics.c.o
 
 .PHONY : statistics.o
@@ -334,6 +318,60 @@ timeframe.c.s:
 	cd /home/cheg/Repos/Master/SpikeLibrary/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/spike.dir/build.make src/CMakeFiles/spike.dir/timeframe.c.s
 .PHONY : timeframe.c.s
 
+utils/ini.o: utils/ini.c.o
+
+.PHONY : utils/ini.o
+
+# target to build an object file
+utils/ini.c.o:
+	cd /home/cheg/Repos/Master/SpikeLibrary/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/spike.dir/build.make src/CMakeFiles/spike.dir/utils/ini.c.o
+.PHONY : utils/ini.c.o
+
+utils/ini.i: utils/ini.c.i
+
+.PHONY : utils/ini.i
+
+# target to preprocess a source file
+utils/ini.c.i:
+	cd /home/cheg/Repos/Master/SpikeLibrary/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/spike.dir/build.make src/CMakeFiles/spike.dir/utils/ini.c.i
+.PHONY : utils/ini.c.i
+
+utils/ini.s: utils/ini.c.s
+
+.PHONY : utils/ini.s
+
+# target to generate assembly for a file
+utils/ini.c.s:
+	cd /home/cheg/Repos/Master/SpikeLibrary/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/spike.dir/build.make src/CMakeFiles/spike.dir/utils/ini.c.s
+.PHONY : utils/ini.c.s
+
+utils/log.o: utils/log.c.o
+
+.PHONY : utils/log.o
+
+# target to build an object file
+utils/log.c.o:
+	cd /home/cheg/Repos/Master/SpikeLibrary/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/spike.dir/build.make src/CMakeFiles/spike.dir/utils/log.c.o
+.PHONY : utils/log.c.o
+
+utils/log.i: utils/log.c.i
+
+.PHONY : utils/log.i
+
+# target to preprocess a source file
+utils/log.c.i:
+	cd /home/cheg/Repos/Master/SpikeLibrary/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/spike.dir/build.make src/CMakeFiles/spike.dir/utils/log.c.i
+.PHONY : utils/log.c.i
+
+utils/log.s: utils/log.c.s
+
+.PHONY : utils/log.s
+
+# target to generate assembly for a file
+utils/log.c.s:
+	cd /home/cheg/Repos/Master/SpikeLibrary/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/spike.dir/build.make src/CMakeFiles/spike.dir/utils/log.c.s
+.PHONY : utils/log.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -342,13 +380,8 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... test"
 	@echo "... spike"
-	@echo "... ini/ini.o"
-	@echo "... ini/ini.i"
-	@echo "... ini/ini.s"
-	@echo "... log/log.o"
-	@echo "... log/log.i"
-	@echo "... log/log.s"
 	@echo "... neurons/if_neurons.o"
 	@echo "... neurons/if_neurons.i"
 	@echo "... neurons/if_neurons.s"
@@ -358,12 +391,21 @@ help:
 	@echo "... signals.o"
 	@echo "... signals.i"
 	@echo "... signals.s"
+	@echo "... simulations/suscept_sim.o"
+	@echo "... simulations/suscept_sim.i"
+	@echo "... simulations/suscept_sim.s"
 	@echo "... statistics.o"
 	@echo "... statistics.i"
 	@echo "... statistics.s"
 	@echo "... timeframe.o"
 	@echo "... timeframe.i"
 	@echo "... timeframe.s"
+	@echo "... utils/ini.o"
+	@echo "... utils/ini.i"
+	@echo "... utils/ini.s"
+	@echo "... utils/log.o"
+	@echo "... utils/log.i"
+	@echo "... utils/log.s"
 .PHONY : help
 
 
