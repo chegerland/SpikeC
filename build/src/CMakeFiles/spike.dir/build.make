@@ -103,9 +103,22 @@ src/CMakeFiles/spike.dir/utils/log.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/spike.dir/utils/log.c.s"
 	cd /home/cheg/Repos/Master/SpikeLibrary/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/cheg/Repos/Master/SpikeLibrary/src/utils/log.c -o CMakeFiles/spike.dir/utils/log.c.s
 
+src/CMakeFiles/spike.dir/utils/io_utils.c.o: src/CMakeFiles/spike.dir/flags.make
+src/CMakeFiles/spike.dir/utils/io_utils.c.o: ../src/utils/io_utils.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cheg/Repos/Master/SpikeLibrary/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object src/CMakeFiles/spike.dir/utils/io_utils.c.o"
+	cd /home/cheg/Repos/Master/SpikeLibrary/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/spike.dir/utils/io_utils.c.o   -c /home/cheg/Repos/Master/SpikeLibrary/src/utils/io_utils.c
+
+src/CMakeFiles/spike.dir/utils/io_utils.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/spike.dir/utils/io_utils.c.i"
+	cd /home/cheg/Repos/Master/SpikeLibrary/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/cheg/Repos/Master/SpikeLibrary/src/utils/io_utils.c > CMakeFiles/spike.dir/utils/io_utils.c.i
+
+src/CMakeFiles/spike.dir/utils/io_utils.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/spike.dir/utils/io_utils.c.s"
+	cd /home/cheg/Repos/Master/SpikeLibrary/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/cheg/Repos/Master/SpikeLibrary/src/utils/io_utils.c -o CMakeFiles/spike.dir/utils/io_utils.c.s
+
 src/CMakeFiles/spike.dir/timeframe.c.o: src/CMakeFiles/spike.dir/flags.make
 src/CMakeFiles/spike.dir/timeframe.c.o: ../src/timeframe.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cheg/Repos/Master/SpikeLibrary/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object src/CMakeFiles/spike.dir/timeframe.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cheg/Repos/Master/SpikeLibrary/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object src/CMakeFiles/spike.dir/timeframe.c.o"
 	cd /home/cheg/Repos/Master/SpikeLibrary/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/spike.dir/timeframe.c.o   -c /home/cheg/Repos/Master/SpikeLibrary/src/timeframe.c
 
 src/CMakeFiles/spike.dir/timeframe.c.i: cmake_force
@@ -118,7 +131,7 @@ src/CMakeFiles/spike.dir/timeframe.c.s: cmake_force
 
 src/CMakeFiles/spike.dir/neurons/if_neurons.c.o: src/CMakeFiles/spike.dir/flags.make
 src/CMakeFiles/spike.dir/neurons/if_neurons.c.o: ../src/neurons/if_neurons.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cheg/Repos/Master/SpikeLibrary/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object src/CMakeFiles/spike.dir/neurons/if_neurons.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cheg/Repos/Master/SpikeLibrary/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object src/CMakeFiles/spike.dir/neurons/if_neurons.c.o"
 	cd /home/cheg/Repos/Master/SpikeLibrary/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/spike.dir/neurons/if_neurons.c.o   -c /home/cheg/Repos/Master/SpikeLibrary/src/neurons/if_neurons.c
 
 src/CMakeFiles/spike.dir/neurons/if_neurons.c.i: cmake_force
@@ -131,7 +144,7 @@ src/CMakeFiles/spike.dir/neurons/if_neurons.c.s: cmake_force
 
 src/CMakeFiles/spike.dir/neurons/ifac_neurons.c.o: src/CMakeFiles/spike.dir/flags.make
 src/CMakeFiles/spike.dir/neurons/ifac_neurons.c.o: ../src/neurons/ifac_neurons.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cheg/Repos/Master/SpikeLibrary/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object src/CMakeFiles/spike.dir/neurons/ifac_neurons.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cheg/Repos/Master/SpikeLibrary/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object src/CMakeFiles/spike.dir/neurons/ifac_neurons.c.o"
 	cd /home/cheg/Repos/Master/SpikeLibrary/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/spike.dir/neurons/ifac_neurons.c.o   -c /home/cheg/Repos/Master/SpikeLibrary/src/neurons/ifac_neurons.c
 
 src/CMakeFiles/spike.dir/neurons/ifac_neurons.c.i: cmake_force
@@ -144,7 +157,7 @@ src/CMakeFiles/spike.dir/neurons/ifac_neurons.c.s: cmake_force
 
 src/CMakeFiles/spike.dir/simulations/suscept_sim.c.o: src/CMakeFiles/spike.dir/flags.make
 src/CMakeFiles/spike.dir/simulations/suscept_sim.c.o: ../src/simulations/suscept_sim.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cheg/Repos/Master/SpikeLibrary/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object src/CMakeFiles/spike.dir/simulations/suscept_sim.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cheg/Repos/Master/SpikeLibrary/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object src/CMakeFiles/spike.dir/simulations/suscept_sim.c.o"
 	cd /home/cheg/Repos/Master/SpikeLibrary/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/spike.dir/simulations/suscept_sim.c.o   -c /home/cheg/Repos/Master/SpikeLibrary/src/simulations/suscept_sim.c
 
 src/CMakeFiles/spike.dir/simulations/suscept_sim.c.i: cmake_force
@@ -157,7 +170,7 @@ src/CMakeFiles/spike.dir/simulations/suscept_sim.c.s: cmake_force
 
 src/CMakeFiles/spike.dir/signals.c.o: src/CMakeFiles/spike.dir/flags.make
 src/CMakeFiles/spike.dir/signals.c.o: ../src/signals.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cheg/Repos/Master/SpikeLibrary/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object src/CMakeFiles/spike.dir/signals.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cheg/Repos/Master/SpikeLibrary/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object src/CMakeFiles/spike.dir/signals.c.o"
 	cd /home/cheg/Repos/Master/SpikeLibrary/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/spike.dir/signals.c.o   -c /home/cheg/Repos/Master/SpikeLibrary/src/signals.c
 
 src/CMakeFiles/spike.dir/signals.c.i: cmake_force
@@ -170,7 +183,7 @@ src/CMakeFiles/spike.dir/signals.c.s: cmake_force
 
 src/CMakeFiles/spike.dir/statistics.c.o: src/CMakeFiles/spike.dir/flags.make
 src/CMakeFiles/spike.dir/statistics.c.o: ../src/statistics.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cheg/Repos/Master/SpikeLibrary/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object src/CMakeFiles/spike.dir/statistics.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cheg/Repos/Master/SpikeLibrary/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object src/CMakeFiles/spike.dir/statistics.c.o"
 	cd /home/cheg/Repos/Master/SpikeLibrary/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/spike.dir/statistics.c.o   -c /home/cheg/Repos/Master/SpikeLibrary/src/statistics.c
 
 src/CMakeFiles/spike.dir/statistics.c.i: cmake_force
@@ -185,6 +198,7 @@ src/CMakeFiles/spike.dir/statistics.c.s: cmake_force
 spike_OBJECTS = \
 "CMakeFiles/spike.dir/utils/ini.c.o" \
 "CMakeFiles/spike.dir/utils/log.c.o" \
+"CMakeFiles/spike.dir/utils/io_utils.c.o" \
 "CMakeFiles/spike.dir/timeframe.c.o" \
 "CMakeFiles/spike.dir/neurons/if_neurons.c.o" \
 "CMakeFiles/spike.dir/neurons/ifac_neurons.c.o" \
@@ -197,6 +211,7 @@ spike_EXTERNAL_OBJECTS =
 
 src/libspike.so: src/CMakeFiles/spike.dir/utils/ini.c.o
 src/libspike.so: src/CMakeFiles/spike.dir/utils/log.c.o
+src/libspike.so: src/CMakeFiles/spike.dir/utils/io_utils.c.o
 src/libspike.so: src/CMakeFiles/spike.dir/timeframe.c.o
 src/libspike.so: src/CMakeFiles/spike.dir/neurons/if_neurons.c.o
 src/libspike.so: src/CMakeFiles/spike.dir/neurons/ifac_neurons.c.o
@@ -218,7 +233,7 @@ src/libspike.so: /usr/lib/libfftw3l_omp.so
 src/libspike.so: /usr/lib/libgomp.so
 src/libspike.so: /usr/lib/libpthread.so
 src/libspike.so: src/CMakeFiles/spike.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/cheg/Repos/Master/SpikeLibrary/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking C shared library libspike.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/cheg/Repos/Master/SpikeLibrary/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking C shared library libspike.so"
 	cd /home/cheg/Repos/Master/SpikeLibrary/build/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/spike.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

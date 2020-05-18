@@ -66,13 +66,16 @@ void get_spike_train_ifac_signal(const gsl_rng *r, NeuronIFAC *neuron,
                                  double *spike_train) {
 
   double v = 0;
+  double a = 0;
   double dt = time_frame->dt;
 
   for (int i = 0; i < time_frame->N; i++) {
-    v += (neuron->drift(v, i, neuron->params) + signal[i]) * dt +
+    v += (neuron->drift(v, i, neuron->params) - a + signal[i]) * dt +
          sqrt(2. * neuron->params->D) * gsl_ran_gaussian(r, sqrt(dt));
+    a += -1. / neuron->adapt_params->tau_a * a * dt;
     if (v > 1.0) {
       v = 0.;
+      a += neuron->adapt_params->Delta;
       spike_train[i] += 1. / time_frame->dt;
     }
   }

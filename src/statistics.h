@@ -24,7 +24,7 @@ void susceptibility_lin_nonlin_matrix(const double complex *isf, double alpha,
                                       const double *spike_train,
                                       const TimeFrame *time_frame,
                                       double complex *suscept_lin,
-                                      double complex **suscept_nonlin,
+                                      double complex *suscept_nonlin,
                                       size_t norm);
 
 #ifdef __cplusplus

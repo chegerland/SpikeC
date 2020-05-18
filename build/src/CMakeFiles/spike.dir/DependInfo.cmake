@@ -11,6 +11,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/home/cheg/Repos/Master/SpikeLibrary/src/statistics.c" "/home/cheg/Repos/Master/SpikeLibrary/build/src/CMakeFiles/spike.dir/statistics.c.o"
   "/home/cheg/Repos/Master/SpikeLibrary/src/timeframe.c" "/home/cheg/Repos/Master/SpikeLibrary/build/src/CMakeFiles/spike.dir/timeframe.c.o"
   "/home/cheg/Repos/Master/SpikeLibrary/src/utils/ini.c" "/home/cheg/Repos/Master/SpikeLibrary/build/src/CMakeFiles/spike.dir/utils/ini.c.o"
+  "/home/cheg/Repos/Master/SpikeLibrary/src/utils/io_utils.c" "/home/cheg/Repos/Master/SpikeLibrary/build/src/CMakeFiles/spike.dir/utils/io_utils.c.o"
   "/home/cheg/Repos/Master/SpikeLibrary/src/utils/log.c" "/home/cheg/Repos/Master/SpikeLibrary/build/src/CMakeFiles/spike.dir/utils/log.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")

@@ -2,6 +2,7 @@
 set(spike_sources
         utils/ini.c
         utils/log.c
+        utils/io_utils.c
         timeframe.c
         neurons/if_neurons.c
         neurons/ifac_neurons.c

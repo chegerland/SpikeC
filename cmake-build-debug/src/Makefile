@@ -325,6 +325,33 @@ utils/ini.c.s:
 	cd /home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug && $(MAKE) -f src/CMakeFiles/spike.dir/build.make src/CMakeFiles/spike.dir/utils/ini.c.s
 .PHONY : utils/ini.c.s
 
+utils/io_utils.o: utils/io_utils.c.o
+
+.PHONY : utils/io_utils.o
+
+# target to build an object file
+utils/io_utils.c.o:
+	cd /home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug && $(MAKE) -f src/CMakeFiles/spike.dir/build.make src/CMakeFiles/spike.dir/utils/io_utils.c.o
+.PHONY : utils/io_utils.c.o
+
+utils/io_utils.i: utils/io_utils.c.i
+
+.PHONY : utils/io_utils.i
+
+# target to preprocess a source file
+utils/io_utils.c.i:
+	cd /home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug && $(MAKE) -f src/CMakeFiles/spike.dir/build.make src/CMakeFiles/spike.dir/utils/io_utils.c.i
+.PHONY : utils/io_utils.c.i
+
+utils/io_utils.s: utils/io_utils.c.s
+
+.PHONY : utils/io_utils.s
+
+# target to generate assembly for a file
+utils/io_utils.c.s:
+	cd /home/cheg/Repos/Master/SpikeLibrary/cmake-build-debug && $(MAKE) -f src/CMakeFiles/spike.dir/build.make src/CMakeFiles/spike.dir/utils/io_utils.c.s
+.PHONY : utils/io_utils.c.s
+
 utils/log.o: utils/log.c.o
 
 .PHONY : utils/log.o
@@ -383,6 +410,9 @@ help:
 	@echo "... utils/ini.o"
 	@echo "... utils/ini.i"
 	@echo "... utils/ini.s"
+	@echo "... utils/io_utils.o"
+	@echo "... utils/io_utils.i"
+	@echo "... utils/io_utils.s"
 	@echo "... utils/log.o"
 	@echo "... utils/log.i"
 	@echo "... utils/log.s"

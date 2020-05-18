@@ -38,6 +38,9 @@ src/CMakeFiles/spike.dir/timeframe.c.o: ../src/utils/ini.h
 src/CMakeFiles/spike.dir/utils/ini.c.o: ../src/utils/ini.c
 src/CMakeFiles/spike.dir/utils/ini.c.o: ../src/utils/ini.h
 
+src/CMakeFiles/spike.dir/utils/io_utils.c.o: ../src/utils/io_utils.c
+src/CMakeFiles/spike.dir/utils/io_utils.c.o: ../src/utils/io_utils.h
+
 src/CMakeFiles/spike.dir/utils/log.c.o: ../src/utils/log.c
 src/CMakeFiles/spike.dir/utils/log.c.o: ../src/utils/log.h
 

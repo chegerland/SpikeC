@@ -6,35 +6,19 @@
 
 #IncludeRegexTransform: 
 
-/home/cheg/Repos/Master/SpikeLibrary/src/neurons/if_neurons.h
-../timeframe.h
-/home/cheg/Repos/Master/SpikeLibrary/src/timeframe.h
-../utils/ini.h
-/home/cheg/Repos/Master/SpikeLibrary/src/utils/ini.h
-gsl/gsl_randist.h
+/home/cheg/Repos/Master/SpikeLibrary/src/utils/io_utils.c
+io_utils.h
+/home/cheg/Repos/Master/SpikeLibrary/src/utils/io_utils.h
+malloc.h
 -
-
-/home/cheg/Repos/Master/SpikeLibrary/src/simulations/suscept_sim.c
-suscept_sim.h
-/home/cheg/Repos/Master/SpikeLibrary/src/simulations/suscept_sim.h
-math.h
--
-
-/home/cheg/Repos/Master/SpikeLibrary/src/simulations/suscept_sim.h
-../neurons/if_neurons.h
-/home/cheg/Repos/Master/SpikeLibrary/src/neurons/if_neurons.h
-../timeframe.h
-/home/cheg/Repos/Master/SpikeLibrary/src/timeframe.h
-../utils/ini.h
-/home/cheg/Repos/Master/SpikeLibrary/src/utils/ini.h
-complex.h
--
-
-/home/cheg/Repos/Master/SpikeLibrary/src/timeframe.h
-utils/ini.h
-/home/cheg/Repos/Master/SpikeLibrary/src/utils/ini.h
 stdio.h
 -
+stdlib.h
+-
+string.h
+-
+unistd.h
+-
 
-/home/cheg/Repos/Master/SpikeLibrary/src/utils/ini.h
+/home/cheg/Repos/Master/SpikeLibrary/src/utils/io_utils.h
 

@@ -6,6 +6,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/spike.dir/statistics.c.o"
   "CMakeFiles/spike.dir/timeframe.c.o"
   "CMakeFiles/spike.dir/utils/ini.c.o"
+  "CMakeFiles/spike.dir/utils/io_utils.c.o"
   "CMakeFiles/spike.dir/utils/log.c.o"
   "libspike.pdb"
   "libspike.so"

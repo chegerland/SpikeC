@@ -25,6 +25,7 @@
 #include <stdarg.h>
 #include <string.h>
 #include <time.h>
+#include <pthread.h>
 
 #include "log.h"
 
@@ -109,7 +110,7 @@ void log_log(int level, const char *file, int line, const char *fmt, ...) {
       stderr, "%s %s%-5s\x1b[0m \x1b[90m%s:%d:\x1b[0m ",
       buf, level_colors[level], level_names[level], file, line);
 #else
-    fprintf(stderr, "%s %-5s %s:%d: ", buf, level_names[level], file, line);
+    fprintf(stderr, "%s %-5s [%lx] %s:%d: ", buf, level_names[level], pthread_self(), file, line);
 #endif
     va_start(args, fmt);
     vfprintf(stderr, fmt, args);

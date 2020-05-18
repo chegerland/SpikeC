@@ -9,24 +9,26 @@ void minion();
 
 // define parameters
 const double t_0 = 0.0;
-const double t_end = 500.0;
-const double dt = 1e-2;
+const double t_end = 1000.0;
+const double dt = 5e-3;
 const double T = t_end - t_0;
 
-const double mu = 1.1;
-const double D = 1e-3;
+const double mu = 3.5;
+const double D = 1e-1;
+const double tau_a = 10.0;
+const double Delta = 0.5;
 
-const double c = 0.8;
+const double c =
+    0.1 * (mu * dt) / D; // set automatically according to c << mu/2Df_max
 const double D_neuron = D * (1.0 - c);
-enum IF_TYPE neuron_type = LIF;
-if_params_t params = {mu, D_neuron};
+enum IFAC_TYPE neuron_type = LIFAC;
 
 const double alpha = D * c;
 const double f_low = 0.;
 const double f_high = 1. / (2. * dt);
 
 const int N_neurons = (int)1e5;
-const char * output_file = "suscepts_N_1e5_mpi.csv";
+const char *output_file = "suscepts_lifac_Delta_5e-1.csv";
 
 int main(int argc, char *argv[]) {
 
@@ -56,7 +58,7 @@ void master() {
   int world_size = 0;
   MPI_Comm_size(MPI_COMM_WORLD, &world_size);
 
-  int trials = (int) N_neurons / world_size;
+  int trials = (int)N_neurons / world_size;
 
   log_trace("# Sending %d trials to %d processes.", trials, world_size - 1);
   // send number of trials to each process
@@ -67,7 +69,8 @@ void master() {
   log_trace("# Creating objects.");
   // define time frame
   TimeFrame *time_frame = create_time_frame(t_0, t_end, dt);
-  NeuronIF *neuron = create_neuron_if(mu, D_neuron, neuron_type);
+  NeuronIFAC *neuron =
+      create_neuron_ifac(mu, D_neuron, tau_a, Delta, neuron_type);
 
   // define array for susceptibility
   double complex *suscept_lin =
@@ -96,15 +99,14 @@ void master() {
     double *signal = (double *)calloc(time_frame->N, sizeof(double));
 
     // generate new white noise signal
-    band_limited_white_noise(rng, alpha, f_low, f_high, time_frame, signal
-                             );
+    band_limited_white_noise(rng, alpha, f_low, f_high, time_frame, signal);
 
     // get a spike train from the neuron
-    get_spike_train_if_signal(rng, neuron, signal, time_frame, spike_train);
+    get_spike_train_ifac_signal(rng, neuron, signal, time_frame, spike_train);
 
     // calculate susceptibility
-    susceptibility_lin_nonlin(signal, spike_train, time_frame,
-                              suscept_lin, suscept_nonlin, N_neurons);
+    susceptibility_lin_nonlin(signal, spike_train, time_frame, suscept_lin,
+                              suscept_nonlin, N_neurons);
 
     free(signal);
     free(spike_train);
@@ -157,7 +159,7 @@ void master() {
   free(suscept_lin);
   free(suscept_nonlin);
   free(time_frame);
-  free_neuron_if(neuron);
+  free_neuron_ifac(neuron);
   gsl_rng_free(rng);
 
   log_trace("# Goodbye.");
@@ -172,7 +174,8 @@ void minion() {
 
   // define time frame
   TimeFrame *time_frame = create_time_frame(t_0, t_end, dt);
-  NeuronIF *neuron = create_neuron_if(mu, D_neuron, neuron_type);
+  NeuronIFAC *neuron =
+      create_neuron_ifac(mu, D_neuron, tau_a, Delta, neuron_type);
 
   // define array for susceptibility
   double complex *suscept_lin =
@@ -199,15 +202,14 @@ void minion() {
     double *signal = (double *)calloc(time_frame->N, sizeof(double));
 
     // generate new white noise signal
-    band_limited_white_noise(rng, alpha, f_low, f_high, time_frame, signal
-    );
+    band_limited_white_noise(rng, alpha, f_low, f_high, time_frame, signal);
 
     // get a spike train from the neuron
-    get_spike_train_if_signal(rng, neuron, signal, time_frame, spike_train);
+    get_spike_train_ifac_signal(rng, neuron, signal, time_frame, spike_train);
 
     // calculate susceptibility
-    susceptibility_lin_nonlin(signal, spike_train, time_frame,
-                              suscept_lin, suscept_nonlin, N_neurons);
+    susceptibility_lin_nonlin(signal, spike_train, time_frame, suscept_lin,
+                              suscept_nonlin, N_neurons);
 
     free(signal);
     free(spike_train);
@@ -223,6 +225,6 @@ void minion() {
   free(suscept_lin);
   free(time_frame);
   free(suscept_nonlin);
-  free_neuron_if(neuron);
+  free_neuron_ifac(neuron);
   gsl_rng_free(rng);
 }

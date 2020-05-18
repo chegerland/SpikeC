@@ -81,7 +81,7 @@ void susceptibility_lin_nonlin_matrix(const double complex *isf, double alpha,
                                       const double *spike_train,
                                       const TimeFrame *time_frame,
                                       double complex *suscept_lin,
-                                      double complex **suscept_nonlin,
+                                      double complex *suscept_nonlin,
                                       size_t norm) {
 
   // length of the signals is N/2 + 1 because we perform real DFT
@@ -99,11 +99,12 @@ void susceptibility_lin_nonlin_matrix(const double complex *isf, double alpha,
     suscept_lin[i] += scale * (osf[i] * conj(isf[i]));
   }
 
+  // use triangular matrix for storage (https://stackoverflow.com/a/17606716)
   for (int i = 0; i < length / 4 + 1; i++) {
-    for (int j = 0; j < length / 4 + 1; j++) {
+    for (int j = 0; j <= i; j++) {
       double scale = 1. / ((double)norm * 2. * pow(cabs(isf[i]), 2) *
                            pow(cabs(isf[j]), 2));
-      suscept_nonlin[i][j] += scale * osf[i + j] * conj(isf[i]) * conj(isf[j]);
+      suscept_nonlin[i*(i + 1)/2 + j] += scale * osf[i + j] * conj(isf[i]) * conj(isf[j]);
     }
   }
 

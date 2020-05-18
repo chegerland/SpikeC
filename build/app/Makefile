@@ -87,17 +87,6 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
@@ -108,6 +97,17 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -142,21 +142,6 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-app/CMakeFiles/suscept_mpi.dir/rule:
-	cd /home/cheg/Repos/Master/SpikeLibrary/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 app/CMakeFiles/suscept_mpi.dir/rule
-.PHONY : app/CMakeFiles/suscept_mpi.dir/rule
-
-# Convenience name for target.
-suscept_mpi: app/CMakeFiles/suscept_mpi.dir/rule
-
-.PHONY : suscept_mpi
-
-# fast build rule for target.
-suscept_mpi/fast:
-	cd /home/cheg/Repos/Master/SpikeLibrary/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/suscept_mpi.dir/build.make app/CMakeFiles/suscept_mpi.dir/build
-.PHONY : suscept_mpi/fast
-
-# Convenience name for target.
 app/CMakeFiles/suscept_mpi_new.dir/rule:
 	cd /home/cheg/Repos/Master/SpikeLibrary/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 app/CMakeFiles/suscept_mpi_new.dir/rule
 .PHONY : app/CMakeFiles/suscept_mpi_new.dir/rule
@@ -170,6 +155,21 @@ suscept_mpi_new: app/CMakeFiles/suscept_mpi_new.dir/rule
 suscept_mpi_new/fast:
 	cd /home/cheg/Repos/Master/SpikeLibrary/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/suscept_mpi_new.dir/build.make app/CMakeFiles/suscept_mpi_new.dir/build
 .PHONY : suscept_mpi_new/fast
+
+# Convenience name for target.
+app/CMakeFiles/suscept_mpi.dir/rule:
+	cd /home/cheg/Repos/Master/SpikeLibrary/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 app/CMakeFiles/suscept_mpi.dir/rule
+.PHONY : app/CMakeFiles/suscept_mpi.dir/rule
+
+# Convenience name for target.
+suscept_mpi: app/CMakeFiles/suscept_mpi.dir/rule
+
+.PHONY : suscept_mpi
+
+# fast build rule for target.
+suscept_mpi/fast:
+	cd /home/cheg/Repos/Master/SpikeLibrary/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/suscept_mpi.dir/build.make app/CMakeFiles/suscept_mpi.dir/build
+.PHONY : suscept_mpi/fast
 
 suscept_mpi.o: suscept_mpi.c.o
 

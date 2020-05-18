@@ -87,17 +87,6 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
@@ -108,6 +97,17 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -142,21 +142,6 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-test/CMakeFiles/test_timeframe.dir/rule:
-	cd /home/cheg/Repos/Master/SpikeLibrary/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/CMakeFiles/test_timeframe.dir/rule
-.PHONY : test/CMakeFiles/test_timeframe.dir/rule
-
-# Convenience name for target.
-test_timeframe: test/CMakeFiles/test_timeframe.dir/rule
-
-.PHONY : test_timeframe
-
-# fast build rule for target.
-test_timeframe/fast:
-	cd /home/cheg/Repos/Master/SpikeLibrary/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_timeframe.dir/build.make test/CMakeFiles/test_timeframe.dir/build
-.PHONY : test_timeframe/fast
-
-# Convenience name for target.
 test/CMakeFiles/test_neurons.dir/rule:
 	cd /home/cheg/Repos/Master/SpikeLibrary/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/CMakeFiles/test_neurons.dir/rule
 .PHONY : test/CMakeFiles/test_neurons.dir/rule
@@ -170,6 +155,21 @@ test_neurons: test/CMakeFiles/test_neurons.dir/rule
 test_neurons/fast:
 	cd /home/cheg/Repos/Master/SpikeLibrary/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_neurons.dir/build.make test/CMakeFiles/test_neurons.dir/build
 .PHONY : test_neurons/fast
+
+# Convenience name for target.
+test/CMakeFiles/test_timeframe.dir/rule:
+	cd /home/cheg/Repos/Master/SpikeLibrary/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/CMakeFiles/test_timeframe.dir/rule
+.PHONY : test/CMakeFiles/test_timeframe.dir/rule
+
+# Convenience name for target.
+test_timeframe: test/CMakeFiles/test_timeframe.dir/rule
+
+.PHONY : test_timeframe
+
+# fast build rule for target.
+test_timeframe/fast:
+	cd /home/cheg/Repos/Master/SpikeLibrary/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_timeframe.dir/build.make test/CMakeFiles/test_timeframe.dir/build
+.PHONY : test_timeframe/fast
 
 test_neurons.o: test_neurons.c.o
 

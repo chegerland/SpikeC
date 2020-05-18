@@ -4,13 +4,6 @@
 
 #include "math.h"
 
-/**
- * @brief Allocate memory for time frame
- * @param t_0 Start time
- * @param t_end End time
- * @param dt Time frame
- * @return A time frame
- */
 TimeFrame *create_time_frame(const double t_0, const double t_end,
                              const double dt) {
   assert(t_end > t_0);
@@ -39,11 +32,6 @@ TimeFrame *create_time_frame(const double t_0, const double t_end,
   return time_frame;
 }
 
-/**
- * @brief Creates time frame from given .ini file
- * @param ini_file Ini file object
- * @return A time frame
- */
 TimeFrame *read_time_frame(ini_t *ini_file) {
   TimeFrame *time_frame = (TimeFrame *)calloc(1, sizeof(TimeFrame));
 
@@ -73,11 +61,6 @@ TimeFrame *read_time_frame(ini_t *ini_file) {
   return time_frame;
 }
 
-/**
- * @brief Prints time frame parameters to file (or stderr)
- * @param fp Pointer to file (can be stderr)
- * @param time_frame The time frame
- */
 void print_time_frame(FILE *fp, TimeFrame *time_frame) {
   fprintf(fp,
           "# TimeFrame\n"
@@ -88,10 +71,6 @@ void print_time_frame(FILE *fp, TimeFrame *time_frame) {
           time_frame->t_0, time_frame->t_end, time_frame->dt);
 }
 
-/**
- * @brief Free memory associated with time frame
- * @param time The time frame
- */
 void free_time_frame(TimeFrame *time_frame) {
   if (time_frame != NULL) {
     free(time_frame->t);
