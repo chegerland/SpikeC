@@ -12,7 +12,7 @@ typedef struct {
 
   double c;
   double alpha;
-  int N_neurons;
+  size_t N_neurons;
 
   double complex *suscept_lin;
   double complex *suscept_nonlin;

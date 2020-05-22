@@ -9,9 +9,9 @@ suscept_sim_t *read_suscept_sim(ini_t *ini_file) {
 
   // read the two parameters from ini file
   double c = NAN;
-  int N_neurons = 0;
+  size_t N_neurons = 0;
   ini_sget(ini_file, "Simulation", "c", "%lf", &c);
-  ini_sget(ini_file, "Simulation", "N_neurons", "%d", &N_neurons);
+  ini_sget(ini_file, "Simulation", "N_neurons", "%zu", &N_neurons);
   suscept_sim->c = c;
   suscept_sim->N_neurons = N_neurons;
 
@@ -45,7 +45,7 @@ void print_suscept_sim(FILE *fp, suscept_sim_t *suscept_sim) {
           "#\n"
           "# type = suscept_sim\n"
           "# c = %lf\n"
-          "# N_neurons = %d\n",
+          "# N_neurons = %zu\n",
           suscept_sim->c, suscept_sim->N_neurons);
 }
 

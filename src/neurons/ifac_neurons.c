@@ -17,6 +17,7 @@ NeuronIFAC *create_neuron_ifac(double mu, double D, double tau_a, double Delta,
   adapt_params->tau_a = tau_a;
   adapt_params->Delta = Delta;
   neuron->adapt_params = adapt_params;
+  neuron->type = type;
 
   // depending on the IFAC type, define correct drift
   switch (type) {

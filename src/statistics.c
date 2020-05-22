@@ -6,9 +6,9 @@
 #include "statistics.h"
 #include "utils/fft.h"
 
-double mean(int length, const double *array) {
+double mean(size_t length, const double *array) {
   double mean = 0;
-  for (int i = 0; i < length; i++) {
+  for (size_t i = 0; i < length; i++) {
     mean += array[i] / ((double)length);
   }
   return mean;
@@ -29,7 +29,7 @@ void susceptibility_lin(const double complex *isf, double *spike_train,
   fft_r2c(length, dt, spike_train, osf);
 
   // fill susceptibility and normalize appropriately
-  for (int i = 0; i < length / 2 + 1; i++) {
+  for (size_t i = 0; i < length / 2 + 1; i++) {
     double scale = 1. / ((double)norm * pow(cabs(isf[i]), 2));
     suscept[i] += scale * (osf[i] * conj(isf[i]));
   }
@@ -58,7 +58,7 @@ void susceptibility_lin_nonlin(const double *signal,
   fft_r2c(length, dt, spike_train, osf);
 
   // fill linear susceptibility and normalize appropriately
-  for (int i = 0; i < length / 2 + 1; i++) {
+  for (size_t i = 0; i < length / 2 + 1; i++) {
     double scale = 1. / ((double)norm * pow(cabs(isf[i]), 2));
     suscept_lin[i] += scale * (osf[i] * conj(isf[i]));
   }
@@ -68,7 +68,7 @@ void susceptibility_lin_nonlin(const double *signal,
   // power spectra are also normalized with 1/T, resulting in an overall all
   // factor of 1/T / (1/T^2) = T!
   const double T = time_frame->t_end - time_frame->t_0;
-  for (int i = 0; i < length / 4 + 1; i++) {
+  for (size_t i = 0; i < length / 4 + 1; i++) {
     double scale = T / ((double)norm * 2. * pow(cabs(isf[i]), 4));
     suscept_nonlin[i] += scale * (osf[2 * i] * conj(isf[i]) * conj(isf[i]));
   }
@@ -94,14 +94,14 @@ void susceptibility_lin_nonlin_matrix(const double complex *isf, double alpha,
   fft_r2c(length, dt, spike_train, osf);
 
   // fill susceptibility and normalize appropriately
-  for (int i = 0; i < length / 2 + 1; i++) {
+  for (size_t i = 0; i < length / 2 + 1; i++) {
     double scale = 1. / ((double)norm * pow(cabs(isf[i]), 2));
     suscept_lin[i] += scale * (osf[i] * conj(isf[i]));
   }
 
   // use triangular matrix for storage (https://stackoverflow.com/a/17606716)
-  for (int i = 0; i < length / 4 + 1; i++) {
-    for (int j = 0; j <= i; j++) {
+  for (size_t i = 0; i < length / 4 + 1; i++) {
+    for (size_t j = 0; j <= i; j++) {
       double scale = 1. / ((double)norm * 2. * pow(cabs(isf[i]), 2) *
                            pow(cabs(isf[j]), 2));
       suscept_nonlin[i*(i + 1)/2 + j] += scale * osf[i + j] * conj(isf[i]) * conj(isf[j]);

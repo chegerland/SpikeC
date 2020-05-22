@@ -101,7 +101,6 @@ void read_cmd(int argc, char *argv[]) {
 
 void master(suscept_sim_t *suscept_sim, int world_rank) {
 
-
   // get world size
   int world_size = 0;
   MPI_Comm_size(MPI_COMM_WORLD, &world_size);
@@ -151,10 +150,10 @@ void receive_arrays_from_minions(suscept_sim_t *suscept_sim, int world_size) {
   for (int i = 1; i < world_size; i++) {
 
     // receive arrays
-    MPI_Recv(tmp_suscept_lin, time_frame->N / 2 + 1, MPI_C_DOUBLE_COMPLEX,
+    MPI_Recv(tmp_suscept_lin, (int)time_frame->N / 2 + 1, MPI_C_DOUBLE_COMPLEX,
              MPI_ANY_SOURCE, 1, MPI_COMM_WORLD, &status);
-    MPI_Recv(tmp_suscept_nonlin, time_frame->N / 4 + 1, MPI_C_DOUBLE_COMPLEX,
-             MPI_ANY_SOURCE, 2, MPI_COMM_WORLD, &status);
+    MPI_Recv(tmp_suscept_nonlin, (int)time_frame->N / 4 + 1,
+             MPI_C_DOUBLE_COMPLEX, MPI_ANY_SOURCE, 2, MPI_COMM_WORLD, &status);
 
     // add array to overall susceptibilities
     for (int j = 0; j < time_frame->N / 4 + 1; j++) {
@@ -187,10 +186,10 @@ void minion(suscept_sim_t *suscept_sim, int world_rank) {
 
   // send arrays to master
   log_trace("Sending data back to master.");
-  MPI_Send(suscept_lin, time_frame->N / 2 + 1, MPI_C_DOUBLE_COMPLEX, 0, 1,
+  MPI_Send(suscept_lin, (int)time_frame->N / 2 + 1, MPI_C_DOUBLE_COMPLEX, 0, 1,
            MPI_COMM_WORLD);
-  MPI_Send(suscept_nonlin, time_frame->N / 4 + 1, MPI_C_DOUBLE_COMPLEX, 0, 2,
-           MPI_COMM_WORLD);
+  MPI_Send(suscept_nonlin, (int)time_frame->N / 4 + 1, MPI_C_DOUBLE_COMPLEX, 0,
+           2, MPI_COMM_WORLD);
 }
 
 void calculate_susceptibility(suscept_sim_t *suscept_sim, int trials,

@@ -11,8 +11,8 @@
 #SBATCH --mail-type=END
 #SBATCH --mail-type=FAIL
 
-mpirun ./../../bin/app/suscept_mpi_new -f lif_c_1e-1.ini &&
-mpirun ./../../bin/app/suscept_mpi_new -f lif_c_1e-2.ini &&
-mpirun ./../../bin/app/suscept_mpi_new -f lif_c_5e-1.ini &&
-mpirun ./../../bin/app/suscept_mpi_new -f lif_c_9e-1.ini &&
-mpirun ./../../bin/app/suscept_mpi_new -f lif_c_1e0.ini
+mpirun ./../../bin/suscept_mpi_new -f lif_c_1e-1.ini &&
+mpirun ./../../bin/suscept_mpi_new -f lif_c_1e-2.ini &&
+mpirun ./../../bin/suscept_mpi_new -f lif_c_5e-1.ini &&
+mpirun ./../../bin/suscept_mpi_new -f lif_c_9e-1.ini &&
+mpirun ./../../bin/suscept_mpi_new -f lif_c_1e0.ini

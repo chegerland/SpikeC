@@ -10,7 +10,7 @@ TimeFrame *create_time_frame(const double t_0, const double t_end,
   assert(dt < (t_end - t_0));
 
   // length of time array
-  int N = (int)((t_end - t_0) / dt);
+  size_t N = (t_end - t_0) / dt;
 
   // allocate memory for time frame
   TimeFrame *time_frame = (TimeFrame *)calloc(1, sizeof(TimeFrame));
@@ -25,7 +25,7 @@ TimeFrame *create_time_frame(const double t_0, const double t_end,
   time_frame->t = (double *)calloc(N, sizeof(double));
 
   // initialize times
-  for (int i = 0; i < time_frame->N; i++) {
+  for (size_t i = 0; i < time_frame->N; i++) {
     time_frame->t[i] = t_0 + i * dt;
   }
 
@@ -41,8 +41,11 @@ TimeFrame *read_time_frame(ini_t *ini_file) {
   ini_sget(ini_file, "TimeFrame", "t_end", "%lf", &t_end);
   ini_sget(ini_file, "TimeFrame", "dt", "%lf", &dt);
 
+  assert(t_end > t_0);
+  assert(dt < (t_end - t_0));
+
   // length of time array
-  int N = (int)((t_end - t_0) / dt);
+  size_t N = (t_end - t_0) / dt;
 
   // pass parameters
   time_frame->t_0 = t_0;
@@ -54,7 +57,7 @@ TimeFrame *read_time_frame(ini_t *ini_file) {
   time_frame->t = (double *)calloc(N, sizeof(double));
 
   // initialize times
-  for (int i = 0; i < time_frame->N; i++) {
+  for (size_t i = 0; i < time_frame->N; i++) {
     time_frame->t[i] = t_0 + i * dt;
   }
 

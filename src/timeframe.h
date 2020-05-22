@@ -13,7 +13,7 @@ typedef struct {
   double t_0;   ///< start time
   double t_end; ///< end time
   double dt;    ///< time step
-  int N;        ///< number of steps
+  size_t N;        ///< number of steps
   double *t;    ///< array containing times
 } TimeFrame;
 

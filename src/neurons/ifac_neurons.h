@@ -11,6 +11,7 @@ typedef struct {
 } adapt_params_t;
 
 typedef struct {
+  enum IFAC_TYPE type;
   if_params_t *params;
   adapt_params_t *adapt_params;
   double (*drift)(double, int, if_params_t *);
