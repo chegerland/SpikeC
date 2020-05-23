@@ -2,3 +2,6 @@
 bin/
 build/
 cmake-build-*/
+
+data/
+!data/testfiles

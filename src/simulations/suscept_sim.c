@@ -1,13 +1,12 @@
 #include "suscept_sim.h"
-
 #include <math.h>
+#include <string.h>
 
 suscept_sim_t *read_suscept_sim(ini_t *ini_file) {
 
-  suscept_sim_t *suscept_sim =
-      (suscept_sim_t *)calloc(1, sizeof(suscept_sim_t));
+  suscept_sim_t *suscept_sim = malloc(sizeof(suscept_sim_t));
 
-  // read the two parameters from ini file
+  // read the simulation parameters from ini file
   double c = NAN;
   size_t N_neurons = 0;
   ini_sget(ini_file, "Simulation", "c", "%lf", &c);
@@ -15,13 +14,28 @@ suscept_sim_t *read_suscept_sim(ini_t *ini_file) {
   suscept_sim->c = c;
   suscept_sim->N_neurons = N_neurons;
 
-  // read neuron and time frame from ini file
+  // read time frame from ini file
   suscept_sim->time_frame = read_time_frame(ini_file);
-  suscept_sim->neuron = read_neuron_if(ini_file);
 
-  // change diffusion coefficient of neuron
-  double D = suscept_sim->neuron->params->D;
-  suscept_sim->neuron->params->D = D * (1.0 - c);
+  // read the neuron type
+  const char *neuron_type = NULL;
+  ini_sget(ini_file, "Neuron", "type", NULL, &neuron_type);
+
+  if (strcmp(neuron_type, "LIFAC") == 0 || strcmp(neuron_type, "PIFAC") == 0) {
+    suscept_sim->neuron = read_neuron_ifac(ini_file);
+    suscept_sim->get_spike_train = get_spike_train_ifac_signal;
+  } else if (strcmp(neuron_type, "LIF") == 0 ||
+             strcmp(neuron_type, "PIF") == 0) {
+    suscept_sim->neuron = read_neuron_if(ini_file);
+    suscept_sim->get_spike_train = get_spike_train_if_signal;
+  } else {
+    printf("Invalid Neuron type (%s)\n", neuron_type);
+    exit(EXIT_FAILURE);
+  }
+
+  // change diffusion coefficient of the neuron
+  double D = suscept_sim->neuron->if_params->D;
+  suscept_sim->neuron->if_params->D = D * (1.0 - c);
 
   // set strength of white noise
   suscept_sim->alpha = D * c;
@@ -38,7 +52,7 @@ suscept_sim_t *read_suscept_sim(ini_t *ini_file) {
 void print_suscept_sim(FILE *fp, suscept_sim_t *suscept_sim) {
   print_time_frame(fp, suscept_sim->time_frame);
   fprintf(fp, "#\n");
-  print_neuron_if(fp, suscept_sim->neuron);
+  print_neuron(fp, suscept_sim->neuron);
   fprintf(fp, "#\n");
   fprintf(fp,
           "# Simulation\n"
@@ -69,7 +83,7 @@ void write_suscepts_to_file(FILE *fp, suscept_sim_t *suscept_sim) {
 void free_suscept_sim(suscept_sim_t *suscept_sim) {
   if (suscept_sim != NULL) {
     free_time_frame(suscept_sim->time_frame);
-    free_neuron_if(suscept_sim->neuron);
+    free_neuron(suscept_sim->neuron);
     free(suscept_sim->suscept_lin);
     free(suscept_sim->suscept_nonlin);
   }

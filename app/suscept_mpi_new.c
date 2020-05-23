@@ -197,7 +197,7 @@ void calculate_susceptibility(suscept_sim_t *suscept_sim, int trials,
 
   // for better readibility
   TimeFrame *time_frame = suscept_sim->time_frame;
-  NeuronIF *neuron = suscept_sim->neuron;
+  Neuron *neuron = suscept_sim->neuron;
   double complex *suscept_lin = suscept_sim->suscept_lin;
   double complex *suscept_nonlin = suscept_sim->suscept_nonlin;
 
@@ -222,7 +222,7 @@ void calculate_susceptibility(suscept_sim_t *suscept_sim, int trials,
                              1. / (2. * time_frame->dt), time_frame, signal);
 
     // get a spike train from the neuron
-    get_spike_train_if_signal(rng, neuron, signal, time_frame, spike_train);
+    suscept_sim->get_spike_train(rng, neuron, signal, time_frame, spike_train);
 
     // calculate susceptibility
     susceptibility_lin_nonlin(signal, spike_train, time_frame, suscept_lin,

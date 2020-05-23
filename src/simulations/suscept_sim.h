@@ -1,14 +1,17 @@
 #ifndef SUSCEPT_SIM_H
 #define SUSCEPT_SIM_H
 
-#include "../neurons/if_neurons.h"
+#include "../neurons.h"
 #include "../timeframe.h"
 #include "../utils/ini.h"
 #include <complex.h>
 
 typedef struct {
   TimeFrame *time_frame;
-  NeuronIF *neuron;
+  Neuron *neuron;
+  void (*get_spike_train)(const gsl_rng *r, Neuron *neuron,
+                          const double *signal, TimeFrame *time_frame,
+                          double *spike_train);
 
   double c;
   double alpha;

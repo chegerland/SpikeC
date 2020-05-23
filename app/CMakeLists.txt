@@ -9,11 +9,11 @@
 #        spike
 #        )
 
-add_executable(suscept_mpi suscept_mpi.c)
-target_link_libraries(suscept_mpi
-        spike
-        MPI::MPI_C
-        )
+#add_executable(suscept_mpi suscept_mpi.c)
+#target_link_libraries(suscept_mpi
+#        spike
+#        MPI::MPI_C
+#        )
 
 add_executable(suscept_mpi_new suscept_mpi_new.c)
 target_link_libraries(suscept_mpi_new

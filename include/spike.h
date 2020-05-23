@@ -1,8 +1,7 @@
 #ifndef SPIKE_H
 #define SPIKE_H
 
-#include "../src/neurons/if_neurons.h"
-#include "../src/neurons/ifac_neurons.h"
+#include "../src/neurons.h"
 #include "../src/signals.h"
 #include "../src/simulations/suscept_sim.h"
 #include "../src/statistics.h"

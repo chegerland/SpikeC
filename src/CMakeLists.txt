@@ -4,8 +4,7 @@ set(spike_sources
         utils/log.c
         utils/io_utils.c
         timeframe.c
-        neurons/if_neurons.c
-        neurons/ifac_neurons.c
+        neurons.c
         simulations/suscept_sim.c
         signals.c
         statistics.c
