@@ -11,6 +11,11 @@ set(spike_sources
         )
 add_library(spike SHARED ${spike_sources})
 
+set_target_properties(spike PROPERTIES
+VERSION ${PROJECT_VERSION}
+SOVERSION 1
+)
+
 # link with library
 target_link_libraries(spike
         ${GSL_LIBRARY}

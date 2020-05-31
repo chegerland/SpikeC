@@ -1,4 +1,4 @@
-#include "spike.h"
+#include "../src/spike.h"
 
 #include <complex.h>
 #include <getopt.h>

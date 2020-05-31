@@ -1,4 +1,4 @@
-#include "spike.h"
+#include "../src/spike.h"
 #include "unittest.h"
 #include <stdio.h>
 
