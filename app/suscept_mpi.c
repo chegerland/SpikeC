@@ -115,7 +115,9 @@ void master(suscept_sim_t *suscept_sim, int world_rank) {
   }
 
   // calculate the susceptibility
+  log_info("Starting calculation on master.");
   calculate_susceptibility(suscept_sim, trials, world_rank);
+  log_info("Finished calculation on master.");
 
   receive_arrays_from_minions(suscept_sim, world_size);
 
@@ -140,9 +142,9 @@ void receive_arrays_from_minions(suscept_sim_t *suscept_sim, int world_size) {
 
   // define array for susceptibility
   double complex *tmp_suscept_lin =
-      (double complex *)calloc(time_frame->N / 2 + 1, sizeof(double complex));
+      malloc((time_frame->N / 2 + 1) * sizeof(double complex));
   double complex *tmp_suscept_nonlin =
-      (double complex *)calloc(time_frame->N / 4 + 1, sizeof(double complex));
+      malloc((time_frame->N / 4 + 1) * sizeof(double complex));
 
   // receive arrays back from subprocesses
   MPI_Status status;
@@ -212,10 +214,10 @@ void calculate_susceptibility(suscept_sim_t *suscept_sim, int trials,
   for (int i = 0; i < trials; i++) {
 
     // define spike train
-    double *spike_train = (double *)calloc(time_frame->N, sizeof(double));
+    double *spike_train = calloc(time_frame->N, sizeof(double));
 
     // define signal and its frequencies
-    double *signal = (double *)calloc(time_frame->N, sizeof(double));
+    double *signal = malloc((time_frame->N) * sizeof(double));
 
     // generate new white noise signal
     band_limited_white_noise(rng, suscept_sim->alpha, 0.,

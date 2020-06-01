@@ -1,6 +1,10 @@
 #ifndef NEURONS_H
 #define NEURONS_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include "timeframe.h"
 #include <gsl/gsl_randist.h>
 #include <stdbool.h>
@@ -24,13 +28,13 @@ typedef struct {
   enum NEURON_TYPE type;                       ///< type of the IF neuron
   if_params_t *if_params;                         ///< parameters of the IF neuron
   adapt_params_t *adapt_params;                ///< parameters of the adaptation
-  double (*drift)(double, int, if_params_t *); ///< drift of the IF neuron
+  double (*drift)(double, int, const if_params_t *); ///< drift of the IF neuron
 } Neuron;
 
 bool is_ifac(enum NEURON_TYPE type);
 
-double lif_drift(double v, int i, if_params_t *params);
-double pif_drift(double v, int i, if_params_t *params);
+double lif_drift(double v, int i, const if_params_t *params);
+double pif_drift(double v, int i, const if_params_t *params);
 
 Neuron *create_neuron_if(double mu, double D, enum NEURON_TYPE type);
 Neuron *create_neuron_ifac(double mu, double D, double tau_a, double Delta,
@@ -39,17 +43,21 @@ Neuron *read_neuron_if(ini_t *ini_file);
 Neuron *read_neuron_ifac(ini_t *ini_file);
 
 void free_neuron(Neuron *neuron);
-void print_neuron(FILE *fp, Neuron *neuron);
+void print_neuron(FILE *fp, const Neuron *neuron);
 
-void get_spike_train_if(const gsl_rng *r, Neuron *neuron,
-                        TimeFrame *time_frame, double *spike_train);
-void get_spike_train_if_signal(const gsl_rng *r, Neuron *neuron,
-                               const double *signal, TimeFrame *time_frame,
+void get_spike_train_if(const gsl_rng *r, const Neuron *neuron,
+                        const TimeFrame *time_frame, double *spike_train);
+void get_spike_train_if_signal(const gsl_rng *r, const Neuron *neuron,
+                               const double *signal, const TimeFrame *time_frame,
                                double *spike_train);
-void get_spike_train_ifac(const gsl_rng *r, Neuron *neuron,
-                        TimeFrame *time_frame, double *spike_train);
-void get_spike_train_ifac_signal(const gsl_rng *r, Neuron *neuron,
-                               const double *signal, TimeFrame *time_frame,
+void get_spike_train_ifac(const gsl_rng *r, const Neuron *neuron,
+                        const TimeFrame *time_frame, double *spike_train);
+void get_spike_train_ifac_signal(const gsl_rng *r, const Neuron *neuron,
+                               const double *signal, const TimeFrame *time_frame,
                                double *spike_train);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif // NEURONS_H

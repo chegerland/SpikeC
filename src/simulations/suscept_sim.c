@@ -49,7 +49,7 @@ suscept_sim_t *read_suscept_sim(ini_t *ini_file) {
   return suscept_sim;
 }
 
-void print_suscept_sim(FILE *fp, suscept_sim_t *suscept_sim) {
+void print_suscept_sim(FILE *fp, const suscept_sim_t *suscept_sim) {
   print_time_frame(fp, suscept_sim->time_frame);
   fprintf(fp, "#\n");
   print_neuron(fp, suscept_sim->neuron);
@@ -63,7 +63,7 @@ void print_suscept_sim(FILE *fp, suscept_sim_t *suscept_sim) {
           suscept_sim->c, suscept_sim->N_neurons);
 }
 
-void write_suscepts_to_file(FILE *fp, suscept_sim_t *suscept_sim) {
+void write_suscepts_to_file(FILE *fp, const suscept_sim_t *suscept_sim) {
   // explain data type
   fprintf(fp, "#\n");
   fprintf(fp, "# Data format: f, Re[chi_1(f)], Im[chi_1(f)], Re[chi_2(f,f)], "

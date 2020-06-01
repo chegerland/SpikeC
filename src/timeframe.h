@@ -44,7 +44,7 @@ void free_time_frame(TimeFrame *time_frame);
  * @param fp Pointer to file (can be stderr)
  * @param time_frame The time frame
  */
-void print_time_frame(FILE *fp, TimeFrame *time_frame);
+void print_time_frame(FILE *fp, const TimeFrame *time_frame);
 
 #ifdef __cplusplus
 }

@@ -1,6 +1,10 @@
 #ifndef SUSCEPT_SIM_H
 #define SUSCEPT_SIM_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include "../neurons.h"
 #include "../timeframe.h"
 #include "../utils/ini.h"
@@ -9,8 +13,8 @@
 typedef struct {
   TimeFrame *time_frame;
   Neuron *neuron;
-  void (*get_spike_train)(const gsl_rng *r, Neuron *neuron,
-                          const double *signal, TimeFrame *time_frame,
+  void (*get_spike_train)(const gsl_rng *r, const Neuron *neuron,
+                          const double *signal, const TimeFrame *time_frame,
                           double *spike_train);
 
   double c;
@@ -23,8 +27,12 @@ typedef struct {
 
 suscept_sim_t *read_suscept_sim(ini_t *ini_file);
 
-void print_suscept_sim(FILE *fp, suscept_sim_t *suscept_sim);
-void write_suscepts_to_file(FILE *fp, suscept_sim_t *suscept_sim);
+void print_suscept_sim(FILE *fp, const suscept_sim_t *suscept_sim);
+void write_suscepts_to_file(FILE *fp, const suscept_sim_t *suscept_sim);
 void free_suscept_sim(suscept_sim_t *suscept_sim);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif // SUSCEPT_SIM_H

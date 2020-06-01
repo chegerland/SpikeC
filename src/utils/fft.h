@@ -1,6 +1,10 @@
 #ifndef FFT_H
 #define FFT_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include <complex.h>
 #include <fftw3.h>
 
@@ -34,5 +38,9 @@ inline void fft_c2r(int length, double dt, const double complex *signal_fourier,
     signal[i] /= (double) length * dt;
   }
 }
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif // FFT_H

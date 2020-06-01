@@ -23,8 +23,7 @@ void susceptibility_lin(const double complex *isf, double *spike_train,
   const double dt = time_frame->dt;
 
   // fourier transform spiketrain
-  double complex *osf =
-      (double complex *)calloc(length / 2 + 1, sizeof(double complex));
+  double complex *osf = malloc((length / 2 + 1) * sizeof(double complex));
 
   fft_r2c(length, dt, spike_train, osf);
 
@@ -48,13 +47,11 @@ void susceptibility_lin_nonlin(const double *signal,
   const double dt = time_frame->dt;
 
   // fourier transform input signal
-  double complex *isf =
-      (double complex *)calloc(length / 2 + 1, sizeof(double complex));
+  double complex *isf = malloc((length / 2 + 1) * sizeof(double complex));
   fft_r2c(length, dt, signal, isf);
 
   // fourier transform spiketrain
-  double complex *osf =
-      (double complex *)calloc(length / 2 + 1, sizeof(double complex));
+  double complex *osf = malloc((length / 2 + 1) * sizeof(double complex));
   fft_r2c(length, dt, spike_train, osf);
 
   // fill linear susceptibility and normalize appropriately
@@ -89,8 +86,7 @@ void susceptibility_lin_nonlin_matrix(const double complex *isf, double alpha,
   const double dt = time_frame->dt;
 
   // fourier transform spiketrain
-  double complex *osf =
-      (double complex *)calloc(length / 2 + 1, sizeof(double complex));
+  double complex *osf = malloc((length / 2 + 1) * sizeof(double complex));
   fft_r2c(length, dt, spike_train, osf);
 
   // fill susceptibility and normalize appropriately
