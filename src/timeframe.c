@@ -10,7 +10,7 @@ TimeFrame *create_time_frame(const double t_0, const double t_end,
   assert(dt < (t_end - t_0));
 
   // length of time array
-  size_t N = (t_end - t_0) / dt;
+  size_t N = (t_end - t_0) / dt + 1;
 
   // allocate memory for time frame
   TimeFrame *time_frame = malloc(sizeof(TimeFrame));
@@ -45,7 +45,7 @@ TimeFrame *read_time_frame(ini_t *ini_file) {
   assert(dt < (t_end - t_0));
 
   // length of time array
-  size_t N = (t_end - t_0) / dt;
+  size_t N = (t_end - t_0) / dt + 1;
 
   // pass parameters
   time_frame->t_0 = t_0;
