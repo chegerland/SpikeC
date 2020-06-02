@@ -12,6 +12,7 @@ extern "C" {
 #include "timeframe.h"
 #include "utils/fft.h"
 #include "utils/ini.h"
+#include "utils/info.h"
 #include "utils/io_utils.h"
 #include "utils/log.h"
 

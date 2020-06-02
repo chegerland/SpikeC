@@ -126,6 +126,7 @@ void master(suscept_sim_t *suscept_sim, int world_rank) {
   FILE *f = NULL;
   f = fopen(files->output_file, "w");
 
+  print_spike_build_info(f);
   print_suscept_sim(f, suscept_sim);
   write_suscepts_to_file(f, suscept_sim);
 
