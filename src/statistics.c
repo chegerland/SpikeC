@@ -9,13 +9,13 @@
 double mean(size_t length, const double *array) {
   double mean = 0;
   for (size_t i = 0; i < length; i++) {
-    mean += array[i] / ((double)length);
+    mean += array[i];
   }
-  return mean;
+  return mean/((double) length);
 }
 
 double variance(size_t length, const double *array) {
-  double var = 0;
+  double var = 0.0;
   double array_mean = mean(length, array);
   for (size_t i = 0; i < length; i++) {
     var += 1./((double) length) * pow(array[i] - array_mean,2);

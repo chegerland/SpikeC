@@ -1,5 +1,6 @@
 #include "unittest.h"
 #include "test_neurons.h"
+#include "test_signals.h"
 #include "test_timeframe.h"
 #include <stdio.h>
 
@@ -10,6 +11,9 @@ static char *all_tests() {
   // time frame tests
   mu_run_test(test_timeframe_parameters_given);
   mu_run_test(test_timeframe_ini_given);
+
+  // signal tests
+  mu_run_test(test_bandlimited_white_noise);
 
   // neuron tests
   mu_run_test(test_neuron_if_parameters);
