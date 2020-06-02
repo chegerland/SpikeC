@@ -14,6 +14,61 @@ double mean(size_t length, const double *array) {
   return mean;
 }
 
+double variance(size_t length, const double *array) {
+  double var = 0;
+  double array_mean = mean(length, array);
+  for (size_t i = 0; i < length; i++) {
+    var += 1./((double) length) * pow(array[i] - array_mean,2);
+  }
+
+  return var;
+}
+
+int spike_count(size_t length, const double *spike_train) {
+  int count = 0;
+
+  for (size_t i = 0; i < length; i++) {
+    if (spike_train[i] != 0) {
+      count++;
+    }
+  }
+
+  return count;
+}
+
+int calculate_spike_times(const TimeFrame *time_frame,
+                          const double *spike_train, double *spike_times) {
+
+  int last_index = 0; ///< last index a spike happened
+  int spike_times_count = 0; ///< number of interspike intervals
+
+  // loop over the whole spike train
+  for (size_t i = 1; i < time_frame->N; i++) {
+
+    // if the neuron has spiked
+    if (spike_train[i] != 0) {
+
+      // add interspike interval to spike_times array
+      spike_times[spike_times_count] = time_frame->t[i] - time_frame->t[last_index];
+
+      last_index = i;
+      spike_times_count++;
+    }
+  }
+
+  // reallocate memory for spike_times
+  spike_times = realloc(spike_times, spike_times_count * sizeof(double));
+
+  return spike_times_count;
+}
+
+double calculate_cv(size_t length, double *array) {
+  double array_mean = mean(length, array);
+  double array_std = sqrt(variance(length, array));
+
+  return array_std/array_mean;
+}
+
 void susceptibility_lin(const double complex *isf, double *spike_train,
                         const TimeFrame *time_frame, double complex *suscept,
                         size_t norm) {
@@ -36,8 +91,7 @@ void susceptibility_lin(const double complex *isf, double *spike_train,
   free(osf);
 }
 
-void susceptibility_lin_nonlin(const double *signal,
-                               const double *spike_train,
+void susceptibility_lin_nonlin(const double *signal, const double *spike_train,
                                const TimeFrame *time_frame,
                                double complex *suscept_lin,
                                double complex *suscept_nonlin, size_t norm) {
@@ -100,7 +154,8 @@ void susceptibility_lin_nonlin_matrix(const double complex *isf, double alpha,
     for (size_t j = 0; j <= i; j++) {
       double scale = 1. / ((double)norm * 2. * pow(cabs(isf[i]), 2) *
                            pow(cabs(isf[j]), 2));
-      suscept_nonlin[i*(i + 1)/2 + j] += scale * osf[i + j] * conj(isf[i]) * conj(isf[j]);
+      suscept_nonlin[i * (i + 1) / 2 + j] +=
+          scale * osf[i + j] * conj(isf[i]) * conj(isf[j]);
     }
   }
 
