@@ -43,7 +43,7 @@ Neuron *read_neuron_if(ini_t *ini_file);
 Neuron *read_neuron_ifac(ini_t *ini_file);
 
 void free_neuron(Neuron *neuron);
-void print_neuron(FILE *fp, const Neuron *neuron);
+void print_neuron(FILE *stream, const Neuron *neuron);
 
 void get_spike_train_if(const gsl_rng *r, const Neuron *neuron,
                         const TimeFrame *time_frame, double *spike_train);

@@ -41,10 +41,10 @@ void free_time_frame(TimeFrame *time_frame);
 
 /**
  * @brief Prints time frame parameters to file (or stderr)
- * @param fp Pointer to file (can be stderr)
+ * @param stream Pointer to file (can be stderr)
  * @param time_frame The time frame
  */
-void print_time_frame(FILE *fp, const TimeFrame *time_frame);
+void print_time_frame(FILE *stream, const TimeFrame *time_frame);
 
 #ifdef __cplusplus
 }

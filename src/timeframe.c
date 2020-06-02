@@ -64,8 +64,8 @@ TimeFrame *read_time_frame(ini_t *ini_file) {
   return time_frame;
 }
 
-void print_time_frame(FILE *fp, const TimeFrame *time_frame) {
-  fprintf(fp,
+void print_time_frame(FILE *stream, const TimeFrame *time_frame) {
+  fprintf(stream,
           "# TimeFrame\n"
           "#\n"
           "# t_0 = %lf\n"

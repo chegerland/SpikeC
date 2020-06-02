@@ -165,8 +165,8 @@ void free_neuron(Neuron *neuron) {
   }
 }
 
-void print_neuron(FILE *fp, const Neuron *neuron) {
-  fprintf(fp,
+void print_neuron(FILE *stream, const Neuron *neuron) {
+  fprintf(stream,
           "# Neuron\n"
           "#\n"
           "# type = %s\n"
@@ -176,7 +176,7 @@ void print_neuron(FILE *fp, const Neuron *neuron) {
           neuron->if_params->D);
 
   if (is_ifac(neuron->type)) {
-    fprintf(fp,
+    fprintf(stream,
             "# tau_a = %lf\n"
             "# Delta = %lf\n",
             neuron->adapt_params->tau_a, neuron->adapt_params->Delta);
