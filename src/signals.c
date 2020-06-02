@@ -40,7 +40,7 @@ void band_limited_white_noise(const gsl_rng *r, double alpha, double f_low,
                               double *signal) {
 
   // number of steps and time step
-  const int N = time_frame->N;
+  const size_t N = time_frame->N;
   const double dt = time_frame->dt;
 
   // cut-off indices corresponding to the cut-off frequencies
@@ -50,10 +50,10 @@ void band_limited_white_noise(const gsl_rng *r, double alpha, double f_low,
   // normalization, so that power spectrum is equal to 2 * alpha
   double height = sqrt(2. * alpha * (time_frame->t_end - time_frame->t_0));
 
-  double complex freqs[time_frame->N / 2 + 1];
+  double complex freqs[N / 2 + 1];
 
   // white noise in frequency space has constant amplitude, random phase
-  for (int i = 1; i < N / 2; i++) {
+  for (size_t i = 1; i < N / 2 + 1; i++) {
     double rand = gsl_ran_gaussian(r, 1.0);
     freqs[i] =
         height * (cos(2.0 * M_PI * rand) - _Complex_I * sin(2.0 * M_PI * rand));
