@@ -1,11 +1,10 @@
 #include "io_utils.h"
-#include <malloc.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
 
-files_t *create_files(const char *input_file) {
+files_t *create_files(const char *input_file, const char *append) {
 
   // check that input file has .ini extension
   const char *input_file_ext = get_filename_ext(input_file);
@@ -22,10 +21,12 @@ files_t *create_files(const char *input_file) {
 
   // create output file name
   char *output_file = remove_file_ext(input_file);
+  output_file = realloc(output_file, strlen(output_file) + strlen(append) + 6);
+  strcat(output_file, append);
   strcat(output_file, ".csv");
 
   // create file struct
-  files_t *files = (files_t *)calloc(1, sizeof(files_t));
+  files_t *files = malloc(sizeof(files_t));
   files->input_file = input_file;
   files->output_file = output_file;
 
