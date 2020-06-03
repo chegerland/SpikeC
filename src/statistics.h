@@ -16,7 +16,13 @@ int spike_count(size_t length, const double *spike_train);
 int calculate_spike_times(const TimeFrame *time_frame,
                           const double *spike_train, double *spike_times);
 
-void susceptibility_lin(const double complex *isf, double *spike_train,
+void power_spectrum(const double *signal, const TimeFrame *time_frame,
+                    double *spectrum, size_t norm);
+void cross_spectrum(const double *first_signal, const double *second_signal,
+                    const TimeFrame *time_frame, double complex *spectrum,
+                    size_t norm);
+
+void susceptibility_lin(const double complex *isf, const double *spike_train,
                         const TimeFrame *time_frame, double complex *suscept,
                         size_t norm);
 void susceptibility_lin_nonlin(const double *signal, const double *spike_train,

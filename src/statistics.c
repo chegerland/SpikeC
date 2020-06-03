@@ -11,17 +11,24 @@ double mean(size_t length, const double *array) {
   for (size_t i = 0; i < length; i++) {
     mean += array[i];
   }
-  return mean/((double) length);
+  return mean / ((double)length);
 }
 
 double variance(size_t length, const double *array) {
   double var = 0.0;
   double array_mean = mean(length, array);
   for (size_t i = 0; i < length; i++) {
-    var += 1./((double) length) * pow(array[i] - array_mean,2);
+    var += 1. / ((double)length) * pow(array[i] - array_mean, 2);
   }
 
   return var;
+}
+
+double calculate_cv(size_t length, double *array) {
+  double array_mean = mean(length, array);
+  double array_std = sqrt(variance(length, array));
+
+  return array_std / array_mean;
 }
 
 int spike_count(size_t length, const double *spike_train) {
@@ -39,7 +46,7 @@ int spike_count(size_t length, const double *spike_train) {
 int calculate_spike_times(const TimeFrame *time_frame,
                           const double *spike_train, double *spike_times) {
 
-  int last_index = 0; ///< last index a spike happened
+  int last_index = 0;        ///< last index a spike happened
   int spike_times_count = 0; ///< number of interspike intervals
 
   // loop over the whole spike train
@@ -49,7 +56,8 @@ int calculate_spike_times(const TimeFrame *time_frame,
     if (spike_train[i] != 0) {
 
       // add interspike interval to spike_times array
-      spike_times[spike_times_count] = time_frame->t[i] - time_frame->t[last_index];
+      spike_times[spike_times_count] =
+          time_frame->t[i] - time_frame->t[last_index];
 
       last_index = i;
       spike_times_count++;
@@ -62,14 +70,51 @@ int calculate_spike_times(const TimeFrame *time_frame,
   return spike_times_count;
 }
 
-double calculate_cv(size_t length, double *array) {
-  double array_mean = mean(length, array);
-  double array_std = sqrt(variance(length, array));
+void power_spectrum(const double *signal, const TimeFrame *time_frame,
+                    double *spectrum, size_t norm) {
+  // length of the signals is N/2 + 1 because we perform real DFT
+  size_t length = time_frame->N;
+  const double dt = time_frame->dt;
 
-  return array_std/array_mean;
+  // fourier transform spiketrain
+  double complex *sf = malloc((length / 2 + 1) * sizeof(double complex));
+  fft_r2c(length, dt, signal, sf);
+
+  // fill susceptibility and normalize appropriately
+  for (size_t i = 0; i < length / 2 + 1; i++) {
+    double scale = 1. / ((double)norm * (time_frame->t_end - time_frame->t_0));
+    spectrum[i] += scale * cabs(sf[i]);
+  }
+
+  // free memory
+  free(sf);
 }
 
-void susceptibility_lin(const double complex *isf, double *spike_train,
+void cross_spectrum(const double *first_signal, const double *second_signal,
+                    const TimeFrame *time_frame, double complex *spectrum,
+                    size_t norm) {
+  // length of the signals is N/2 + 1 because we perform real DFT
+  size_t length = time_frame->N;
+  const double dt = time_frame->dt;
+
+  // fourier transform spiketrain
+  double complex *sf1 = malloc((length / 2 + 1) * sizeof(double complex));
+  double complex *sf2 = malloc((length / 2 + 1) * sizeof(double complex));
+  fft_r2c(length, dt, first_signal, sf1);
+  fft_r2c(length, dt, second_signal, sf2);
+
+  // fill susceptibility and normalize appropriately
+  for (size_t i = 0; i < length / 2 + 1; i++) {
+    double scale = 1. / ((double)norm * (time_frame->t_end - time_frame->t_0));
+    spectrum[i] += scale * (sf1[i] * conj(sf2[i]));
+  }
+
+  // free memory
+  free(sf1);
+  free(sf2);
+}
+
+void susceptibility_lin(const double complex *isf, const double *spike_train,
                         const TimeFrame *time_frame, double complex *suscept,
                         size_t norm) {
 

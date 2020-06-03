@@ -12,7 +12,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/bin)
 # cmake modules
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${PROJECT_SOURCE_DIR}/cmake/findFFTW")
 
-# add gsl, mpi, fftw
+# add git, gsl, mpi, fftw
 find_package(Git)
 find_package(GSL REQUIRED)
 find_package(OpenMP REQUIRED)
