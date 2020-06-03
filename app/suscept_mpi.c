@@ -11,6 +11,8 @@ void minion(suscept_sim_t *suscept_sim, int world_rank);
 void calculate_susceptibility(suscept_sim_t *suscept_sim, int trials,
                               int world_rank);
 void receive_arrays_from_minions(suscept_sim_t *suscept_sim, int world_size);
+void calculate_rate_and_cv(suscept_sim_t *suscept_sim, double *rate,
+                           double *cv);
 
 files_t *files;
 
@@ -78,7 +80,7 @@ void read_cmd(int argc, char *argv[]) {
       break;
 
     case 'f':
-      files = create_files(optarg);
+      files = create_files(optarg, "_suscept");
       break;
 
     case '?':
@@ -121,13 +123,22 @@ void master(suscept_sim_t *suscept_sim, int world_rank) {
 
   receive_arrays_from_minions(suscept_sim, world_size);
 
+  // calculate stationary firing rate and CV
+  double rate, cv;
+  calculate_rate_and_cv(suscept_sim, &rate, &cv);
+
   // write to file
   log_info("Writing results to output file %s.", files->output_file);
   FILE *f = NULL;
   f = fopen(files->output_file, "w");
 
   print_spike_build_info(f);
+  fprintf(f, "#\n");
+  fprintf(f, "# Stationary firing rate: %lf\n", rate);
+  fprintf(f, "# CV: %lf\n", cv);
+  fprintf(f, "#\n");
   print_suscept_sim(f, suscept_sim);
+  fprintf(f, "#\n");
   write_suscepts_to_file(f, suscept_sim);
 
   fclose(f);
@@ -238,4 +249,43 @@ void calculate_susceptibility(suscept_sim_t *suscept_sim, int trials,
 
   // free rng
   gsl_rng_free(rng);
+}
+
+void calculate_rate_and_cv(suscept_sim_t *suscept_sim, double *rate,
+                           double *cv) {
+
+  // for better readibility
+  TimeFrame *time_frame = suscept_sim->time_frame;
+  Neuron *neuron = suscept_sim->neuron;
+
+  // setup rng
+  gsl_rng_env_setup();
+  gsl_rng *rng = gsl_rng_alloc(gsl_rng_mt19937);
+
+  // define spike train, signal and spike times
+  double *spike_train = calloc(time_frame->N, sizeof(double));
+  double *signal = malloc((time_frame->N) * sizeof(double));
+  double *spike_times = malloc((time_frame->N) * sizeof(double));
+
+  // generate new white noise signal
+  band_limited_white_noise(rng, suscept_sim->alpha, 0.,
+                           1. / (2. * time_frame->dt), time_frame, signal);
+
+  // get a spike train from the neuron
+  suscept_sim->get_spike_train(rng, neuron, signal, time_frame, spike_train);
+
+  // calculate stationary firing rate
+  *rate = (double)spike_count(time_frame->N, spike_train) /
+         (time_frame->t_end - time_frame->t_0);
+
+  // calculate spike times and cv
+  int spike_times_length =
+      calculate_spike_times(time_frame, spike_train, spike_times);
+  *cv = calculate_cv(spike_times_length, spike_times);
+
+  // free memory
+  gsl_rng_free(rng);
+  free(signal);
+  free(spike_train);
+  free(spike_times);
 }
