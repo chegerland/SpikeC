@@ -55,8 +55,7 @@ void print_suscept_sim(FILE *fp, const suscept_sim_t *suscept_sim) {
   print_neuron(fp, suscept_sim->neuron);
   fprintf(fp, "#\n");
   fprintf(fp,
-          "# Simulation\n"
-          "#\n"
+          "# [Simulation]\n"
           "# type = suscept_sim\n"
           "# c = %lf\n"
           "# N_neurons = %zu\n",
@@ -64,10 +63,10 @@ void print_suscept_sim(FILE *fp, const suscept_sim_t *suscept_sim) {
 }
 
 void write_suscepts_to_file(FILE *fp, const suscept_sim_t *suscept_sim) {
-  // explain data type
-  fprintf(fp, "#\n");
+  // explain data format
   fprintf(fp, "# Data format: f, Re[chi_1(f)], Im[chi_1(f)], Re[chi_2(f,f)], "
               "Im[chi_2(f,f)]\n");
+  fprintf(fp, "#\n");
 
   double T = suscept_sim->time_frame->t_end - suscept_sim->time_frame->t_0;
   // print results to file

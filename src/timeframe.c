@@ -66,8 +66,7 @@ TimeFrame *read_time_frame(ini_t *ini_file) {
 
 void print_time_frame(FILE *stream, const TimeFrame *time_frame) {
   fprintf(stream,
-          "# TimeFrame\n"
-          "#\n"
+          "# [TimeFrame]\n"
           "# t_0 = %lf\n"
           "# t_end = %lf\n"
           "# dt = %lf\n",

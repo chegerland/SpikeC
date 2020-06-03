@@ -167,8 +167,7 @@ void free_neuron(Neuron *neuron) {
 
 void print_neuron(FILE *stream, const Neuron *neuron) {
   fprintf(stream,
-          "# Neuron\n"
-          "#\n"
+          "# [Neuron]\n"
           "# type = %s\n"
           "# mu = %lf\n"
           "# D = %lf\n",
