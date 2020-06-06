@@ -2,6 +2,7 @@
 #include <math.h>
 #include <string.h>
 
+// define susceptibility simulation from given ini file
 suscept_sim_t *read_suscept_sim(ini_t *ini_file) {
 
   suscept_sim_t *suscept_sim = malloc(sizeof(suscept_sim_t));
@@ -21,12 +22,14 @@ suscept_sim_t *read_suscept_sim(ini_t *ini_file) {
   const char *neuron_type = NULL;
   ini_sget(ini_file, "Neuron", "type", NULL, &neuron_type);
 
+  // get neuron
+  suscept_sim->neuron = read_neuron(ini_file);
+
+  // depending on type set the get_spike_train function
   if (strcmp(neuron_type, "LIFAC") == 0 || strcmp(neuron_type, "PIFAC") == 0) {
-    suscept_sim->neuron = read_neuron_ifac(ini_file);
     suscept_sim->get_spike_train = get_spike_train_ifac_signal;
   } else if (strcmp(neuron_type, "LIF") == 0 ||
              strcmp(neuron_type, "PIF") == 0) {
-    suscept_sim->neuron = read_neuron_if(ini_file);
     suscept_sim->get_spike_train = get_spike_train_if_signal;
   } else {
     printf("Invalid Neuron type (%s)\n", neuron_type);
@@ -49,6 +52,7 @@ suscept_sim_t *read_suscept_sim(ini_t *ini_file) {
   return suscept_sim;
 }
 
+// print info of the suscept simulation to stream
 void print_suscept_sim(FILE *fp, const suscept_sim_t *suscept_sim) {
   print_time_frame(fp, suscept_sim->time_frame);
   fprintf(fp, "#\n");
@@ -62,6 +66,7 @@ void print_suscept_sim(FILE *fp, const suscept_sim_t *suscept_sim) {
           suscept_sim->c, suscept_sim->N_neurons);
 }
 
+// write the susceptibilities to a file
 void write_suscepts_to_file(FILE *fp, const suscept_sim_t *suscept_sim) {
   // explain data format
   fprintf(fp, "# Data format: f, Re[chi_1(f)], Im[chi_1(f)], Re[chi_2(f,f)], "
@@ -79,6 +84,7 @@ void write_suscepts_to_file(FILE *fp, const suscept_sim_t *suscept_sim) {
   }
 }
 
+// free memory associated with the susceptibility simulation
 void free_suscept_sim(suscept_sim_t *suscept_sim) {
   if (suscept_sim != NULL) {
     free_time_frame(suscept_sim->time_frame);

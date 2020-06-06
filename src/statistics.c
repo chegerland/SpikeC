@@ -6,6 +6,7 @@
 #include "statistics.h"
 #include "utils/fft.h"
 
+// calculates the arithmetic mean of an array
 double mean(size_t length, const double *array) {
   double mean = 0;
   for (size_t i = 0; i < length; i++) {
@@ -14,6 +15,7 @@ double mean(size_t length, const double *array) {
   return mean / ((double)length);
 }
 
+// calculates the variance of an array
 double variance(size_t length, const double *array) {
   double var = 0.0;
   double array_mean = mean(length, array);
@@ -24,6 +26,7 @@ double variance(size_t length, const double *array) {
   return var;
 }
 
+// calculates the coefficient of variation of an array
 double calculate_cv(size_t length, double *array) {
   double array_mean = mean(length, array);
   double array_std = sqrt(variance(length, array));
@@ -31,6 +34,7 @@ double calculate_cv(size_t length, double *array) {
   return array_std / array_mean;
 }
 
+// calculates the number of spikes in a spike train
 int spike_count(size_t length, const double *spike_train) {
   int count = 0;
 
@@ -43,11 +47,12 @@ int spike_count(size_t length, const double *spike_train) {
   return count;
 }
 
-int calculate_spike_times(const TimeFrame *time_frame,
-                          const double *spike_train, double *spike_times) {
+// calculates the interspike intervals from a given spike train
+int calculate_isi(const TimeFrame *time_frame, const double *spike_train,
+                  double *spike_times) {
 
-  int last_index = 0;        ///< last index a spike happened
-  int spike_times_count = 0; ///< number of interspike intervals
+  int last_index = 0;        // last index a spike happened
+  int spike_times_count = 0; // number of interspike intervals
 
   // loop over the whole spike train
   for (size_t i = 1; i < time_frame->N; i++) {
@@ -70,6 +75,7 @@ int calculate_spike_times(const TimeFrame *time_frame,
   return spike_times_count;
 }
 
+// calculate power spectrum
 void power_spectrum(const double *signal, const TimeFrame *time_frame,
                     double *spectrum, size_t norm) {
   // length of the signals is N/2 + 1 because we perform real DFT
@@ -90,6 +96,7 @@ void power_spectrum(const double *signal, const TimeFrame *time_frame,
   free(sf);
 }
 
+// calculate cross spectrum
 void cross_spectrum(const double *first_signal, const double *second_signal,
                     const TimeFrame *time_frame, double complex *spectrum,
                     size_t norm) {
@@ -114,6 +121,7 @@ void cross_spectrum(const double *first_signal, const double *second_signal,
   free(sf2);
 }
 
+// calculate the linear order susceptibility
 void susceptibility_lin(const double complex *isf, const double *spike_train,
                         const TimeFrame *time_frame, double complex *suscept,
                         size_t norm) {
@@ -136,6 +144,9 @@ void susceptibility_lin(const double complex *isf, const double *spike_train,
   free(osf);
 }
 
+// calculate the first (lin) and second (nonlin) order susceptibility
+// this function only calculates the diagonal terms of the nonlinear
+// susceptibility
 void susceptibility_lin_nonlin(const double *signal, const double *spike_train,
                                const TimeFrame *time_frame,
                                double complex *suscept_lin,
@@ -173,6 +184,9 @@ void susceptibility_lin_nonlin(const double *signal, const double *spike_train,
   free(osf);
 }
 
+// calculate the first (lin) and second (nonlin) order susceptibility
+// this function calculates the nonlinear susceptibility fully, i.e. it returns
+// a tridiagonal matrix
 void susceptibility_lin_nonlin_matrix(const double complex *isf, double alpha,
                                       const double *spike_train,
                                       const TimeFrame *time_frame,

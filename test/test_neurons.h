@@ -66,7 +66,7 @@ static char *test_neuron_pif_ini() {
   ini_t *config = ini_load("../data/testfiles/pif.ini");
 
   // create neuron with parameters
-  Neuron *pif = read_neuron_if(config);
+  Neuron *pif = read_neuron(config);
 
   // check if given parameters match the ones in the time frame
   mu_assert("mu in Neuron does not match mu given!", pif->if_params->mu == 16.53);
@@ -85,7 +85,7 @@ static char *test_neuron_lif_ini() {
   ini_t *config = ini_load("../data/testfiles/lif.ini");
 
   // create neuron with parameters
-  Neuron *lif = read_neuron_if(config);
+  Neuron *lif = read_neuron(config);
 
   // check if given parameters match the ones in the time frame
   mu_assert("mu in Neuron does not match mu given!", lif->if_params->mu == 16.53);

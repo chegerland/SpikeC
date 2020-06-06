@@ -4,6 +4,7 @@
 #include <string.h>
 #include <unistd.h>
 
+// create files struct from given input file and appendix
 files_t *create_files(const char *input_file, const char *append) {
 
   // check that input file has .ini extension

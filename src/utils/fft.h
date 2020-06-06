@@ -8,6 +8,7 @@ extern "C" {
 #include <complex.h>
 #include <fftw3.h>
 
+// wrapper around fftw's r2c routine that already uses the correct scaling
 inline void fft_r2c(int length, double dt, const double *signal,
                     double complex *signal_fourier) {
   fftw_plan p = NULL;
@@ -23,6 +24,7 @@ inline void fft_r2c(int length, double dt, const double *signal,
   }
 }
 
+// wrapper around fftw's c2r routine that already uses the correct scaling
 inline void fft_c2r(int length, double dt, const double complex *signal_fourier,
                     double *signal) {
   fftw_plan p = NULL;

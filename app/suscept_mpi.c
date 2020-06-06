@@ -279,8 +279,7 @@ void calculate_rate_and_cv(suscept_sim_t *suscept_sim, double *rate,
          (time_frame->t_end - time_frame->t_0);
 
   // calculate spike times and cv
-  int spike_times_length =
-      calculate_spike_times(time_frame, spike_train, spike_times);
+  int spike_times_length = calculate_isi(time_frame, spike_train, spike_times);
   *cv = calculate_cv(spike_times_length, spike_times);
 
   // free memory

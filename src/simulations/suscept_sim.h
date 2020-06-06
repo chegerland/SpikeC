@@ -10,6 +10,7 @@ extern "C" {
 #include "../utils/ini.h"
 #include <complex.h>
 
+// a struct for a susceptibility simulation
 typedef struct {
   TimeFrame *time_frame;
   Neuron *neuron;

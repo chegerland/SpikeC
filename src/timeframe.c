@@ -4,6 +4,7 @@
 
 #include "math.h"
 
+// creates a time frame from parameters
 TimeFrame *create_time_frame(const double t_0, const double t_end,
                              const double dt) {
   assert(t_end > t_0);
@@ -32,6 +33,7 @@ TimeFrame *create_time_frame(const double t_0, const double t_end,
   return time_frame;
 }
 
+// creates a time frame from ini file
 TimeFrame *read_time_frame(ini_t *ini_file) {
   TimeFrame *time_frame = malloc(sizeof(TimeFrame));
 
@@ -64,6 +66,7 @@ TimeFrame *read_time_frame(ini_t *ini_file) {
   return time_frame;
 }
 
+// prints information of the time frame to stream
 void print_time_frame(FILE *stream, const TimeFrame *time_frame) {
   fprintf(stream,
           "# [TimeFrame]\n"
@@ -73,6 +76,7 @@ void print_time_frame(FILE *stream, const TimeFrame *time_frame) {
           time_frame->t_0, time_frame->t_end, time_frame->dt);
 }
 
+// frees memory associated with the time frame
 void free_time_frame(TimeFrame *time_frame) {
   if (time_frame != NULL) {
     free(time_frame->t);

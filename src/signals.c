@@ -35,6 +35,8 @@ void two_cosine_signal(const double alpha, const double f1, const double beta,
   }
 }
 
+// generate band limited gaussian white noise
+// the power spectrum of this noise has height 2*alpha
 void band_limited_white_noise(const gsl_rng *r, double alpha, double f_low,
                               double f_high, const TimeFrame *time_frame,
                               double *signal) {

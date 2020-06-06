@@ -9,52 +9,58 @@ extern "C" {
 #include <gsl/gsl_randist.h>
 #include <stdbool.h>
 
+// Neuron types (IF = integrate-and-fire, IFAC = IF with adaptation current)
 enum NEURON_TYPE { LIF, PIF, LIFAC, PIFAC };
 extern const char *neuron_type_names[];
 
-//! Parameters for integrate-and-fire neurons
+// Parameters for integrate-and-fire neurons
 typedef struct {
-  double mu; ///< mean input current
-  double D;  ///< diffusion coefficient
+  double mu; // mean input current
+  double D;  // diffusion coefficient
 } if_params_t;
 
+// Parameters for adaptation
 typedef struct {
-  double tau_a; ///< adaptation time constant
-  double Delta; ///< kick size of the adaptation
+  double tau_a; // adaptation time constant
+  double Delta; // kick size of the adaptation
 } adapt_params_t;
 
-//! An integrate-and-fire neuron
+//! Integrate-and-fire neuron type with adaptation
 typedef struct {
-  enum NEURON_TYPE type;                       ///< type of the IF neuron
-  if_params_t *if_params;                         ///< parameters of the IF neuron
-  adapt_params_t *adapt_params;                ///< parameters of the adaptation
-  double (*drift)(double, int, const if_params_t *); ///< drift of the IF neuron
+  enum NEURON_TYPE type;
+  if_params_t *if_params;
+  adapt_params_t *adapt_params;
+  double (*drift)(double, int, const if_params_t *);
 } Neuron;
 
 bool is_ifac(enum NEURON_TYPE type);
 
+// drift functions
 double lif_drift(double v, int i, const if_params_t *params);
 double pif_drift(double v, int i, const if_params_t *params);
 
+// initializers from parameters and from ini file
 Neuron *create_neuron_if(double mu, double D, enum NEURON_TYPE type);
 Neuron *create_neuron_ifac(double mu, double D, double tau_a, double Delta,
                            enum NEURON_TYPE type);
-Neuron *read_neuron_if(ini_t *ini_file);
-Neuron *read_neuron_ifac(ini_t *ini_file);
+Neuron *read_neuron(ini_t *ini_file);
 
 void free_neuron(Neuron *neuron);
 void print_neuron(FILE *stream, const Neuron *neuron);
 
+// functions to obtain spike train from neuron
 void get_spike_train_if(const gsl_rng *r, const Neuron *neuron,
                         const TimeFrame *time_frame, double *spike_train);
 void get_spike_train_if_signal(const gsl_rng *r, const Neuron *neuron,
-                               const double *signal, const TimeFrame *time_frame,
+                               const double *signal,
+                               const TimeFrame *time_frame,
                                double *spike_train);
 void get_spike_train_ifac(const gsl_rng *r, const Neuron *neuron,
-                        const TimeFrame *time_frame, double *spike_train);
+                          const TimeFrame *time_frame, double *spike_train);
 void get_spike_train_ifac_signal(const gsl_rng *r, const Neuron *neuron,
-                               const double *signal, const TimeFrame *time_frame,
-                               double *spike_train);
+                                 const double *signal,
+                                 const TimeFrame *time_frame,
+                                 double *spike_train);
 
 #ifdef __cplusplus
 }

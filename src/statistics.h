@@ -8,20 +8,24 @@ extern "C" {
 #include "timeframe.h"
 #include <fftw3.h>
 
+// general statistics
 double mean(size_t length, const double *array);
 double variance(size_t length, const double *array);
 double calculate_cv(size_t length, double *array);
 
+// spike train statistics
 int spike_count(size_t length, const double *spike_train);
-int calculate_spike_times(const TimeFrame *time_frame,
+int calculate_isi(const TimeFrame *time_frame,
                           const double *spike_train, double *spike_times);
 
+// spectra
 void power_spectrum(const double *signal, const TimeFrame *time_frame,
                     double *spectrum, size_t norm);
 void cross_spectrum(const double *first_signal, const double *second_signal,
                     const TimeFrame *time_frame, double complex *spectrum,
                     size_t norm);
 
+// susceptibilities
 void susceptibility_lin(const double complex *isf, const double *spike_train,
                         const TimeFrame *time_frame, double complex *suscept,
                         size_t norm);

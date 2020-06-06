@@ -1,6 +1,7 @@
 #ifndef IO_UTILS_H
 #define IO_UTILS_H
 
+// in- and output files type
 typedef struct {
   const char *input_file;
   const char *output_file;
