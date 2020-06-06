@@ -1,4 +1,5 @@
 add_executable(spike_suscept_mpi suscept_mpi.c)
+add_executable(spike_rate_cv rate_cv.c)
 
 # add git head and branch (taken from https://github.com/michael-hartmann/caps)
 if (EXISTS "${PROJECT_SOURCE_DIR}/.git" AND ${GIT_FOUND})
@@ -22,4 +23,7 @@ endif ()
 target_link_libraries(spike_suscept_mpi
         spike
         MPI::MPI_C
+        )
+target_link_libraries(spike_rate_cv
+        spike
         )
