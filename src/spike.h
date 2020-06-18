@@ -5,6 +5,7 @@
 extern "C" {
 #endif
 
+#include "analytics.h"
 #include "neurons.h"
 #include "signals.h"
 #include "simulations/suscept_sim.h"

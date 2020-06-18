@@ -1,3 +1,10 @@
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+# Spike
 
-$$ \pi = 3 $$
+Spike is a numerical toolset for the simulation of integrate-and-fire neurons. 
+It is a library that implements important statistics such as the firing rate, coefficient of variation as well as several spectral statistics such as the power spectrum.
+Furthermore it contains some executables that calculate the susceptibility of an integrate-and-fire neuron to an applied white noise signal.
+
+**Disclaimer:** The code presented here is a work in progress and is subject to frequent change as it is currently used by the author for his master thesis.
+
+
+LaTeX test: $$ \pi = 3 $$

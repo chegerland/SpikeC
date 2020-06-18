@@ -1,5 +1,6 @@
 # build the spike library
 set(spike_sources
+        analytics.c
         utils/ini.c
         utils/log.c
         utils/io_utils.c
