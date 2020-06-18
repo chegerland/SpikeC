@@ -1,4 +1,5 @@
 #include "unittest.h"
+#include "test_analytics.h"
 #include "test_neurons.h"
 #include "test_signals.h"
 #include "test_timeframe.h"
@@ -7,6 +8,9 @@
 int tests_run = 0;
 
 static char *all_tests() {
+
+  // analytics tests
+  mu_run_test(test_firing_rate_lif);
 
   // time frame tests
   mu_run_test(test_timeframe_parameters_given);
