@@ -30,14 +30,14 @@ typedef struct {
   enum NEURON_TYPE type;
   if_params_t *if_params;
   adapt_params_t *adapt_params;
-  double (*drift)(double, int, const if_params_t *);
+  double (*drift)(double, const if_params_t *);
 } Neuron;
 
 bool is_ifac(enum NEURON_TYPE type);
 
 // drift functions
-double lif_drift(double v, int i, const if_params_t *params);
-double pif_drift(double v, int i, const if_params_t *params);
+double lif_drift(double v, const if_params_t *params);
+double pif_drift(double v, const if_params_t *params);
 
 // initializers from parameters and from ini file
 Neuron *create_neuron_if(double mu, double D, enum NEURON_TYPE type);
@@ -61,6 +61,19 @@ void get_spike_train_ifac_signal(const gsl_rng *r, const Neuron *neuron,
                                  const double *signal,
                                  const TimeFrame *time_frame,
                                  double *spike_train);
+
+// functions to obtain trajectories
+void get_trajectory_if(const gsl_rng *r, const Neuron *neuron,
+                       const TimeFrame *time_frame, double *v);
+void get_trajectory_if_signal(const gsl_rng *r, const Neuron *neuron,
+                              const double *signal, const TimeFrame *time_frame,
+                              double *v);
+void get_trajectory_ifac(const gsl_rng *r, const Neuron *neuron,
+                         const TimeFrame *time_frame, double *v, double *a);
+void get_trajectory_ifac_signal(const gsl_rng *r, const Neuron *neuron,
+                                const double *signal,
+                                const TimeFrame *time_frame, double *v,
+                                double *a);
 
 #ifdef __cplusplus
 }

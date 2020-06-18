@@ -6,8 +6,8 @@
 const char *neuron_type_names[] = {"LIF", "PIF", "LIFAC", "PIFAC"};
 
 // checks if a given neuron type is an IFAC
-bool is_ifac(enum NEURON_TYPE  type) {
-  if(type == LIFAC || type == PIFAC) {
+bool is_ifac(enum NEURON_TYPE type) {
+  if (type == LIFAC || type == PIFAC) {
     return true;
   } else {
     return false;
@@ -15,12 +15,14 @@ bool is_ifac(enum NEURON_TYPE  type) {
 }
 
 // drift for leaky integrate-and-fire
-double lif_drift(double v, int i, const if_params_t *params) {
+double lif_drift(double v, const if_params_t *params) {
   return params->mu - v;
 }
 
 // drift for perfect integrate-and-fire
-double pif_drift(double v, int i, const if_params_t *params) { return params->mu; }
+double pif_drift(double v, const if_params_t *params) {
+  return params->mu;
+}
 
 // creates a if neuron from parameters
 Neuron *create_neuron_if(double mu, double D, enum NEURON_TYPE type) {
@@ -123,8 +125,6 @@ Neuron *read_neuron(ini_t *ini_file) {
     adapt_params->Delta = Delta;
 
     neuron->adapt_params = adapt_params;
-  } else {
-    neuron->adapt_params = NULL;
   }
 
   // depending on the type, define correct drift
@@ -151,10 +151,6 @@ Neuron *read_neuron(ini_t *ini_file) {
 // free memory associated with neuron
 void free_neuron(Neuron *neuron) {
   if (neuron != NULL) {
-    free(neuron->if_params);
-    if (neuron->adapt_params != NULL) {
-      free(neuron->adapt_params);
-    }
     free(neuron);
   }
 }
@@ -183,8 +179,8 @@ void get_spike_train_if(const gsl_rng *r, const Neuron *neuron,
   double v = 0;
   double dt = time_frame->dt;
 
-  for (int i = 0; i < time_frame->N; i++) {
-    v += neuron->drift(v, i, neuron->if_params) * dt +
+  for (size_t i = 0; i < time_frame->N; i++) {
+    v += neuron->drift(v, neuron->if_params) * dt +
          sqrt(2. * neuron->if_params->D) * gsl_ran_gaussian(r, sqrt(dt));
     if (v > 1.0) {
       v = 0.;
@@ -195,14 +191,15 @@ void get_spike_train_if(const gsl_rng *r, const Neuron *neuron,
 
 // get spike train of an if neuron with applied signal
 void get_spike_train_if_signal(const gsl_rng *r, const Neuron *neuron,
-                               const double *signal, const TimeFrame *time_frame,
+                               const double *signal,
+                               const TimeFrame *time_frame,
                                double *spike_train) {
 
   double v = 0;
   double dt = time_frame->dt;
 
-  for (int i = 0; i < time_frame->N; i++) {
-    v += (neuron->drift(v, i, neuron->if_params) + signal[i]) * dt +
+  for (size_t i = 0; i < time_frame->N; i++) {
+    v += (neuron->drift(v, neuron->if_params) + signal[i]) * dt +
          sqrt(2. * neuron->if_params->D) * gsl_ran_gaussian(r, sqrt(dt));
     if (v > 1.0) {
       v = 0.;
@@ -219,8 +216,8 @@ void get_spike_train_ifac(const gsl_rng *r, const Neuron *neuron,
   double a = 0;
   double dt = time_frame->dt;
 
-  for (int i = 0; i < time_frame->N; i++) {
-    v += (neuron->drift(v, i, neuron->if_params) - a) * dt +
+  for (size_t i = 0; i < time_frame->N; i++) {
+    v += (neuron->drift(v, neuron->if_params) - a) * dt +
          sqrt(2. * neuron->if_params->D) * gsl_ran_gaussian(r, sqrt(dt));
     a += -1. / neuron->adapt_params->tau_a * a * dt;
     if (v > 1.0) {
@@ -233,21 +230,96 @@ void get_spike_train_ifac(const gsl_rng *r, const Neuron *neuron,
 
 // get spike train of an ifac neuron with applied signal
 void get_spike_train_ifac_signal(const gsl_rng *r, const Neuron *neuron,
-                                 const double *signal, const TimeFrame *time_frame,
+                                 const double *signal,
+                                 const TimeFrame *time_frame,
                                  double *spike_train) {
 
   double v = 0;
   double a = 0;
   double dt = time_frame->dt;
 
-  for (int i = 0; i < time_frame->N; i++) {
-    v += (neuron->drift(v, i, neuron->if_params) - a + signal[i]) * dt +
+  for (size_t i = 0; i < time_frame->N; i++) {
+    v += (neuron->drift(v, neuron->if_params) - a + signal[i]) * dt +
          sqrt(2. * neuron->if_params->D) * gsl_ran_gaussian(r, sqrt(dt));
     a += -1. / neuron->adapt_params->tau_a * a * dt;
     if (v > 1.0) {
       v = 0.;
       a += neuron->adapt_params->Delta;
       spike_train[i] += 1. / time_frame->dt;
+    }
+  }
+}
+
+// get spike train of an if neuron
+void get_trajectory_if(const gsl_rng *r, const Neuron *neuron,
+                       const TimeFrame *time_frame, double *v) {
+  v[0] = 0;
+  double dt = time_frame->dt;
+
+  for (size_t i = 0; i < time_frame->N; i++) {
+    v[i + 1] = v[i] + neuron->drift(v[i], neuron->if_params) * dt +
+               sqrt(2. * neuron->if_params->D) * gsl_ran_gaussian(r, sqrt(dt));
+    if (v[i + 1] > 1.0) {
+      v[i + 1] = 0.;
+    }
+  }
+}
+
+// get spike train of an if neuron with applied signal
+void get_trajectory_if_signal(const gsl_rng *r, const Neuron *neuron,
+                              const double *signal, const TimeFrame *time_frame,
+                              double *v) {
+
+  v[0] = 0;
+  double dt = time_frame->dt;
+
+  for (size_t i = 0; i < time_frame->N; i++) {
+    v[i + 1] = v[i] +
+               (neuron->drift(v[i], neuron->if_params) + signal[i]) * dt +
+               sqrt(2. * neuron->if_params->D) * gsl_ran_gaussian(r, sqrt(dt));
+    if (v[i + 1] > 1.0) {
+      v[i + 1] = 0.;
+    }
+  }
+}
+
+// get spike train of an ifac neuron
+void get_trajectory_ifac(const gsl_rng *r, const Neuron *neuron,
+                         const TimeFrame *time_frame, double *v, double *a) {
+
+  v[0] = 0;
+  a[0] = 0;
+  double dt = time_frame->dt;
+
+  for (size_t i = 0; i < time_frame->N; i++) {
+    v[i + 1] += (neuron->drift(v[i], neuron->if_params) - a[i]) * dt +
+                sqrt(2. * neuron->if_params->D) * gsl_ran_gaussian(r, sqrt(dt));
+    a[i + 1] = a[i] + -1. / neuron->adapt_params->tau_a * a[i] * dt;
+    if (v[i + 1] > 1.0) {
+      v[i + 1] = 0.;
+      a[i + 1] += neuron->adapt_params->Delta;
+    }
+  }
+}
+
+// get spike train of an ifac neuron with applied signal
+void get_trajectory_ifac_signal(const gsl_rng *r, const Neuron *neuron,
+                                const double *signal,
+                                const TimeFrame *time_frame, double *v,
+                                double *a) {
+
+  v[0] = 0;
+  a[0] = 0;
+  double dt = time_frame->dt;
+
+  for (size_t i = 0; i < time_frame->N; i++) {
+    v[i + 1] +=
+        (neuron->drift(v[i], neuron->if_params) - a[i] + signal[i]) * dt +
+        sqrt(2. * neuron->if_params->D) * gsl_ran_gaussian(r, sqrt(dt));
+    a[i + 1] = a[i] + -1. / neuron->adapt_params->tau_a * a[i] * dt;
+    if (v[i + 1] > 1.0) {
+      v[i + 1] = 0.;
+      a[i + 1] += neuron->adapt_params->Delta;
     }
   }
 }
