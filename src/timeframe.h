@@ -10,14 +10,13 @@ extern "C" {
 
 // time frame type
 typedef struct {
-  double t_0;
-  double t_end;
-  double dt;
-  size_t N;
-  double *t;
+  double t_0;   // start time
+  double t_end; // end time
+  double dt;    // time step
+  size_t N;     // number of time steps
+  double *t;    // array containing the discretized times
 } TimeFrame;
 
-// initializers
 TimeFrame *create_time_frame(double t_0, double t_end, double dt);
 TimeFrame *read_time_frame(ini_t *ini_file);
 

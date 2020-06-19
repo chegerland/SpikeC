@@ -6,11 +6,11 @@
 #include <stdio.h>
 
 void read_cmd(int argc, char *argv[]);
-void master(suscept_sim_t *suscept_sim, int world_rank);
-void minion(suscept_sim_t *suscept_sim, int world_rank);
+void main_process(suscept_sim_t *suscept_sim, int world_rank);
+void sub_process(suscept_sim_t *suscept_sim, int world_rank);
 void calculate_susceptibility(suscept_sim_t *suscept_sim, int trials,
                               int world_rank);
-void receive_arrays_from_minions(suscept_sim_t *suscept_sim, int world_size);
+void receive_arrays_from_sub_processes(suscept_sim_t *suscept_sim, int world_size);
 void calculate_rate_and_cv(suscept_sim_t *suscept_sim, double *rate,
                            double *cv);
 
@@ -24,7 +24,7 @@ int main(int argc, char *argv[]) {
   // set logging level
   log_set_level(LOG_INFO);
 
-  // define susceptbility simulation
+  // define susceptibility simulation
   log_trace("Read parameters from input file %s", files->input_file);
   ini_t *config = ini_load(files->input_file);
   suscept_sim_t *suscept_sim = read_suscept_sim(config);
@@ -37,11 +37,11 @@ int main(int argc, char *argv[]) {
   MPI_Comm_rank(MPI_COMM_WORLD, &world_rank);
   MPI_Comm_size(MPI_COMM_WORLD, &world_size);
 
-  // depending on world rank, process is either master or minion
+  // depending on world rank, process is either main_process or sub_process
   if (world_rank == 0)
-    master(suscept_sim, world_rank);
+    main_process(suscept_sim, world_rank);
   else
-    minion(suscept_sim, world_rank);
+    sub_process(suscept_sim, world_rank);
 
   // finalize mpi
   MPI_Finalize();
@@ -101,7 +101,7 @@ void read_cmd(int argc, char *argv[]) {
   }
 }
 
-void master(suscept_sim_t *suscept_sim, int world_rank) {
+void main_process(suscept_sim_t *suscept_sim, int world_rank) {
 
   // get world size
   int world_size = 0;
@@ -117,11 +117,11 @@ void master(suscept_sim_t *suscept_sim, int world_rank) {
   }
 
   // calculate the susceptibility
-  log_info("Starting calculation on master.");
+  log_info("Starting calculation on main_process.");
   calculate_susceptibility(suscept_sim, trials, world_rank);
-  log_info("Finished calculation on master.");
+  log_info("Finished calculation on main_process.");
 
-  receive_arrays_from_minions(suscept_sim, world_size);
+  receive_arrays_from_sub_processes(suscept_sim, world_size);
 
   // calculate stationary firing rate and CV
   double rate, cv;
@@ -146,7 +146,7 @@ void master(suscept_sim_t *suscept_sim, int world_rank) {
   log_info("Goodbye.");
 }
 
-void receive_arrays_from_minions(suscept_sim_t *suscept_sim, int world_size) {
+void receive_arrays_from_sub_processes(suscept_sim_t *suscept_sim, int world_size) {
   // better readibility
   double complex *suscept_lin = suscept_sim->suscept_lin;
   double complex *suscept_nonlin = suscept_sim->suscept_nonlin;
@@ -182,9 +182,9 @@ void receive_arrays_from_minions(suscept_sim_t *suscept_sim, int world_size) {
   free(tmp_suscept_nonlin);
 }
 
-void minion(suscept_sim_t *suscept_sim, int world_rank) {
+void sub_process(suscept_sim_t *suscept_sim, int world_rank) {
 
-  // receive number of trials from master
+  // receive number of trials from main_process
   int trials = 0;
   MPI_Status status;
   MPI_Recv(&trials, 1, MPI_INT, 0, 0, MPI_COMM_WORLD, &status);
@@ -198,8 +198,8 @@ void minion(suscept_sim_t *suscept_sim, int world_rank) {
 
   calculate_susceptibility(suscept_sim, trials, world_rank);
 
-  // send arrays to master
-  log_trace("Sending data back to master.");
+  // send arrays to main_process
+  log_trace("Sending data back to main process.");
   MPI_Send(suscept_lin, (int)time_frame->N / 2 + 1, MPI_C_DOUBLE_COMPLEX, 0, 1,
            MPI_COMM_WORLD);
   MPI_Send(suscept_nonlin, (int)time_frame->N / 4 + 1, MPI_C_DOUBLE_COMPLEX, 0,

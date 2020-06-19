@@ -14,17 +14,17 @@ bool is_ifac(enum NEURON_TYPE type) {
   }
 }
 
-// drift for leaky integrate-and-fire
+// drift for leaky integrate-and-fire neuron
 double lif_drift(double v, const if_params_t *params) {
   return params->mu - v;
 }
 
-// drift for perfect integrate-and-fire
+// drift for perfect integrate-and-fire neuron
 double pif_drift(double v, const if_params_t *params) {
   return params->mu;
 }
 
-// creates a if neuron from parameters
+// creates an if neuron from parameters
 Neuron *create_neuron_if(double mu, double D, enum NEURON_TYPE type) {
 
   // define neuron
@@ -55,7 +55,7 @@ Neuron *create_neuron_if(double mu, double D, enum NEURON_TYPE type) {
   return neuron;
 }
 
-// creates a ifac neuron from parameters
+// creates an ifac neuron from parameters
 Neuron *create_neuron_ifac(double mu, double D, double tau_a, double Delta,
                            enum NEURON_TYPE type) {
 
@@ -92,7 +92,7 @@ Neuron *create_neuron_ifac(double mu, double D, double tau_a, double Delta,
   return neuron;
 }
 
-// creates a if neuron from ini file
+// creates a neuron from ini file
 Neuron *read_neuron(ini_t *ini_file) {
   Neuron *neuron = malloc(sizeof(Neuron));
 
@@ -173,7 +173,11 @@ void print_neuron(FILE *stream, const Neuron *neuron) {
   }
 }
 
-// get spike train of an if neuron
+/*
+ * get spike train of an if neuron
+ * Uses Euler-Maruyama algorithm with the usual fire-and-reset condition.
+ * At the spike we add (!) 1/dt to the appropriate spike train entry.
+ */
 void get_spike_train_if(const gsl_rng *r, const Neuron *neuron,
                         const TimeFrame *time_frame, double *spike_train) {
   double v = 0;
@@ -189,7 +193,11 @@ void get_spike_train_if(const gsl_rng *r, const Neuron *neuron,
   }
 }
 
-// get spike train of an if neuron with applied signal
+/*
+ * Get spike train of an if neuron with applied signal.
+ * Uses Euler-Maruyama algorithm with the usual fire-and-reset condition.
+ * At the spike we add (!) 1/dt to the appropriate spike train entry.
+ */
 void get_spike_train_if_signal(const gsl_rng *r, const Neuron *neuron,
                                const double *signal,
                                const TimeFrame *time_frame,
@@ -208,7 +216,11 @@ void get_spike_train_if_signal(const gsl_rng *r, const Neuron *neuron,
   }
 }
 
-// get spike train of an ifac neuron
+/*
+ * get spike train of an ifac neuron
+ * Uses Euler-Maruyama algorithm with the usual fire-and-reset condition.
+ * At the spike we add (!) 1/dt to the appropriate spike train entry.
+ */
 void get_spike_train_ifac(const gsl_rng *r, const Neuron *neuron,
                           const TimeFrame *time_frame, double *spike_train) {
 
@@ -228,7 +240,11 @@ void get_spike_train_ifac(const gsl_rng *r, const Neuron *neuron,
   }
 }
 
-// get spike train of an ifac neuron with applied signal
+/*
+ * get spike train of an ifac neuron with applied signal
+ * Uses Euler-Maruyama algorithm with the usual fire-and-reset condition.
+ * At the spike we add (!) 1/dt to the appropriate spike train entry.
+ */
 void get_spike_train_ifac_signal(const gsl_rng *r, const Neuron *neuron,
                                  const double *signal,
                                  const TimeFrame *time_frame,
@@ -250,7 +266,10 @@ void get_spike_train_ifac_signal(const gsl_rng *r, const Neuron *neuron,
   }
 }
 
-// get spike train of an if neuron
+/*
+ * get the trajectory of an if neuron
+ * Uses Euler-Maruyama algorithm with the usual fire-and-reset condition.
+ */
 void get_trajectory_if(const gsl_rng *r, const Neuron *neuron,
                        const TimeFrame *time_frame, double *v) {
   v[0] = 0;
@@ -265,7 +284,10 @@ void get_trajectory_if(const gsl_rng *r, const Neuron *neuron,
   }
 }
 
-// get spike train of an if neuron with applied signal
+/*
+ * get trajectory of an if neuron with applied signal
+ * Uses Euler-Maruyama algorithm with the usual fire-and-reset condition.
+ */
 void get_trajectory_if_signal(const gsl_rng *r, const Neuron *neuron,
                               const double *signal, const TimeFrame *time_frame,
                               double *v) {
@@ -283,7 +305,10 @@ void get_trajectory_if_signal(const gsl_rng *r, const Neuron *neuron,
   }
 }
 
-// get spike train of an ifac neuron
+/*
+ * get spike train of an ifac neuron
+ * Uses Euler-Maruyama algorithm with the usual fire-and-reset condition.
+ */
 void get_trajectory_ifac(const gsl_rng *r, const Neuron *neuron,
                          const TimeFrame *time_frame, double *v, double *a) {
 

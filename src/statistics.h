@@ -6,33 +6,28 @@ extern "C" {
 #endif
 
 #include "timeframe.h"
-#include <fftw3.h>
 
-// general statistics
 double mean(size_t length, const double *array);
 double variance(size_t length, const double *array);
 double calculate_cv(size_t length, double *array);
 
-// spike train statistics
-int spike_count(size_t length, const double *spike_train);
-int calculate_isi(const TimeFrame *time_frame,
+size_t spike_count(size_t length, const double *spike_train);
+size_t calculate_isi(const TimeFrame *time_frame,
                           const double *spike_train, double *spike_times);
 
-// spectra
 void power_spectrum(const double *signal, const TimeFrame *time_frame,
-                    double *spectrum, size_t norm);
+                    double *spectrum, const size_t norm);
 void cross_spectrum(const double *first_signal, const double *second_signal,
                     const TimeFrame *time_frame, double complex *spectrum,
-                    size_t norm);
+                    const size_t norm);
 
-// susceptibilities
-void susceptibility_lin(const double complex *isf, const double *spike_train,
+void susceptibility_lin(const double *input_signal, const double *output_signal,
                         const TimeFrame *time_frame, double complex *suscept,
-                        size_t norm);
-void susceptibility_lin_nonlin(const double *signal, const double *spike_train,
+                        const size_t norm);
+void susceptibility_lin_nonlin(const double *input_signal, const double *output_signal,
                                const TimeFrame *time_frame,
                                double complex *suscept_lin,
-                               double complex *suscept_nonlin, size_t norm);
+                               double complex *suscept_nonlin, const size_t norm);
 void susceptibility_lin_nonlin_matrix(const double complex *isf, double alpha,
                                       const double *spike_train,
                                       const TimeFrame *time_frame,

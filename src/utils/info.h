@@ -5,14 +5,17 @@
 extern "C" {
 #endif
 
-// from https://github.com/michael-hartmann/caps
-void print_spike_build_info(FILE *fp) {
+/*
+ * prints the build information of spike to a stream
+ * from https://github.com/michael-hartmann/caps
+ */
+void print_spike_build_info(FILE *stream) {
 #ifdef GIT_HEAD
-  fprintf(fp, "# git head: %s\n", GIT_HEAD);
+  fprintf(stream, "# git head: %s\n", GIT_HEAD);
 #endif
 
 #ifdef GIT_BRANCH
-  fprintf(fp, "# git branch: %s\n", GIT_BRANCH);
+  fprintf(stream, "# git branch: %s\n", GIT_BRANCH);
 #endif
 }
 

@@ -73,7 +73,7 @@ static char *test_neuron_pif_ini() {
   mu_assert("D in Neuron does not match D given!", pif->if_params->D == 44.32);
   mu_assert("type in Neuron does not match type given!", pif->type == PIF);
 
-  print_neuron(stderr, pif);
+  //print_neuron(stderr, pif);
 
   // free memory
   free_neuron(pif);
@@ -92,7 +92,7 @@ static char *test_neuron_lif_ini() {
   mu_assert("D in Neuron does not match D given!", lif->if_params->D == 44.32);
   mu_assert("type in Neuron does not match type given!", lif->type == LIF);
 
-  print_neuron(stderr, lif);
+  //print_neuron(stderr, lif);
 
   // free memory
   free_neuron(lif);

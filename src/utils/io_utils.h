@@ -3,11 +3,11 @@
 
 // in- and output files type
 typedef struct {
-  const char *input_file;
-  const char *output_file;
+  const char *input_file;  // path of input file
+  const char *output_file; // path of output file
 } files_t;
 
-files_t *create_files(const char *input_file, const char *append);
+files_t *create_files(const char *input_file, const char *appendix);
 
 char *remove_file_ext(const char *file_path);
 const char *get_filename_ext(const char *filename);

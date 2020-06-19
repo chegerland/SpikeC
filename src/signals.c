@@ -5,7 +5,7 @@
 #include "statistics.h"
 #include "utils/fft.h"
 
-// generate cosine signal
+// generate cosine signal alpha*cos(2*pi*f*t)
 void cosine_signal(const double alpha, const double f,
                    const TimeFrame *time_frame, double *signal) {
   for (int i = 0; i < time_frame->N; i++) {
@@ -13,7 +13,7 @@ void cosine_signal(const double alpha, const double f,
   }
 }
 
-// generate a step signal
+// generate a step signal alpha*theta(t - t_0)
 void step_signal(const double alpha, const double t_0,
                  const TimeFrame *time_frame, double *signal) {
   for (int i = 0; i < time_frame->N; i++) {
@@ -25,7 +25,10 @@ void step_signal(const double alpha, const double t_0,
   }
 }
 
-// generate a two cosine signal
+/*
+ * generate a two cosine signal
+ * alpha*cos(2*pi*f1*t) + beta*cos(2*pi*f2*t + beta)
+ */
 void two_cosine_signal(const double alpha, const double f1, const double beta,
                        const double f2, const double phi,
                        const TimeFrame *time_frame, double *signal) {
@@ -35,8 +38,11 @@ void two_cosine_signal(const double alpha, const double f1, const double beta,
   }
 }
 
-// generate band limited gaussian white noise
-// the power spectrum of this noise has height 2*alpha
+/*
+ * generate band limited gaussian white noise.
+ * The power spectrum of this noise has height 2*alpha and the variance is given
+ * by var = 2*height_of_power_spectrum*(f_high - f_low).
+ */
 void band_limited_white_noise(const gsl_rng *r, double alpha, double f_low,
                               double f_high, const TimeFrame *time_frame,
                               double *signal) {
@@ -49,9 +55,14 @@ void band_limited_white_noise(const gsl_rng *r, double alpha, double f_low,
   const size_t cut_low = (size_t)(f_low * N * dt);
   const size_t cut_high = (size_t)(f_high * N * dt);
 
-  // normalization, so that power spectrum is equal to 2 * alpha
-  double height = sqrt(2. * alpha * (time_frame->t_end - time_frame->t_0));
+  /*
+   * we set the amplitude of the complex frequencies to sqrt(2*alpha*T)
+   * so that the power spectrum is S = 1/T * f * f^* == 2*alpha.
+   */
+  const double height =
+      sqrt(2. * alpha * (time_frame->t_end - time_frame->t_0));
 
+  // array for frequencies
   double complex freqs[N / 2 + 1];
 
   // white noise in frequency space has constant amplitude, random phase
@@ -60,7 +71,7 @@ void band_limited_white_noise(const gsl_rng *r, double alpha, double f_low,
     freqs[i] =
         height * (cos(2.0 * M_PI * rand) - _Complex_I * sin(2.0 * M_PI * rand));
 
-    if (i > cut_high || i < cut_low) {
+    if ((i > cut_high) || (i < cut_low)) {
       freqs[i] = 0.0;
     }
   }

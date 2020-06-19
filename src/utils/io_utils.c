@@ -5,7 +5,7 @@
 #include <unistd.h>
 
 // create files struct from given input file and appendix
-files_t *create_files(const char *input_file, const char *append) {
+files_t *create_files(const char *input_file, const char *appendix) {
 
   // check that input file has .ini extension
   const char *input_file_ext = get_filename_ext(input_file);
@@ -22,8 +22,8 @@ files_t *create_files(const char *input_file, const char *append) {
 
   // create output file name
   char *output_file = remove_file_ext(input_file);
-  output_file = realloc(output_file, strlen(output_file) + strlen(append) + 6);
-  strcat(output_file, append);
+  output_file = realloc(output_file, strlen(output_file) + strlen(appendix) + 6);
+  strcat(output_file, appendix);
   strcat(output_file, ".csv");
 
   // create file struct
@@ -34,7 +34,10 @@ files_t *create_files(const char *input_file, const char *append) {
   return files;
 }
 
-//! from https://stackoverflow.com/a/2736841
+/*
+ * remove the file extension from file_path and return the rest
+ * from https://stackoverflow.com/a/2736841
+ */
 char *remove_file_ext(const char *file_path) {
   char *retStr = NULL, *lastExt = NULL;
   if (file_path == NULL)
@@ -48,10 +51,13 @@ char *remove_file_ext(const char *file_path) {
   return retStr;
 }
 
-//! from https://stackoverflow.com/a/5309508
-const char *get_filename_ext(const char *filename) {
-  const char *dot = strrchr(filename, '.');
-  if (!dot || dot == filename)
+/*
+ * returns the file extension of a given filename
+ * from https://stackoverflow.com/a/5309508
+ */
+const char *get_filename_ext(const char *file_name) {
+  const char *dot = strrchr(file_name, '.');
+  if (!dot || dot == file_name)
     return "";
   return dot + 1;
 }

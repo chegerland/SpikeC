@@ -37,10 +37,25 @@ static char *test_timeframe_ini_given() {
   mu_assert("dt in TimeFrame does not match dt given!",
             time_frame->dt == 0.077);
 
-  //print_time_frame(stderr, time_frame);
+  // print_time_frame(stderr, time_frame);
 
   // free memory
   ini_free(config);
+  free_time_frame(time_frame);
+
+  return 0;
+}
+
+static char *test_timeframe_computed_times() {
+
+  // create time frame with parameters
+  TimeFrame *time_frame = create_time_frame(0.0, 100.0, 2.0);
+
+  for (size_t i = 0; i < time_frame->N; i++) {
+    mu_assert("TimeFrame times computed correctly",
+              time_frame->t[i] == (double)2.0 * i);
+  }
+
   free_time_frame(time_frame);
 
   return 0;

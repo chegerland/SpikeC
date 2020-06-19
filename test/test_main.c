@@ -15,6 +15,7 @@ static char *all_tests() {
   // time frame tests
   mu_run_test(test_timeframe_parameters_given);
   mu_run_test(test_timeframe_ini_given);
+  mu_run_test(test_timeframe_computed_times);
 
   // signal tests
   mu_run_test(test_bandlimited_white_noise);
@@ -31,11 +32,11 @@ static char *all_tests() {
 int main(int argc, char *argv[]) {
   char *result = all_tests();
   if (result != 0) {
-    printf("%s\n", result);
+    fprintf(stderr, "TEST FAILED: %s\n", result);
+    exit(EXIT_FAILURE);
   } else {
     printf("ALL TESTS PASSED\n");
+    printf("Tests run: %d\n", tests_run);
+    exit(EXIT_SUCCESS);
   }
-  printf("Tests run: %d\n", tests_run);
-
-  return result != 0;
 }
