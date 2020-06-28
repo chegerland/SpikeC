@@ -165,7 +165,7 @@ void print_neuron(FILE *stream, const Neuron *neuron) {
           neuron_type_names[neuron->type], neuron->if_params->mu,
           neuron->if_params->D);
 
-  if (is_ifac(neuron->type)) {
+  if (neuron->adapt_params != NULL) {
     fprintf(stream,
             "# tau_a = %lf\n"
             "# Delta = %lf\n",
@@ -322,7 +322,7 @@ void get_trajectory_ifac(const gsl_rng *r, const Neuron *neuron,
     a[i + 1] = a[i] + -1. / neuron->adapt_params->tau_a * a[i] * dt;
     if (v[i + 1] > 1.0) {
       v[i + 1] = 0.;
-      a[i + 1] += neuron->adapt_params->Delta;
+     a[i + 1] += neuron->adapt_params->Delta;
     }
   }
 }

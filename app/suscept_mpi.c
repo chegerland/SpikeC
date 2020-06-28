@@ -245,7 +245,7 @@ void calculate_susceptibility(suscept_sim_t *suscept_sim, int trials,
     free(signal);
     free(spike_train);
   }
-  log_trace("# Finished calculation.");
+  log_trace("Finished calculation.");
 
   // free rng
   gsl_rng_free(rng);
