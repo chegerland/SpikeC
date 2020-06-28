@@ -6,6 +6,7 @@ extern "C" {
 #endif
 
 #include "timeframe.h"
+#include "spiketrain.h"
 #include <gsl/gsl_randist.h>
 #include <stdbool.h>
 
@@ -47,17 +48,15 @@ void free_neuron(Neuron *neuron);
 void print_neuron(FILE *stream, const Neuron *neuron);
 
 void get_spike_train_if(const gsl_rng *r, const Neuron *neuron,
-                        const TimeFrame *time_frame, double *spike_train);
+                        const SpikeTrain *spike_train);
 void get_spike_train_if_signal(const gsl_rng *r, const Neuron *neuron,
                                const double *signal,
-                               const TimeFrame *time_frame,
-                               double *spike_train);
+                               const SpikeTrain *spike_train);
 void get_spike_train_ifac(const gsl_rng *r, const Neuron *neuron,
-                          const TimeFrame *time_frame, double *spike_train);
+                          const SpikeTrain *spike_train);
 void get_spike_train_ifac_signal(const gsl_rng *r, const Neuron *neuron,
                                  const double *signal,
-                                 const TimeFrame *time_frame,
-                                 double *spike_train);
+                                 const SpikeTrain *spike_train);
 
 void get_trajectory_if(const gsl_rng *r, const Neuron *neuron,
                        const TimeFrame *time_frame, double *v);

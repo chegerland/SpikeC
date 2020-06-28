@@ -10,7 +10,8 @@ void main_process(suscept_sim_t *suscept_sim, int world_rank);
 void sub_process(suscept_sim_t *suscept_sim, int world_rank);
 void calculate_susceptibility(suscept_sim_t *suscept_sim, int trials,
                               int world_rank);
-void receive_arrays_from_sub_processes(suscept_sim_t *suscept_sim, int world_size);
+void receive_arrays_from_sub_processes(suscept_sim_t *suscept_sim,
+                                       int world_size);
 void calculate_rate_and_cv(suscept_sim_t *suscept_sim, double *rate,
                            double *cv);
 
@@ -146,7 +147,8 @@ void main_process(suscept_sim_t *suscept_sim, int world_rank) {
   log_info("Goodbye.");
 }
 
-void receive_arrays_from_sub_processes(suscept_sim_t *suscept_sim, int world_size) {
+void receive_arrays_from_sub_processes(suscept_sim_t *suscept_sim,
+                                       int world_size) {
   // better readibility
   double complex *suscept_lin = suscept_sim->suscept_lin;
   double complex *suscept_nonlin = suscept_sim->suscept_nonlin;
@@ -215,6 +217,9 @@ void calculate_susceptibility(suscept_sim_t *suscept_sim, int trials,
   double complex *suscept_lin = suscept_sim->suscept_lin;
   double complex *suscept_nonlin = suscept_sim->suscept_nonlin;
 
+  // define spike train
+  SpikeTrain *spike_train = create_spike_train(time_frame);
+
   // setup rng with world rank
   log_trace("Setting up rng with seed %d.", world_rank);
   gsl_rng_env_setup();
@@ -225,8 +230,8 @@ void calculate_susceptibility(suscept_sim_t *suscept_sim, int trials,
   // calculate susceptibility
   for (int i = 0; i < trials; i++) {
 
-    // define spike train
-    double *spike_train = calloc(time_frame->N, sizeof(double));
+    // clear the spike train
+    clear_spike_train(spike_train);
 
     // define signal and its frequencies
     double *signal = malloc((time_frame->N) * sizeof(double));
@@ -236,11 +241,12 @@ void calculate_susceptibility(suscept_sim_t *suscept_sim, int trials,
                              1. / (2. * time_frame->dt), time_frame, signal);
 
     // get a spike train from the neuron
-    suscept_sim->get_spike_train(rng, neuron, signal, time_frame, spike_train);
+    suscept_sim->get_spike_train(rng, neuron, signal, spike_train);
 
     // calculate susceptibility
-    susceptibility_lin_nonlin(signal, spike_train, time_frame, suscept_lin,
-                              suscept_nonlin, suscept_sim->N_neurons);
+    susceptibility_lin_nonlin(signal, spike_train->spike_array, time_frame,
+                              suscept_lin, suscept_nonlin,
+                              suscept_sim->N_neurons);
 
     free(signal);
     free(spike_train);
@@ -263,7 +269,7 @@ void calculate_rate_and_cv(suscept_sim_t *suscept_sim, double *rate,
   gsl_rng *rng = gsl_rng_alloc(gsl_rng_mt19937);
 
   // define spike train, signal and spike times
-  double *spike_train = calloc(time_frame->N, sizeof(double));
+  SpikeTrain *spike_train = create_spike_train(time_frame);
   double *signal = malloc((time_frame->N) * sizeof(double));
   double *spike_times = malloc((time_frame->N) * sizeof(double));
 
@@ -272,14 +278,15 @@ void calculate_rate_and_cv(suscept_sim_t *suscept_sim, double *rate,
                            1. / (2. * time_frame->dt), time_frame, signal);
 
   // get a spike train from the neuron
-  suscept_sim->get_spike_train(rng, neuron, signal, time_frame, spike_train);
+  suscept_sim->get_spike_train(rng, neuron, signal, spike_train);
 
   // calculate stationary firing rate
-  *rate = (double)spike_count(time_frame->N, spike_train) /
-         (time_frame->t_end - time_frame->t_0);
+  *rate = (double)spike_count(time_frame->N, spike_train->spike_array) /
+          (time_frame->t_end - time_frame->t_0);
 
   // calculate spike times and cv
-  int spike_times_length = calculate_isi(time_frame, spike_train, spike_times);
+  int spike_times_length =
+      calculate_isi(time_frame, spike_train->spike_array, spike_times);
   *cv = calculate_cv(spike_times_length, spike_times);
 
   // free memory

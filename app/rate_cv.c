@@ -27,24 +27,25 @@ int main(int argc, char *argv[]) {
   gsl_rng *rng = gsl_rng_alloc(gsl_rng_mt19937);
 
   // define spike train, signal and spike times
-  double *spike_train = calloc(time_frame->N, sizeof(double));
+  SpikeTrain *spike_train = create_spike_train(time_frame);
   double *signal = malloc((time_frame->N) * sizeof(double));
   double *spike_times = malloc((time_frame->N) * sizeof(double));
 
   // get a spike train from the neuron
   if (strcmp(neuron_type_names[neuron->type], "LIFAC") == 0 ||
       strcmp(neuron_type_names[neuron->type], "PIFAC") == 0) {
-    get_spike_train_ifac(rng, neuron, time_frame, spike_train);
+    get_spike_train_ifac(rng, neuron, spike_train);
   } else {
-    get_spike_train_if(rng, neuron, time_frame, spike_train);
+    get_spike_train_if(rng, neuron, spike_train);
   }
 
   // calculate stationary firing rate
-  double rate = (double)spike_count(time_frame->N, spike_train) /
+  double rate = (double)spike_count(time_frame->N, spike_train->spike_array) /
                 (time_frame->t_end - time_frame->t_0);
 
   // calculate spike times and cv
-  int spike_times_length = calculate_isi(time_frame, spike_train, spike_times);
+  int spike_times_length =
+      calculate_isi(time_frame, spike_train->spike_array, spike_times);
   double cv = calculate_cv(spike_times_length, spike_times);
 
   printf("# Stationary rate: %lf\n", rate);

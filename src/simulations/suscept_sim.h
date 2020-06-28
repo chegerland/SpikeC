@@ -7,6 +7,7 @@ extern "C" {
 
 #include "../neurons.h"
 #include "../timeframe.h"
+#include "../spiketrain.h"
 #include "../utils/ini.h"
 #include <complex.h>
 
@@ -15,8 +16,7 @@ typedef struct {
   TimeFrame *time_frame;
   Neuron *neuron;
   void (*get_spike_train)(const gsl_rng *r, const Neuron *neuron,
-                          const double *signal, const TimeFrame *time_frame,
-                          double *spike_train);
+                          const double *signal, const SpikeTrain *spike_train);
 
   double c;
   double alpha;

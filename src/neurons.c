@@ -179,16 +179,16 @@ void print_neuron(FILE *stream, const Neuron *neuron) {
  * At the spike we add (!) 1/dt to the appropriate spike train entry.
  */
 void get_spike_train_if(const gsl_rng *r, const Neuron *neuron,
-                        const TimeFrame *time_frame, double *spike_train) {
-  double v = 0;
-  double dt = time_frame->dt;
+                        const SpikeTrain *spike_train) {
+  double v = 0.;
+  const double dt = spike_train->dt;
 
-  for (size_t i = 0; i < time_frame->N; i++) {
+  for (size_t i = 0; i < spike_train->length; i++) {
     v += neuron->drift(v, neuron->if_params) * dt +
          sqrt(2. * neuron->if_params->D) * gsl_ran_gaussian(r, sqrt(dt));
     if (v > 1.0) {
       v = 0.;
-      spike_train[i] += 1. / time_frame->dt;
+      spike_train->spike_array[i] += 1. / spike_train->dt;
     }
   }
 }
@@ -200,18 +200,17 @@ void get_spike_train_if(const gsl_rng *r, const Neuron *neuron,
  */
 void get_spike_train_if_signal(const gsl_rng *r, const Neuron *neuron,
                                const double *signal,
-                               const TimeFrame *time_frame,
-                               double *spike_train) {
+                               const SpikeTrain *spike_train) {
 
   double v = 0;
-  double dt = time_frame->dt;
+  const double dt = spike_train->dt;
 
-  for (size_t i = 0; i < time_frame->N; i++) {
+  for (size_t i = 0; i < spike_train->length; i++) {
     v += (neuron->drift(v, neuron->if_params) + signal[i]) * dt +
          sqrt(2. * neuron->if_params->D) * gsl_ran_gaussian(r, sqrt(dt));
     if (v > 1.0) {
       v = 0.;
-      spike_train[i] += 1. / time_frame->dt;
+      spike_train->spike_array[i] += 1. / spike_train->dt;
     }
   }
 }
@@ -222,20 +221,20 @@ void get_spike_train_if_signal(const gsl_rng *r, const Neuron *neuron,
  * At the spike we add (!) 1/dt to the appropriate spike train entry.
  */
 void get_spike_train_ifac(const gsl_rng *r, const Neuron *neuron,
-                          const TimeFrame *time_frame, double *spike_train) {
+                          const SpikeTrain *spike_train) {
 
   double v = 0;
   double a = 0;
-  double dt = time_frame->dt;
+  const double dt = spike_train->dt;
 
-  for (size_t i = 0; i < time_frame->N; i++) {
+  for (size_t i = 0; i < spike_train->length; i++) {
     v += (neuron->drift(v, neuron->if_params) - a) * dt +
          sqrt(2. * neuron->if_params->D) * gsl_ran_gaussian(r, sqrt(dt));
     a += -1. / neuron->adapt_params->tau_a * a * dt;
     if (v > 1.0) {
       v = 0.;
       a += neuron->adapt_params->Delta;
-      spike_train[i] += 1. / time_frame->dt;
+      spike_train->spike_array[i] += 1. / spike_train->dt;
     }
   }
 }
@@ -247,21 +246,20 @@ void get_spike_train_ifac(const gsl_rng *r, const Neuron *neuron,
  */
 void get_spike_train_ifac_signal(const gsl_rng *r, const Neuron *neuron,
                                  const double *signal,
-                                 const TimeFrame *time_frame,
-                                 double *spike_train) {
+                                 const SpikeTrain *spike_train) {
 
   double v = 0;
   double a = 0;
-  double dt = time_frame->dt;
+  double dt = spike_train->dt;
 
-  for (size_t i = 0; i < time_frame->N; i++) {
+  for (size_t i = 0; i < spike_train->length; i++) {
     v += (neuron->drift(v, neuron->if_params) - a + signal[i]) * dt +
          sqrt(2. * neuron->if_params->D) * gsl_ran_gaussian(r, sqrt(dt));
     a += -1. / neuron->adapt_params->tau_a * a * dt;
     if (v > 1.0) {
       v = 0.;
       a += neuron->adapt_params->Delta;
-      spike_train[i] += 1. / time_frame->dt;
+      spike_train->spike_array[i] += 1. / spike_train->dt;
     }
   }
 }

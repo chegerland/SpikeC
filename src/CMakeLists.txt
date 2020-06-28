@@ -8,6 +8,7 @@ set(spike_sources
         neurons.c
         simulations/suscept_sim.c
         signals.c
+        spiketrain.c
         statistics.c
         )
 add_library(spike SHARED ${spike_sources})
