@@ -11,7 +11,8 @@ SpikeTrain *create_spike_train(const TimeFrame *time_frame) {
   // pass parameters
   spike_train->dt = time_frame->dt;
   spike_train->length = time_frame->N;
-  spike_train->spike_array = calloc(spike_train->length, sizeof(double));
+  spike_train->spike_array = malloc(spike_train->length * sizeof(double));
+  clear_spike_train(spike_train);
 
   return spike_train;
 }

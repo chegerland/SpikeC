@@ -39,10 +39,11 @@ int main(int argc, char *argv[]) {
   MPI_Comm_size(MPI_COMM_WORLD, &world_size);
 
   // depending on world rank, process is either main_process or sub_process
-  if (world_rank == 0)
+  if (world_rank == 0) {
     main_process(suscept_sim, world_rank);
-  else
+  } else {
     sub_process(suscept_sim, world_rank);
+  }
 
   // finalize mpi
   MPI_Finalize();
@@ -217,8 +218,9 @@ void calculate_susceptibility(suscept_sim_t *suscept_sim, int trials,
   double complex *suscept_lin = suscept_sim->suscept_lin;
   double complex *suscept_nonlin = suscept_sim->suscept_nonlin;
 
-  // define spike train
+  // define spike train and a signal
   SpikeTrain *spike_train = create_spike_train(time_frame);
+  double *signal = malloc(time_frame->N * sizeof(double));
 
   // setup rng with world rank
   log_trace("Setting up rng with seed %d.", world_rank);
@@ -233,9 +235,6 @@ void calculate_susceptibility(suscept_sim_t *suscept_sim, int trials,
     // clear the spike train
     clear_spike_train(spike_train);
 
-    // define signal and its frequencies
-    double *signal = malloc((time_frame->N) * sizeof(double));
-
     // generate new white noise signal
     band_limited_white_noise(rng, suscept_sim->alpha, 0.,
                              1. / (2. * time_frame->dt), time_frame, signal);
@@ -247,11 +246,12 @@ void calculate_susceptibility(suscept_sim_t *suscept_sim, int trials,
     susceptibility_lin_nonlin(signal, spike_train->spike_array, time_frame,
                               suscept_lin, suscept_nonlin,
                               suscept_sim->N_neurons);
-
-    free(signal);
-    free(spike_train);
   }
   log_trace("Finished calculation.");
+
+  // free memory from signal and spike train
+  free(signal);
+  free_spike_train(spike_train);
 
   // free rng
   gsl_rng_free(rng);
@@ -292,6 +292,6 @@ void calculate_rate_and_cv(suscept_sim_t *suscept_sim, double *rate,
   // free memory
   gsl_rng_free(rng);
   free(signal);
-  free(spike_train);
+  free_spike_train(spike_train);
   free(spike_times);
 }

@@ -250,7 +250,7 @@ void get_spike_train_ifac_signal(const gsl_rng *r, const Neuron *neuron,
 
   double v = 0;
   double a = 0;
-  double dt = spike_train->dt;
+  const double dt = spike_train->dt;
 
   for (size_t i = 0; i < spike_train->length; i++) {
     v += (neuron->drift(v, neuron->if_params) - a + signal[i]) * dt +
@@ -271,7 +271,7 @@ void get_spike_train_ifac_signal(const gsl_rng *r, const Neuron *neuron,
 void get_trajectory_if(const gsl_rng *r, const Neuron *neuron,
                        const TimeFrame *time_frame, double *v) {
   v[0] = 0;
-  double dt = time_frame->dt;
+  const double dt = time_frame->dt;
 
   for (size_t i = 0; i < time_frame->N; i++) {
     v[i + 1] = v[i] + neuron->drift(v[i], neuron->if_params) * dt +
@@ -291,7 +291,7 @@ void get_trajectory_if_signal(const gsl_rng *r, const Neuron *neuron,
                               double *v) {
 
   v[0] = 0;
-  double dt = time_frame->dt;
+  const double dt = time_frame->dt;
 
   for (size_t i = 0; i < time_frame->N; i++) {
     v[i + 1] = v[i] +
@@ -312,7 +312,7 @@ void get_trajectory_ifac(const gsl_rng *r, const Neuron *neuron,
 
   v[0] = 0;
   a[0] = 0;
-  double dt = time_frame->dt;
+  const double dt = time_frame->dt;
 
   for (size_t i = 0; i < time_frame->N; i++) {
     v[i + 1] += (neuron->drift(v[i], neuron->if_params) - a[i]) * dt +
@@ -333,7 +333,7 @@ void get_trajectory_ifac_signal(const gsl_rng *r, const Neuron *neuron,
 
   v[0] = 0;
   a[0] = 0;
-  double dt = time_frame->dt;
+  const double dt = time_frame->dt;
 
   for (size_t i = 0; i < time_frame->N; i++) {
     v[i + 1] +=

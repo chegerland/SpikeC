@@ -5,8 +5,8 @@
 extern "C" {
 #endif
 
-#include "timeframe.h"
 #include "spiketrain.h"
+#include "timeframe.h"
 #include <gsl/gsl_randist.h>
 #include <stdbool.h>
 
