@@ -2,6 +2,8 @@
 set(spike_sources
         analytics.c
         utils/ini.c
+        utils/fft.c
+        utils/array_utils.c
         utils/log.c
         utils/io_utils.c
         timeframe.c
@@ -14,9 +16,9 @@ set(spike_sources
 add_library(spike SHARED ${spike_sources})
 
 set_target_properties(spike PROPERTIES
-VERSION ${PROJECT_VERSION}
-SOVERSION 1
-)
+        VERSION ${PROJECT_VERSION}
+        SOVERSION 1
+        )
 
 # link with library
 target_link_libraries(spike
